@@ -1,12 +1,7 @@
-[submodule "dmpc/addmc/libraries/cryptominisat"]
-	path = dmpc/addmc/libraries/cryptominisat
-	url = https://github.com/msoos/cryptominisat
-[submodule "dmpc/addmc/libraries/cxxopts"]
-	path = dmpc/addmc/libraries/cxxopts
-	url = https://github.com/jarro2783/cxxopts
-[submodule "dmpc/addmc/libraries/cudd"]
-	path = dmpc/addmc/libraries/cudd
-	url = git@github.com:allrtaken/CUDD.git
-[submodule "dmpc/addmc/libraries/sylvan"]
-	path = dmpc/addmc/libraries/sylvan
-	url = git@github.com:allrtaken/sylvan.git
+[submodule "dpmc"]
+	path = dpmc
+	url = https://github.com/allrtaken/DPMC
+
+[submodule "sylvan"]
+	path = sylvan
+	url = https://github.com/apdofficial/sylvan
