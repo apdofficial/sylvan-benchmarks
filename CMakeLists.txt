@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.14)
+
+project(sylvan-benchmarks
+    VERSION 0.1
+    DESCRIPTION "Sylvan dynamic variable reordering benchmarks"
+    HOMEPAGE_URL "https://github.com/apdofficial/sylvan-benchmarks"
+    LANGUAGES C CXX
+)
+
+add_subdirectory(sylvan)
+add_subdirectory(hashmap_cmp)
