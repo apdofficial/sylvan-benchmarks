@@ -14,22 +14,33 @@ RUN apt-get install -y libboost-all-dev
 RUN apt-get install -y liblapack-dev libblas-dev
 RUN apt-get install -y automake
 RUN apt-get install -y cmake
-RUN apt-get install -y g++ m4 zlib1g-dev make p7zip
+RUN apt-get install -y make
 RUN apt-get install -y libgmp-dev
 RUN apt-get install -y libsqlite3-dev
 
 # add paths
 ENV HOME=/home
 
-ENV DMPC=$HOME/dmpc
+# Suite Sparse
+ENV SUITE_SPARSE=$HOME/SuiteSparse-4.0.2
+
+# DMPC
+ENV DMPC=$HOME/dpmc
 ENV ADDMC=$DMPC/addmc
 ENV DMC=$DMPC/dmc
-
 ENV ADDMC_COLAMD=$ADDMC/libraries/colamd
-ENV SUITE_SPARSE=$ADDMC/libraries/SuiteSparse-4.0.2
+
+#Sylvan
+ENV SYLVAN=$HOME/sylvan
+ENV ADDMC_SYLVAN=$ADDMC/libraries/sylvan/
+
 
 # copy source files
-COPY ./ $HOME/
+COPY . $HOME/
+
+#replace sylvan
+RUN rm -r $ADDMC_SYLVAN
+RUN cp -r $SYLVAN $ADDMC_SYLVAN
 
 # compile the colamd library and copy it into the addmc library directory
 RUN cd $SUITE_SPARSE/SuiteSparse_config/ && make -s
@@ -37,7 +48,9 @@ RUN rm -f $ADDMC_COLAMD/libcolamd.a
 RUN cd $SUITE_SPARSE/COLAMD/ && make -s
 RUN cp $SUITE_SPARSE/COLAMD/Lib/libcolamd.a $ADDMC_COLAMD/
 
-WORKDIR $DMC
+WORKDIR $HOME
+RUN mkdir build
+WORKDIR $HOME/build
 
 # compile the dmc executable
-RUN make -C $ADDMC/ dmc opt=-Ofast link=-static
+RUN make -C $ADDMC/ dmc opt=-Ofast link=-static -s
