@@ -1,6 +1,6 @@
 [submodule "dpmc"]
 	path = dpmc
-	url = https://github.com/allrtaken/DPMC
+	url = https://github.com/apdofficial/DPMC
 
 [submodule "sylvan"]
 	path = sylvan
