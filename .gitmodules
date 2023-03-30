@@ -5,3 +5,7 @@
 [submodule "sylvan"]
 	path = sylvan
 	url = https://github.com/apdofficial/sylvan
+
+[submodule "storm"]
+	path = storm
+	url = https://github.com/apdofficial/storm
