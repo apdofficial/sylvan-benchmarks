@@ -5,8 +5,8 @@
 
 #include "sylvan_int.h"
 
-static size_t workers = 4;
-static size_t rounds = 10;
+static size_t nworkers = 4;
+static size_t nrounds = 10;
 static size_t samples_per_round = 100; // expected max
 
 void sylvan_setup(uint64_t memoryCap)
@@ -17,28 +17,21 @@ void sylvan_setup(uint64_t memoryCap)
     sylvan_gc_disable();
 }
 
-void set_filename(char* filename, size_t len)
+static double wctime()
 {
-    assert(len >= 100);
-#if SYLVAN_USE_CHAINING
-    sprintf(filename,   "./w%zu_chaining.csv", workers);
-#elif SYLVAN_USE_LIMITED_PROBE_SEQUENCE
-    sprintf(filename,   "./w%zu_probing_limited.csv", workers);
-#else
-    sprintf(filename,   "./w%zu_probing_unlimited.csv", workers);
-#endif
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return (tv.tv_sec + 1E-6 * tv.tv_usec);
 }
 
-// number of variables created per LACE task
-size_t get_step_size()
+static inline double wctime_sec_elapsed(double t_start)
 {
-#if SYLVAN_USE_CHAINING
-        return 100000 / workers;
-#elif SYLVAN_USE_LIMITED_PROBE_SEQUENCE
-        return 100000 / workers;
-#else
-        return 100000 / workers;
-#endif
+    return wctime() - t_start;
+}
+
+static inline double wctime_ms_elapsed(double start)
+{
+    return wctime_sec_elapsed(start) * 1000;
 }
 
 VOID_TASK_2(create_variables, size_t, start, size_t, end)
@@ -54,37 +47,43 @@ VOID_TASK_2(create_variables, size_t, start, size_t, end)
 
 TASK_0(int, run)
 {
-    float runtimes[rounds][samples_per_round];
-    float usages[rounds][samples_per_round];
+    double runtimes[nrounds][samples_per_round];
+    double usages[nrounds][samples_per_round];
 
-    for (size_t round = 0; round < rounds; ++round){
+    for (size_t round = 0; round < nrounds; ++round){
         printf("round %zu\n", round);
-        sylvan_setup(2LL*1024LLU*1024LLU*1024LLU);
+        sylvan_setup(3LL*1024LLU*1024LLU*1024LLU);
         size_t sample = 0;
-        size_t step = get_step_size();
+        size_t step = 200000 / nworkers;
 
         for (size_t index = 0; index < 50000000;) {
-            clock_t start = clock();
+            double start = wctime();
 
-            for (size_t i = 0; i < workers; ++i){
+            for (size_t i = 0; i < nworkers; ++i){
                 SPAWN(create_variables, index, index+step);
                 index += step;
             }
 
-            for (size_t i = 0; i < workers; ++i) SYNC(create_variables);
+            for (size_t i = 0; i < nworkers; ++i) SYNC(create_variables);
 
-            float runtime = clock_ms_elapsed(start);
+            double runtime = wctime_ms_elapsed(start);
 
-            float used = llmsset_count_marked(nodes);
-            float all = llmsset_get_size(nodes);
-            float usage = (used/all)*100;
+            double used = llmsset_count_marked(nodes);
+            double all = (double)llmsset_get_size(nodes);
+            double usage = (used/all)*100;
+
+//            printf("r %zu | s %zu | table usage %.2f%% | runtime: %.2fns\n", round, sample, usage, runtime);
+
+#if !SYLVAN_USE_CHAINING && SYLVAN_LIMIT_PROBE_SEQUENCE
+            if (usage <= 0 || usage >= 96.5) break;
+#else
             if (usage <= 0 || usage >= 97.7) break;
+#endif
+
             if (runtime <= 0 || runtime >= 1000) break;
 
             if (round == 0) continue; // warm up round
             if (sample > samples_per_round) break;
-
-//            printf("r %zu | s %zu | table usage %.2f%% | runtime: %.2fns\n", round, sample, usage, runtime);
 
             usages[round-1][sample] = usage;
             runtimes[round-1][sample] = runtime;
@@ -94,39 +93,47 @@ TASK_0(int, run)
         sylvan_quit();
     }
 
-    size_t len = 100;
-    char filename[len];
+    char filename[100];
+#if SYLVAN_USE_CHAINING
+    sprintf(filename,   "./w%zu_chaining.csv", nworkers);
+#elif SYLVAN_LIMIT_PROBE_SEQUENCE
+    sprintf(filename, "./w%zu_probing_limited.csv", nworkers);
+#else
+    sprintf(filename,   "./w%zu_probing_unlimited.csv", nworkers);
+#endif
 
-    set_filename(filename, len);
+    FILE *file = fopen(filename, "w+");
+    if(!file) return EXIT_FAILURE;
 
-    // write the raw data into a csv
-    FILE *file;
-    file = fopen(filename, "w+");
-    fprintf(file, "round,table_usage,runtime_ns\n");
-    for (size_t round = 0; round < rounds; round++){
+    fprintf(file, "round,table_usage,runtime_ms\n");
+    for (size_t round = 0; round < nrounds; round++){
         for (size_t sample = 0; sample < samples_per_round; sample++) {
-            if (usages[round][sample] <= 0 || usages[round][sample] >= 97.7) break;
+            if (usages[round][sample] <= 0 || usages[round][sample] >= 100) break;
             if (runtimes[round][sample] <= 0 || runtimes[round][sample] >= 1000) break;
             fprintf(file, "%zu,%.2f,%.2f\n", round, usages[round][sample], runtimes[round][sample]);
         }
     }
     fclose(file);
-
     return EXIT_SUCCESS;
 }
 
 int main(int argc, char **argv)
 {
-    lace_start(workers, 10000000);
-    sylvan_gc_disable();
-
-    size_t num_tests = workers + 1;
-    for (size_t i = 1; i < num_tests; ++i) {
-        workers = i;
+#if SYLVAN_USE_CHAINING
+    printf("running chaining\n");
+#elif SYLVAN_LIMIT_PROBE_SEQUENCE
+    printf("running probing_limited\n");
+#else
+    printf("running probing_unlimited\n");
+#endif
+    size_t num_tests = nworkers;
+    for (size_t i = 1; i <= num_tests; ++i) {
+        nworkers = i;
+        lace_start(nworkers, 10000000);
         printf("running with %zu worker(s)\n", i);
-        RUN(run);
+        int res = RUN(run);
+        lace_stop();
+        if (res == EXIT_FAILURE) return EXIT_FAILURE;
     }
-
-    lace_stop();
     return EXIT_SUCCESS;
 }

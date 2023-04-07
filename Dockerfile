@@ -20,6 +20,11 @@ RUN apt-get install -y libsqlite3-dev
 RUN apt-get install -y gdb
 RUN apt-get install -y git
 
+RUN pip3 install matplotlib
+RUN pip3 install numpy
+RUN pip3 install pandas
+RUN pip3 install seaborn
+
 RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 1
 
 # add paths
