@@ -20,11 +20,6 @@ RUN apt-get install -y libsqlite3-dev
 RUN apt-get install -y gdb
 RUN apt-get install -y git
 
-RUN pip3 install matplotlib
-RUN pip3 install numpy
-RUN pip3 install pandas
-RUN pip3 install seaborn
-
 RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 1
 
 # add paths
@@ -37,6 +32,11 @@ ENV DMC=$DMPC/dmc
 ENV ADDMC_COLAMD=$ADDMC/libraries/colamd
 ENV ADDMC_LIBS=$ADDMC/libraries
 ENV SUITE_SPARSE=$ADDMC_LIBS/SuiteSparse
+ENV DMPC_WEIGHTED_TESTS=$DMPC/tests/weighted
+ENV DMPC_UNWEIGHTED_TESTS=$DMPC/tests/unweighted
+ENV LG=$DMPC/lg
+ENV LG_SOLVERS=$LG/solvers
+ENV HTD_SOLVER=$LG_SOLVERS/htd-master
 
 #Sylvan
 ENV SYLVAN=$HOME/sylvan
@@ -48,7 +48,7 @@ ENV BUILD=$HOME/build
 # copy source files
 COPY . $HOME/
 
-#replace sylvan
+# replace sylvan (uncomment when sylvan contains the missing functions added in dpmc)
 # RUN rm -r $ADDMC_SYLVAN
 # RUN cp -r $SYLVAN $ADDMC_SYLVAN
 
@@ -64,8 +64,20 @@ RUN cd $HOME && mkdir build
 # set build directory as working directory
 WORKDIR $BUILD
 
-# compile the dmc executable
-RUN cd $DMC/ && make dmc
-
-# copy the dmc executable to the build directory
+# prepare the dmc executable
+RUN cd $DMC/ && make dmc -j 8
 RUN cp $DMC/dmc $BUILD
+
+# prepare the lg executable
+RUN cd $LG/ && make -j 8
+RUN cp $LG/build/lg $BUILD
+
+# prepare the htd_main-1.2.0 executable
+RUN cd $HTD_SOLVER && mkdir build
+RUN cd $HTD_SOLVER/build && cmake .. && make -j 8
+RUN cp $HTD_SOLVER/build/bin/htd_main-1.2.0 $BUILD
+
+RUN cp $DMPC_WEIGHTED_TESTS/mcc21__wff.3.75.315.cnf $BUILD
+
+# run the dmc benchmark
+# RUN ./lg "./htd_main-1.2.0 -s 1234567 --print-progress --strategy challenge --opt width --iterations 0 --preprocessing full --patience 20" < ./mcc21__wff.3.75.315.cnf | ./dmc --pw=3 --cf ./mcc21__wff.3.75.315.cnf --dp=s --lc=1 --wc=0 --vs=2 --dv=5 --dy=0 --mm=6500 --jp=f --sa=0 --aa=1 --er=0 --tc=7 --tr=3 --ir=5
