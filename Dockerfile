@@ -42,11 +42,26 @@ ENV HTD_SOLVER=$LG_SOLVERS/htd-master
 ENV SYLVAN=$HOME/sylvan
 ENV ADDMC_SYLVAN=$ADDMC/libraries/sylvan/
 
+# STORM
+# ...
+
+# Safety Synthesis
+# ...
+
 #build
 ENV BUILD=$HOME/build
+RUN cd $HOME && mkdir build
 
 # copy source files
 COPY . $HOME/
+
+WORKDIR $HOME
+
+RUN chmod +x run_benchmarks.sh
+
+# --------- DPMC ---------
+ENV DPMC_BUILD=$HOME/build/dpmc
+RUN cd $BUILD && mkdir dpmc
 
 # replace sylvan (uncomment when sylvan contains the missing functions added in dpmc)
 # RUN rm -r $ADDMC_SYLVAN
@@ -58,26 +73,25 @@ RUN rm -f $ADDMC_COLAMD/libcolamd.a
 RUN cd $SUITE_SPARSE/COLAMD/ && make -s
 RUN cp $SUITE_SPARSE/COLAMD/Lib/libcolamd.a $ADDMC_COLAMD/
 
-# create build directory
-RUN cd $HOME && mkdir build
-
-# set build directory as working directory
-WORKDIR $BUILD
-
 # prepare the dmc executable
 RUN cd $DMC/ && make dmc -j 8
-RUN cp $DMC/dmc $BUILD
+RUN cp $DMC/dmc $DPMC_BUILD
 
 # prepare the lg executable
 RUN cd $LG/ && make -j 8
-RUN cp $LG/build/lg $BUILD
+RUN cp $LG/build/lg $DPMC_BUILD
 
 # prepare the htd_main-1.2.0 executable
 RUN cd $HTD_SOLVER && mkdir build
 RUN cd $HTD_SOLVER/build && cmake .. && make -j 8
-RUN cp $HTD_SOLVER/build/bin/htd_main-1.2.0 $BUILD
+RUN cp $HTD_SOLVER/build/bin/htd_main-1.2.0 $DPMC_BUILD
 
-RUN cp $DMPC_WEIGHTED_TESTS/mcc21__wff.3.75.315.cnf $BUILD
+RUN cp $DMPC_WEIGHTED_TESTS/mcc21__wff.3.75.315.cnf $DPMC_BUILD
 
-# run the dmc benchmark
-# RUN ./lg "./htd_main-1.2.0 -s 1234567 --print-progress --strategy challenge --opt width --iterations 0 --preprocessing full --patience 20" < ./mcc21__wff.3.75.315.cnf | ./dmc --pw=3 --cf ./mcc21__wff.3.75.315.cnf --dp=s --lc=1 --wc=0 --vs=2 --dv=5 --dy=0 --mm=6500 --jp=f --sa=0 --aa=1 --er=0 --tc=7 --tr=3 --ir=5
+# --------- STORM ---------
+ENV STORM_BUILD=$HOME/build/storm
+RUN cd $BUILD && mkdir storm
+
+# --------- Safety Synthesis ---------
+ENV SAFETY_SYNTH_BUILD=$HOME/build/safety_synthesis
+RUN cd $BUILD && mkdir safety_synthesis
