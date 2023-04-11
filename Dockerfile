@@ -6,26 +6,50 @@ ENV TZ=Europe/Amsterdam
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # install packages
-RUN apt-get update
-RUN apt-get install -y apt-utils
-RUN apt-get install -y build-essential
-RUN apt-get install -y libboost-all-dev
-RUN apt-get install -y liblapack-dev libblas-dev
-RUN apt-get install -y automake
-RUN apt-get install -y cmake
-RUN apt-get install -y make 
-RUN apt-get install -y g++-10 
-RUN apt-get install -y libgmp-dev
-RUN apt-get install -y libsqlite3-dev
-RUN apt-get install -y gdb
-RUN apt-get install -y git
+RUN apt update
+RUN apt install -y apt-utils
+RUN apt install -y build-essential
+RUN apt install -y software-properties-common
+RUN apt install -y liblapack-dev libblas-dev
+RUN apt install -y automake
+RUN apt install -y cmake-data
+RUN apt install -y cmake
+RUN apt install -y make 
+RUN apt install -y g++-10 
+RUN apt install -y libboost-all-dev
+RUN apt install -y libgmp-dev
+RUN apt install -y libsqlite3-dev
+RUN apt install -y gdb
+RUN apt install -y git
+RUN apt-add-repository ppa:deadsnakes/ppa 
+RUN apt update
+RUN apt install -y python3.11 
+RUN apt install -y python3-pip 
 
+RUN ln -s /usr/bin/python3.11 /usr/bin/python
 RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 1
 
 # add paths
 ENV HOME=/home
+ENV BUILD=$HOME/build
 
-# DMPC
+# copy source files
+COPY . $HOME/
+
+# create build directory
+RUN cd $HOME && mkdir build
+
+WORKDIR $HOME
+
+RUN chmod +x run_benchmarks.sh
+
+# RUN cd $HOME && pip install -r requirements.txt
+
+#Sylvan
+ENV SYLVAN=$HOME/sylvan
+ENV ADDMC_SYLVAN=$ADDMC/libraries/sylvan/
+
+# --------- DPMC ---------
 ENV DMPC=$HOME/dpmc
 ENV ADDMC=$DMPC/addmc
 ENV DMC=$DMPC/dmc
@@ -37,29 +61,6 @@ ENV DMPC_UNWEIGHTED_TESTS=$DMPC/tests/unweighted
 ENV LG=$DMPC/lg
 ENV LG_SOLVERS=$LG/solvers
 ENV HTD_SOLVER=$LG_SOLVERS/htd-master
-
-#Sylvan
-ENV SYLVAN=$HOME/sylvan
-ENV ADDMC_SYLVAN=$ADDMC/libraries/sylvan/
-
-# STORM
-# ...
-
-# Safety Synthesis
-# ...
-
-#build
-ENV BUILD=$HOME/build
-RUN cd $HOME && mkdir build
-
-# copy source files
-COPY . $HOME/
-
-WORKDIR $HOME
-
-RUN chmod +x run_benchmarks.sh
-
-# --------- DPMC ---------
 ENV DPMC_BUILD=$HOME/build/dpmc
 RUN cd $BUILD && mkdir dpmc
 
@@ -92,6 +93,19 @@ RUN cp $DMPC_WEIGHTED_TESTS/mcc21__wff.3.75.315.cnf $DPMC_BUILD
 ENV STORM_BUILD=$HOME/build/storm
 RUN cd $BUILD && mkdir storm
 
+# TODO:
+# replace the STORM Sylvan source with the one in the sylvan folder
+# compile the STORM executable
+# copy the input data into the STORM_BUILD folder
+
 # --------- Safety Synthesis ---------
-ENV SAFETY_SYNTH_BUILD=$HOME/build/safety_synthesis
+ENV SAFETY_SYNT=$HOME/safety_synthesis
+ENV SAFETY_SYNT_BUILD=$HOME/build/safety_synthesis
+
 RUN cd $BUILD && mkdir safety_synthesis
+RUN cd $SAFETY_SYNT && mkdir build
+
+# prepare the safety_synthesis executable
+RUN cd $SAFETY_SYNT/build && cmake ../../ && make -j 8
+RUN cp $SAFETY_SYNT/build/safety_synthesis/aiger_synt $SAFETY_SYNT_BUILD
+RUN cp $SAFETY_SYNT/models/add10n.aag $SAFETY_SYNT_BUILD

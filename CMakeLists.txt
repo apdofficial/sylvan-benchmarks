@@ -9,3 +9,4 @@ project(sylvan-benchmarks
 
 add_subdirectory(sylvan)
 add_subdirectory(hashmap_cmp)
+add_subdirectory(safety_synthesis)

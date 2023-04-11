@@ -16,12 +16,12 @@ run_storm_benchmark()
     cd ../../ || exit 
 }
 
-# precondition: the build directory exists and contains the executables safety_synthesis + the input data
+# precondition: the build directory exists and contains the executable aiger_synt + the input data
 run_safety_synthesis_benchmark()
 {
     input_file_path=$1
     cd ./build/safety_synthesis || exit 
-    # run benchmark
+    ./aiger_synt ./add10n.aag -w 4
     cd ../../ || exit 
 }
 
@@ -31,5 +31,5 @@ run_dpmc_benchmark "./mcc21__wff.3.75.315.cnf"
 # echo "Running STORM benchmark"
 # run_storm_benchmark 
 
-# echo "Running safety synthesis benchmark"
-# run_safety_synthesis_benchmark 
+echo "Running safety synthesis benchmark"
+run_safety_synthesis_benchmark 
