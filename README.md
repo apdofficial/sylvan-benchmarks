@@ -4,7 +4,8 @@
 - [DPMC](https://github.com/allrtaken/DPMC): Solver that solves weighted model counting (WMC)
 - [STORM](https://github.com/moves-rwth/storm): A Modern Probabilistic Model Checker
 - [safety_synthesis](http://www.syntcomp.org/rules/): Safety Synthesis solver
-- [hashmap_comp](): Comparison of linear probing vs chaining
+- [hashmap_cmp](https://github.com/apdofficial/sylvan-benchmarks/tree/main/hashmap_cmp): Comparison of linear probing vs chaining
+- [sylvancudd_cmp](https://github.com/apdofficial/sylvan-benchmarks/tree/main/sylvancudd_cmp): Comparison of Sylvan and CUDD
 # Usage
 
 1.  The repository contains a Docker file which you can build using:

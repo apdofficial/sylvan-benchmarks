@@ -9,3 +9,7 @@
 [submodule "storm"]
 	path = storm
 	url = https://github.com/apdofficial/storm
+
+[submodule "cudd"]
+	path = cudd
+	url = https://github.com/apdofficial/cudd
