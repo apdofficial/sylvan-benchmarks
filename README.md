@@ -5,7 +5,10 @@
 - [STORM](https://github.com/moves-rwth/storm): A Modern Probabilistic Model Checker
 - [safety_synthesis](http://www.syntcomp.org/rules/): Safety Synthesis solver
 - [hashmap_cmp](https://github.com/apdofficial/sylvan-benchmarks/tree/main/hashmap_cmp): Comparison of linear probing vs chaining
-- [sylvancudd_cmp](https://github.com/apdofficial/sylvan-benchmarks/tree/main/sylvancudd_cmp): Comparison of Sylvan and CUDD
+- [sylvancudd_cmp](https://github.com/apdofficial/sylvan-benchmarks/tree/main/sylvancudd_cmp): Comparison of [Sylvan](https://github.com/trolando/sylvan) and [CUDD](https://web.archive.org/web/20150215010013/http://vlsi.colorado.edu/~fabio/)
+### Note
+Currently DPMC implements additional logcounting function whcih is not at the moment part of Sylvan. Hence, in this repo we use Sylvan specifically from the following branch [feature/MSC-54](https://github.com/apdofficial/sylvan/tree/feature/MSC-54) which is provides the latest changes from my thesis as well as the logcounting.
+
 # Usage
 
 1.  The repository contains a Docker file which you can build using:
