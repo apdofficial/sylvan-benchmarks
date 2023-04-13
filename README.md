@@ -9,7 +9,7 @@
 # Usage
 
 1.  The repository contains a Docker file which you can build using:
-    ```Dockerfile
+    ```shell
     docker build --pull --rm -f "Dockerfile" -t sylvanbenchmarks:latest "." 
     ```
     The dokcer file creates new directory **build** (overrriden in case it already exists) and compiles all the executables into it together with the  necesarry input data.
