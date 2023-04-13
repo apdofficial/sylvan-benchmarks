@@ -52,7 +52,7 @@ TASK_0(int, run)
 
     for (size_t round = 0; round < nrounds; ++round){
         printf("round %zu\n", round);
-        sylvan_setup(3LL*1024LLU*1024LLU*1024LLU);
+        sylvan_setup(4LL*1024LLU*1024LLU*1024LLU);
         size_t sample = 0;
         size_t step = 200000 / nworkers;
 
@@ -74,7 +74,7 @@ TASK_0(int, run)
 
 //            printf("r %zu | s %zu | table usage %.2f%% | runtime: %.2fns\n", round, sample, usage, runtime);
 
-#if !SYLVAN_USE_CHAINING && SYLVAN_LIMIT_PROBE_SEQUENCE
+#if SYLVAN_USE_LINEAR_PROBING && SYLVAN_LIMIT_PROBE_SEQUENCE
             if (usage <= 0 || usage >= 96.5) break;
 #else
             if (usage <= 0 || usage >= 97.7) break;
@@ -94,12 +94,13 @@ TASK_0(int, run)
     }
 
     char filename[100];
-#if SYLVAN_USE_CHAINING
-    sprintf(filename,   "./w%zu_chaining.csv", nworkers);
-#elif SYLVAN_LIMIT_PROBE_SEQUENCE
+
+#if SYLVAN_USE_LINEAR_PROBING && !SYLVAN_LIMIT_PROBE_SEQUENCE
+    sprintf(filename,   "./w%zu_probing_unlimited.csv", nworkers);
+#elif SYLVAN_USE_LINEAR_PROBING && SYLVAN_LIMIT_PROBE_SEQUENCE
     sprintf(filename, "./w%zu_probing_limited.csv", nworkers);
 #else
-    sprintf(filename,   "./w%zu_probing_unlimited.csv", nworkers);
+    sprintf(filename,   "./w%zu_chaining.csv", nworkers);
 #endif
 
     FILE *file = fopen(filename, "w+");
@@ -119,12 +120,12 @@ TASK_0(int, run)
 
 int main(int argc, char **argv)
 {
-#if SYLVAN_USE_CHAINING
-    printf("running chaining\n");
-#elif SYLVAN_LIMIT_PROBE_SEQUENCE
+#if SYLVAN_USE_LINEAR_PROBING && !SYLVAN_LIMIT_PROBE_SEQUENCE
+    printf("running probing_unlimited\n");
+#elif SYLVAN_USE_LINEAR_PROBING && SYLVAN_LIMIT_PROBE_SEQUENCE
     printf("running probing_limited\n");
 #else
-    printf("running probing_unlimited\n");
+    printf("running chaining\n");
 #endif
     size_t num_tests = nworkers;
     for (size_t i = 1; i <= num_tests; ++i) {

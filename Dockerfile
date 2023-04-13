@@ -47,7 +47,7 @@ RUN chmod +x run_benchmarks.sh
 
 #Sylvan
 ENV SYLVAN=$HOME/sylvan
-ENV ADDMC_SYLVAN=$ADDMC/libraries/sylvan/
+
 
 # --------- DPMC ---------
 ENV DMPC=$HOME/dpmc
@@ -55,6 +55,7 @@ ENV ADDMC=$DMPC/addmc
 ENV DMC=$DMPC/dmc
 ENV ADDMC_COLAMD=$ADDMC/libraries/colamd
 ENV ADDMC_LIBS=$ADDMC/libraries
+ENV ADDMC_SYLVAN=$ADDMC/libraries/sylvan/
 ENV SUITE_SPARSE=$ADDMC_LIBS/SuiteSparse
 ENV DMPC_WEIGHTED_TESTS=$DMPC/tests/weighted
 ENV DMPC_UNWEIGHTED_TESTS=$DMPC/tests/unweighted
@@ -64,9 +65,9 @@ ENV HTD_SOLVER=$LG_SOLVERS/htd-master
 ENV DPMC_BUILD=$HOME/build/dpmc
 RUN cd $BUILD && mkdir dpmc
 
-# replace sylvan (uncomment when sylvan contains the missing functions added in dpmc)
-# RUN rm -r $ADDMC_SYLVAN
-# RUN cp -r $SYLVAN $ADDMC_SYLVAN
+# replace addmc sylvan source with the one in the sylvan folder
+RUN rm -r $ADDMC_SYLVAN
+RUN cp -r $SYLVAN $ADDMC_SYLVAN
 
 # compile the colamd library and copy it into the addmc library directory
 RUN cd $SUITE_SPARSE/SuiteSparse_config/ && make -s
