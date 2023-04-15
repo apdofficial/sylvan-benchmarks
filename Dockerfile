@@ -21,6 +21,7 @@ RUN apt install -y libgmp-dev
 RUN apt install -y libsqlite3-dev
 RUN apt install -y gdb
 RUN apt install -y git
+RUN apt install -y texlive texlive-latex-extra
 RUN apt-add-repository ppa:deadsnakes/ppa 
 RUN apt update
 RUN apt install -y python3.11 

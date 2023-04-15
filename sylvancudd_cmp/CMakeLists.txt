@@ -3,9 +3,17 @@ macro(add_benchmark NAME SOURCE)
     set_target_properties(${NAME} PROPERTIES COMPILE_OPTIONS "-Wno-unused")
     target_include_directories(${NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR})
     target_link_libraries(${NAME} PRIVATE sylvan::sylvan)
+    target_sources(${NAME} PRIVATE helper_sylvan.h helper_cudd.h)
+    target_link_libraries(${NAME}
+            PRIVATE
+            cudd::cudd
+            util::util
+            st::st
+            mtr::mtr
+            epd::epd
+            dddmp::dddmp
+    )
     target_compile_features(${NAME} PRIVATE c_std_11 cxx_std_11)
-    target_compile_options(${NAME} PRIVATE -Wall -Wextra -Werror -Wno-deprecated)
-    target_compile_options(${NAME} PRIVATE -Wno-unused-parameter)
 endmacro(add_benchmark)
 
 add_benchmark(sylvancudd_cmp sylvancudd_cmp.c)
@@ -21,3 +29,5 @@ option(SYLVAN_USE_CHAINING "Unique table uses chaining instead of linear probing
 if(SYLVAN_USE_CHAINING)
     set_target_properties(hashmap_cmp PROPERTIES COMPILE_DEFINITIONS "SYLVAN_USE_CHAINING")
 endif ()
+
+

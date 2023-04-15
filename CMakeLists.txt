@@ -8,5 +8,8 @@ project(sylvan-benchmarks
 )
 
 add_subdirectory(sylvan)
+add_subdirectory(cudd)
 add_subdirectory(hashmap_cmp)
 add_subdirectory(safety_synthesis)
+add_subdirectory(sylvancudd_cmp)
+
