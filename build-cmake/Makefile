@@ -254,17 +254,17 @@ cmp_hashmap/fast:
 .PHONY : cmp_hashmap/fast
 
 #=============================================================================
-# Target rules for targets named sylvancudd_cmp
+# Target rules for targets named cmp_sylvancudd
 
 # Build rule for target.
-sylvancudd_cmp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sylvancudd_cmp
-.PHONY : sylvancudd_cmp
+cmp_sylvancudd: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cmp_sylvancudd
+.PHONY : cmp_sylvancudd
 
 # fast build rule for target.
-sylvancudd_cmp/fast:
-	$(MAKE) -f cmp_sylvancudd/CMakeFiles/sylvancudd_cmp.dir/build.make cmp_sylvancudd/CMakeFiles/sylvancudd_cmp.dir/build
-.PHONY : sylvancudd_cmp/fast
+cmp_sylvancudd/fast:
+	$(MAKE) -f cmp_sylvancudd/CMakeFiles/cmp_sylvancudd.dir/build.make cmp_sylvancudd/CMakeFiles/cmp_sylvancudd.dir/build
+.PHONY : cmp_sylvancudd/fast
 
 #=============================================================================
 # Target rules for targets named aiger_synt
@@ -298,7 +298,7 @@ help:
 	@echo "... dddmp"
 	@echo "... cudd"
 	@echo "... cmp_hashmap"
-	@echo "... sylvancudd_cmp"
+	@echo "... cmp_sylvancudd"
 	@echo "... aiger_synt"
 .PHONY : help
 

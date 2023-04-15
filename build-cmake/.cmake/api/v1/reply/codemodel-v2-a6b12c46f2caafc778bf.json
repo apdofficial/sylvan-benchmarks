@@ -1,0 +1,404 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						4,
+						11,
+						12,
+						13
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "external/sylvan",
+					"childIndexes" : 
+					[
+						2,
+						3
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "external/sylvan"
+				},
+				{
+					"build" : "_deps/lace-build",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "build-cmake/_deps/lace-src",
+					"targetIndexes" : 
+					[
+						6,
+						7
+					]
+				},
+				{
+					"build" : "external/sylvan/src",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "external/sylvan/src",
+					"targetIndexes" : 
+					[
+						11
+					]
+				},
+				{
+					"build" : "external/cudd",
+					"childIndexes" : 
+					[
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "external/cudd",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "external/cudd/util",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 3,
+					"source" : "external/cudd/util",
+					"targetIndexes" : 
+					[
+						12
+					]
+				},
+				{
+					"build" : "external/cudd/st",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 3,
+					"source" : "external/cudd/st",
+					"targetIndexes" : 
+					[
+						10
+					]
+				},
+				{
+					"build" : "external/cudd/mtr",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 3,
+					"source" : "external/cudd/mtr",
+					"targetIndexes" : 
+					[
+						9
+					]
+				},
+				{
+					"build" : "external/cudd/epd",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 3,
+					"source" : "external/cudd/epd",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "external/cudd/dddmp",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 3,
+					"source" : "external/cudd/dddmp",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "external/cudd/cudd",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 3,
+					"source" : "external/cudd/cudd",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "cmp_hashmap",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "cmp_hashmap",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "cmp_sylvancudd",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "cmp_sylvancudd",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "safety_synthesis",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "safety_synthesis",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						11,
+						12,
+						13
+					],
+					"name" : "sylvan-benchmarks",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2
+					],
+					"directoryIndexes" : 
+					[
+						1,
+						3
+					],
+					"name" : "sylvan",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						11
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "lace",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						6,
+						7
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					],
+					"name" : "cudd_test",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3,
+						4,
+						5,
+						8,
+						9,
+						10,
+						12
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 13,
+					"id" : "aiger_synt::@b4ffb46a677751c7af45",
+					"jsonFile" : "target-aiger_synt-Debug-bb46a70ac0c848aa4b1a.json",
+					"name" : "aiger_synt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "cmp_hashmap::@8b21f1ab71e7aff0abf4",
+					"jsonFile" : "target-cmp_hashmap-Debug-68fec7095566b86b86c3.json",
+					"name" : "cmp_hashmap",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 12,
+					"id" : "cmp_sylvancudd::@605c46a1f03a5b7395df",
+					"jsonFile" : "target-cmp_sylvancudd-Debug-53361ca953892cc05bf3.json",
+					"name" : "cmp_sylvancudd",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "cudd::@1812bd0f23eac08ea028",
+					"jsonFile" : "target-cudd-Debug-1e818a6f1fd87545b1f8.json",
+					"name" : "cudd",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "dddmp::@8e9a4624af9167d01986",
+					"jsonFile" : "target-dddmp-Debug-a34b37d19066745f321d.json",
+					"name" : "dddmp",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "epd::@cd7e8771c3eb84b18c41",
+					"jsonFile" : "target-epd-Debug-9d92c4f17c690172d978.json",
+					"name" : "epd",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "lace::@dcd496ced5f9e510df61",
+					"jsonFile" : "target-lace-Debug-c0e0ef38de040fc265c2.json",
+					"name" : "lace",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "lace14::@dcd496ced5f9e510df61",
+					"jsonFile" : "target-lace14-Debug-8a69d3eace800e8552bc.json",
+					"name" : "lace14",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "main::@508d181dcdf0dd8521ae",
+					"jsonFile" : "target-main-Debug-e3a246af87f2d8b0d427.json",
+					"name" : "main",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "mtr::@1d8ead778e1507e8e41c",
+					"jsonFile" : "target-mtr-Debug-8ce81eab7ac645880788.json",
+					"name" : "mtr",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "st::@a5252daa43c3042d64a4",
+					"jsonFile" : "target-st-Debug-b2b033bd60e350c75b08.json",
+					"name" : "st",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "sylvan::@bbb22255df4e47a3aa24",
+					"jsonFile" : "target-sylvan-Debug-605c93b790b8d3fe5e59.json",
+					"name" : "sylvan",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "util::@ceb147922138bf81ef89",
+					"jsonFile" : "target-util-Debug-047f94ac026d75adab42.json",
+					"name" : "util",
+					"projectIndex" : 3
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/tmp/sylvan-benchmarks/build-cmake",
+		"source" : "/tmp/sylvan-benchmarks"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

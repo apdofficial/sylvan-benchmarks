@@ -275,7 +275,7 @@ SYLVAN_STATS:BOOL=OFF
 //Unique table uses chaining instead of linear probing
 SYLVAN_USE_CHAINING:BOOL=ON
 
-//Unique table uses chaining instead of linear probing
+//Unique table uses linear probing instead of chaining
 SYLVAN_USE_LINEAR_PROBING:BOOL=OFF
 
 //Value Computed by CMake
