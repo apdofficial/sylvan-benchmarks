@@ -28,8 +28,7 @@ DdManager * cudd_start(){
     return db;
 }
 
-DdManager * cudd_exit(){
-    DdManager *db = Cudd_Init(6, 0, CUDD_UNIQUE_SLOTS, CUDD_CACHE_SLOTS, 0);
-    return db;
+void cudd_exit(DdManager* db){
+    Cudd_Quit(db);
 }
 

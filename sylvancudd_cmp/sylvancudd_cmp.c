@@ -10,7 +10,7 @@ int main(int argc, char **argv)
     BDD sylvan_bdd = sylvan_create_example_bdd(is_optimal);
     DdNode *bdd_cudd = cudd_create_example_bdd(db, is_optimal);
 
-    cudd_exit();
+    cudd_exit(db);
     sylvan_exit();
 }
 
