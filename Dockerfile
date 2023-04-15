@@ -44,23 +44,36 @@ WORKDIR $HOME
 
 RUN chmod +x run_benchmarks.sh
 
-# RUN cd $HOME && pip install -r requirements.txt
+ RUN cd $HOME && pip install -r requirements.txt
 
-#Sylvan
-ENV SYLVAN=$HOME/sylvan
+ENV CUDD=$HOME/external/cudd
+ENV DPMC=$HOME/external/dpmc
+ENV SYLVAN=$HOME/external/sylvan
+ENV STORM=$HOME/external/storm
 
+# --------- CUDD ---------
+
+# --------- Sylvan ---------
+
+# --------- STORM ---------
+ENV STORM_BUILD=$HOME/build/storm
+RUN cd $BUILD && mkdir storm
+# TODO:
+# replace the STORM Sylvan source with the one in the sylvan folder
+# compile the STORM executable
+# copy the input data into the STORM_BUILD folder
 
 # --------- DPMC ---------
 ENV DMPC=$HOME/dpmc
-ENV ADDMC=$DMPC/addmc
-ENV DMC=$DMPC/dmc
+ENV ADDMC=$DPMC/addmc
+ENV DMC=$DPMC/dmc
 ENV ADDMC_COLAMD=$ADDMC/libraries/colamd
 ENV ADDMC_LIBS=$ADDMC/libraries
 ENV ADDMC_SYLVAN=$ADDMC/libraries/sylvan/
 ENV SUITE_SPARSE=$ADDMC_LIBS/SuiteSparse
-ENV DMPC_WEIGHTED_TESTS=$DMPC/tests/weighted
-ENV DMPC_UNWEIGHTED_TESTS=$DMPC/tests/unweighted
-ENV LG=$DMPC/lg
+ENV DMPC_WEIGHTED_TESTS=$DPMC/tests/weighted
+ENV DMPC_UNWEIGHTED_TESTS=$DPMC/tests/unweighted
+ENV LG=$DPMC/lg
 ENV LG_SOLVERS=$LG/solvers
 ENV HTD_SOLVER=$LG_SOLVERS/htd-master
 ENV DPMC_BUILD=$HOME/build/dpmc
@@ -90,15 +103,6 @@ RUN cd $HTD_SOLVER/build && cmake .. && make -j 8
 RUN cp $HTD_SOLVER/build/bin/htd_main-1.2.0 $DPMC_BUILD
 
 RUN cp $DMPC_WEIGHTED_TESTS/mcc21__wff.3.75.315.cnf $DPMC_BUILD
-
-# --------- STORM ---------
-ENV STORM_BUILD=$HOME/build/storm
-RUN cd $BUILD && mkdir storm
-
-# TODO:
-# replace the STORM Sylvan source with the one in the sylvan folder
-# compile the STORM executable
-# copy the input data into the STORM_BUILD folder
 
 # --------- Safety Synthesis ---------
 ENV SAFETY_SYNT=$HOME/safety_synthesis

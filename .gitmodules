@@ -1,15 +1,15 @@
-[submodule "dpmc"]
-	path = dpmc
+[submodule "external/dpmc"]
+	path = external/dpmc
 	url = https://github.com/apdofficial/DPMC
 
-[submodule "sylvan"]
-	path = sylvan
+[submodule "external/sylvan"]
+	path = external/sylvan
 	url = https://github.com/apdofficial/sylvan
 
-[submodule "storm"]
-	path = storm
+[submodule "external/storm"]
+	path = external/storm
 	url = https://github.com/apdofficial/storm
 
-[submodule "cudd"]
-	path = cudd
+[submodule "external/cudd"]
+	path = external/cudd
 	url = https://github.com/apdofficial/cudd

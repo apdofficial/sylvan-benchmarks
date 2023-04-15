@@ -1,0 +1,10 @@
+# MacOS file
+.DS_Store
+
+# eclipse files
+.cproject
+.project
+.settings
+
+# CMake files
+build/

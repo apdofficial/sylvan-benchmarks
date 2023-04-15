@@ -7,9 +7,10 @@ project(sylvan-benchmarks
     LANGUAGES C CXX
 )
 
-add_subdirectory(sylvan)
-add_subdirectory(cudd)
-add_subdirectory(hashmap_cmp)
+add_subdirectory(external/sylvan)
+add_subdirectory(external/cudd)
+
+add_subdirectory(cmp_hashmap)
+add_subdirectory(cmp_sylvancudd)
 add_subdirectory(safety_synthesis)
-add_subdirectory(sylvancudd_cmp)
 
