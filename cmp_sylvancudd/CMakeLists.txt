@@ -21,13 +21,13 @@ add_benchmark(sylvancudd_cmp sylvancudd_cmp.c)
 # Do we want to limit the probe sequence?
 option(SYLVAN_LIMIT_PROBE_SEQUENCE "Let Sylvan limit number of iterations for insertion until returning error" OFF)
 if(SYLVAN_LIMIT_PROBE_SEQUENCE)
-    set_target_properties(hashmap_cmp PROPERTIES COMPILE_DEFINITIONS "SYLVAN_LIMIT_PROBE_SEQUENCE")
+    set_target_properties(sylvancudd_cmp PROPERTIES COMPILE_DEFINITIONS "SYLVAN_LIMIT_PROBE_SEQUENCE")
 endif()
 
 # Do we want to use chaining implementation or linear probing implementation?
 option(SYLVAN_USE_CHAINING "Unique table uses chaining instead of linear probing" OFF)
 if(SYLVAN_USE_CHAINING)
-    set_target_properties(hashmap_cmp PROPERTIES COMPILE_DEFINITIONS "SYLVAN_USE_CHAINING")
+    set_target_properties(sylvancudd_cmp PROPERTIES COMPILE_DEFINITIONS "SYLVAN_USE_CHAINING")
 endif ()
 
 

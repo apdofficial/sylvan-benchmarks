@@ -39,27 +39,27 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/tmp/sylvan-benchmarks/build-cmake/sylvan/cmake_install.cmake")
+  include("/tmp/sylvan-benchmarks/build-cmake/external/sylvan/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/tmp/sylvan-benchmarks/build-cmake/cudd/cmake_install.cmake")
+  include("/tmp/sylvan-benchmarks/build-cmake/external/cudd/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/tmp/sylvan-benchmarks/build-cmake/hashmap_cmp/cmake_install.cmake")
+  include("/tmp/sylvan-benchmarks/build-cmake/cmp_hashmap/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/tmp/sylvan-benchmarks/build-cmake/cmp_sylvancudd/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
   include("/tmp/sylvan-benchmarks/build-cmake/safety_synthesis/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/tmp/sylvan-benchmarks/build-cmake/sylvancudd_cmp/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

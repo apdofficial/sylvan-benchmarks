@@ -146,7 +146,7 @@ sylvan: cmake_check_build_system
 
 # fast build rule for target.
 sylvan/fast:
-	$(MAKE) -f sylvan/src/CMakeFiles/sylvan.dir/build.make sylvan/src/CMakeFiles/sylvan.dir/build
+	$(MAKE) -f external/sylvan/src/CMakeFiles/sylvan.dir/build.make external/sylvan/src/CMakeFiles/sylvan.dir/build
 .PHONY : sylvan/fast
 
 #=============================================================================
@@ -159,7 +159,7 @@ main: cmake_check_build_system
 
 # fast build rule for target.
 main/fast:
-	$(MAKE) -f cudd/CMakeFiles/main.dir/build.make cudd/CMakeFiles/main.dir/build
+	$(MAKE) -f external/cudd/CMakeFiles/main.dir/build.make external/cudd/CMakeFiles/main.dir/build
 .PHONY : main/fast
 
 #=============================================================================
@@ -172,7 +172,7 @@ util: cmake_check_build_system
 
 # fast build rule for target.
 util/fast:
-	$(MAKE) -f cudd/util/CMakeFiles/util.dir/build.make cudd/util/CMakeFiles/util.dir/build
+	$(MAKE) -f external/cudd/util/CMakeFiles/util.dir/build.make external/cudd/util/CMakeFiles/util.dir/build
 .PHONY : util/fast
 
 #=============================================================================
@@ -185,7 +185,7 @@ st: cmake_check_build_system
 
 # fast build rule for target.
 st/fast:
-	$(MAKE) -f cudd/st/CMakeFiles/st.dir/build.make cudd/st/CMakeFiles/st.dir/build
+	$(MAKE) -f external/cudd/st/CMakeFiles/st.dir/build.make external/cudd/st/CMakeFiles/st.dir/build
 .PHONY : st/fast
 
 #=============================================================================
@@ -198,7 +198,7 @@ mtr: cmake_check_build_system
 
 # fast build rule for target.
 mtr/fast:
-	$(MAKE) -f cudd/mtr/CMakeFiles/mtr.dir/build.make cudd/mtr/CMakeFiles/mtr.dir/build
+	$(MAKE) -f external/cudd/mtr/CMakeFiles/mtr.dir/build.make external/cudd/mtr/CMakeFiles/mtr.dir/build
 .PHONY : mtr/fast
 
 #=============================================================================
@@ -211,7 +211,7 @@ epd: cmake_check_build_system
 
 # fast build rule for target.
 epd/fast:
-	$(MAKE) -f cudd/epd/CMakeFiles/epd.dir/build.make cudd/epd/CMakeFiles/epd.dir/build
+	$(MAKE) -f external/cudd/epd/CMakeFiles/epd.dir/build.make external/cudd/epd/CMakeFiles/epd.dir/build
 .PHONY : epd/fast
 
 #=============================================================================
@@ -224,7 +224,7 @@ dddmp: cmake_check_build_system
 
 # fast build rule for target.
 dddmp/fast:
-	$(MAKE) -f cudd/dddmp/CMakeFiles/dddmp.dir/build.make cudd/dddmp/CMakeFiles/dddmp.dir/build
+	$(MAKE) -f external/cudd/dddmp/CMakeFiles/dddmp.dir/build.make external/cudd/dddmp/CMakeFiles/dddmp.dir/build
 .PHONY : dddmp/fast
 
 #=============================================================================
@@ -237,21 +237,34 @@ cudd: cmake_check_build_system
 
 # fast build rule for target.
 cudd/fast:
-	$(MAKE) -f cudd/cudd/CMakeFiles/cudd.dir/build.make cudd/cudd/CMakeFiles/cudd.dir/build
+	$(MAKE) -f external/cudd/cudd/CMakeFiles/cudd.dir/build.make external/cudd/cudd/CMakeFiles/cudd.dir/build
 .PHONY : cudd/fast
 
 #=============================================================================
-# Target rules for targets named hashmap_cmp
+# Target rules for targets named cmp_hashmap
 
 # Build rule for target.
-hashmap_cmp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 hashmap_cmp
-.PHONY : hashmap_cmp
+cmp_hashmap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cmp_hashmap
+.PHONY : cmp_hashmap
 
 # fast build rule for target.
-hashmap_cmp/fast:
-	$(MAKE) -f hashmap_cmp/CMakeFiles/hashmap_cmp.dir/build.make hashmap_cmp/CMakeFiles/hashmap_cmp.dir/build
-.PHONY : hashmap_cmp/fast
+cmp_hashmap/fast:
+	$(MAKE) -f cmp_hashmap/CMakeFiles/cmp_hashmap.dir/build.make cmp_hashmap/CMakeFiles/cmp_hashmap.dir/build
+.PHONY : cmp_hashmap/fast
+
+#=============================================================================
+# Target rules for targets named sylvancudd_cmp
+
+# Build rule for target.
+sylvancudd_cmp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sylvancudd_cmp
+.PHONY : sylvancudd_cmp
+
+# fast build rule for target.
+sylvancudd_cmp/fast:
+	$(MAKE) -f cmp_sylvancudd/CMakeFiles/sylvancudd_cmp.dir/build.make cmp_sylvancudd/CMakeFiles/sylvancudd_cmp.dir/build
+.PHONY : sylvancudd_cmp/fast
 
 #=============================================================================
 # Target rules for targets named aiger_synt
@@ -265,19 +278,6 @@ aiger_synt: cmake_check_build_system
 aiger_synt/fast:
 	$(MAKE) -f safety_synthesis/CMakeFiles/aiger_synt.dir/build.make safety_synthesis/CMakeFiles/aiger_synt.dir/build
 .PHONY : aiger_synt/fast
-
-#=============================================================================
-# Target rules for targets named sylvancudd_cmp
-
-# Build rule for target.
-sylvancudd_cmp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sylvancudd_cmp
-.PHONY : sylvancudd_cmp
-
-# fast build rule for target.
-sylvancudd_cmp/fast:
-	$(MAKE) -f sylvancudd_cmp/CMakeFiles/sylvancudd_cmp.dir/build.make sylvancudd_cmp/CMakeFiles/sylvancudd_cmp.dir/build
-.PHONY : sylvancudd_cmp/fast
 
 # Help Target
 help:
@@ -297,9 +297,9 @@ help:
 	@echo "... epd"
 	@echo "... dddmp"
 	@echo "... cudd"
-	@echo "... hashmap_cmp"
-	@echo "... aiger_synt"
+	@echo "... cmp_hashmap"
 	@echo "... sylvancudd_cmp"
+	@echo "... aiger_synt"
 .PHONY : help
 
 

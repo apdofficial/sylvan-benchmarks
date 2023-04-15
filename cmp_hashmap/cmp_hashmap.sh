@@ -1,15 +1,15 @@
-run_the_benchmark()
+run_cmp_hashmap()
 {
-  cd ./hashmap_cmp || exit
-  chmod +x hashmap_cmp
-  ./hashmap_cmp
-  rm hashmap_cmp
+  cd ./cmp_hashmap || exit
+  chmod +x cmp_hashmap
+  ./cmp_hashmap
+  rm cmp_hashmap
   cd ../
 }
 
-compile_the_target()
+compile_cmp_hashmap()
 {
-  cmake --build . --target hashmap_cmp
+  cmake --build . --target cmp_hashmap
 }
 
 # we expect to be in the current directory
@@ -19,22 +19,22 @@ mkdir build
 cd build || exit
 
 cmake .. -DCMAKE_BUILD_TYPE=Debug -DDSYLVAN_USE_LINEAR_PROBING=ON -DSYLVAN_LIMIT_PROBE_SEQUENCE=ON
-compile_the_target
-echo "Running hashmap_cmp with linear probing + limit the probe sequence"
-run_the_benchmark
+compile_cmp_hashmap
+echo "Running cmp_hashmap with linear probing + limit the probe sequence"
+run_cmp_hashmap
 
 cmake .. -DCMAKE_BUILD_TYPE=Debug -DDSYLVAN_USE_LINEAR_PROBING=OFF -DSYLVAN_LIMIT_PROBE_SEQUENCE=OFF
-compile_the_target
-echo "Running hashmap_cmp with linear probing + dont limit the probe sequence"
-run_the_benchmark
+compile_cmp_hashmap
+echo "Running cmp_hashmap with linear probing + dont limit the probe sequence"
+run_cmp_hashmap
 
 cmake .. -DCMAKE_BUILD_TYPE=Debug
-compile_the_target
-echo "Running hashmap_cmp with chaining"
-run_the_benchmark
+compile_cmp_hashmap
+echo "Running cmp_hashmap with chaining"
+run_cmp_hashmap
 
 echo "Plotting the results"
 cd ../
-cd hashmap_cmp || exit
-python3 hashmap_cmp.py
+cd cmp_hashmap || exit
+python3 cmp_hashmap.py
 rm -f build

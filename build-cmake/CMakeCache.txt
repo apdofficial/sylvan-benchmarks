@@ -279,10 +279,10 @@ SYLVAN_USE_CHAINING:BOOL=ON
 SYLVAN_USE_LINEAR_PROBING:BOOL=OFF
 
 //Value Computed by CMake
-cudd_test_BINARY_DIR:STATIC=/tmp/sylvan-benchmarks/build-cmake/cudd
+cudd_test_BINARY_DIR:STATIC=/tmp/sylvan-benchmarks/build-cmake/external/cudd
 
 //Value Computed by CMake
-cudd_test_SOURCE_DIR:STATIC=/tmp/sylvan-benchmarks/cudd
+cudd_test_SOURCE_DIR:STATIC=/tmp/sylvan-benchmarks/external/cudd
 
 //Value Computed by CMake
 lace_BINARY_DIR:STATIC=/tmp/sylvan-benchmarks/build-cmake/_deps/lace-build
@@ -297,10 +297,10 @@ sylvan-benchmarks_BINARY_DIR:STATIC=/tmp/sylvan-benchmarks/build-cmake
 sylvan-benchmarks_SOURCE_DIR:STATIC=/tmp/sylvan-benchmarks
 
 //Value Computed by CMake
-sylvan_BINARY_DIR:STATIC=/tmp/sylvan-benchmarks/build-cmake/sylvan
+sylvan_BINARY_DIR:STATIC=/tmp/sylvan-benchmarks/build-cmake/external/sylvan
 
 //Value Computed by CMake
-sylvan_SOURCE_DIR:STATIC=/tmp/sylvan-benchmarks/sylvan
+sylvan_SOURCE_DIR:STATIC=/tmp/sylvan-benchmarks/external/sylvan
 
 
 ########################
