@@ -112,6 +112,6 @@ RUN cd $BUILD && mkdir safety_synthesis
 RUN cd $SAFETY_SYNT && mkdir build
 
 # prepare the safety_synthesis executable
-RUN cd $SAFETY_SYNT/build && cmake ../../ && make -j 8
-RUN cp $SAFETY_SYNT/build/safety_synthesis/aiger_synt $SAFETY_SYNT_BUILD
-RUN cp $SAFETY_SYNT/models/add10n.aag $SAFETY_SYNT_BUILD
+#RUN cd $SAFETY_SYNT/build && cmake ../../ && make -j 8
+#RUN cp $SAFETY_SYNT/build/safety_synthesis/aiger_synt $SAFETY_SYNT_BUILD
+#RUN cp $SAFETY_SYNT/models/add10n.aag $SAFETY_SYNT_BUILD

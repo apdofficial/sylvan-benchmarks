@@ -69,9 +69,9 @@ TASK_0(int, run)
 
             double runtime = wctime_ms_elapsed(start);
 
-            double used = llmsset_count_marked(nodes);
-            double all = (double)llmsset_get_size(nodes);
-            double usage = (used/all)*100;
+            size_t filled, total;
+            sylvan_table_usage(&filled, &total);
+            double usage = ((double)filled/(double)total)*100;
 
 //            printf("r %zu | s %zu | table usage %.2f%% | runtime: %.2fns\n", round, sample, usage, runtime);
 

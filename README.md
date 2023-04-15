@@ -11,7 +11,7 @@ Currently DPMC implements additional logcounting function whcih is not at the mo
 
 # Usage
 
-1.  The repository contains a Docker file which you can build using:
+1.  The repository contains a Docker file using which you can build a docker image **sylvanbenchmarks**:
     ```shell
     docker build --pull --rm -f "Dockerfile" -t sylvanbenchmarks:latest "." 
     ```
