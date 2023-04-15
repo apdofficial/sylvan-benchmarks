@@ -1,3 +1,0 @@
-repository='https://github.com/trolando/lace.git'
-module=''
-tag='origin'
