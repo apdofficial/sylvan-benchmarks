@@ -56,6 +56,9 @@ static int reorder = 0;
 static int sloan_w1 = 1;
 static int sloan_w2 = 8;
 
+static int terminate_reordering = 0;
+static size_t prev_size = 0;
+
 /* argp configuration */
 static struct argp_option options[] =
 {
@@ -694,6 +697,36 @@ VOID_TASK_0(gc_end)
     INFO("Garbage collection done of %zu/%zu size\n", used, total);
 }
 
+VOID_TASK_0(reordering_start)
+{
+    sylvan_gc_enable();
+    sylvan_gc();
+    size_t curr_size = llmsset_count_marked(nodes);
+    prev_size = curr_size;
+    INFO("RE: start: %zu size\n", curr_size);
+}
+
+VOID_TASK_0(reordering_progress)
+{
+    size_t curr_size = llmsset_count_marked(nodes);
+    if(prev_size == curr_size) terminate_reordering = 1;
+    else prev_size = curr_size;
+    INFO("RE: progress: %zu size\n", curr_size);
+}
+
+VOID_TASK_0(reordering_end)
+{
+    size_t curr_size = llmsset_count_marked(nodes);
+    INFO("RE: end: %zu size\n", curr_size);
+    // Report Sylvan statistics (includes info about variable reordering)
+    sylvan_stats_report(stdout);
+}
+
+int should_reordering_terminate()
+{
+    return terminate_reordering;
+}
+
 int
 main(int argc, char **argv)
 {
@@ -711,6 +744,16 @@ main(int argc, char **argv)
     sylvan_set_limits(2LL*1LL<<30, 1, 15);
     sylvan_init_package();
     sylvan_init_mtbdd();
+    sylvan_init_reorder();
+
+    sylvan_set_reorder_threshold(128);
+    sylvan_set_reorder_maxgrowth(1.2f);
+    sylvan_set_reorder_timelimit(10 * 60 * 1000); // 10 minute
+
+    sylvan_re_hook_prere(TASK(reordering_start));
+    sylvan_re_hook_postre(TASK(reordering_end));
+    sylvan_re_hook_progre(TASK(reordering_progress));
+    sylvan_re_hook_termre(should_reordering_terminate);
 
     // Set hooks for logging garbage collection
     if (verbose) {
