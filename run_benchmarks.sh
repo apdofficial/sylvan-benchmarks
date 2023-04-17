@@ -15,7 +15,7 @@ run_safety_synthesis_benchmark()
     agg_file_path=$1
     echo "Running safety synthesis benchmark"
     cd ./build/safety_synthesis || exit
-    ./aiger_synt "$agg_file_path" -w 4
+    ./aiger_synt "../../$agg_file_path" -w 4
     cd ../../ || exit 
 }
 
@@ -30,5 +30,5 @@ run_storm_benchmark()
 }
 
 #run_dpmc_benchmark "./mcc21__wff.3.75.315.cnf"
-run_safety_synthesis_benchmark "./safety_synthesis/models/driver/driver_d10y.aag"
+run_safety_synthesis_benchmark "safety_synthesis/models/driver/driver_d10y.aag"
 # run_storm_benchmark 

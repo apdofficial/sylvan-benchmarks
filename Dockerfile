@@ -15,7 +15,8 @@ RUN apt install -y automake
 RUN apt install -y cmake-data
 RUN apt install -y cmake
 RUN apt install -y make 
-RUN apt install -y g++-10 
+RUN apt install -y g++-10
+RUN apt install -y gcc-10
 RUN apt install -y libboost-all-dev
 RUN apt install -y libgmp-dev
 RUN apt install -y libsqlite3-dev
@@ -29,6 +30,7 @@ RUN apt install -y python3-pip
 
 RUN ln -s /usr/bin/python3.11 /usr/bin/python
 RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 1
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 1
 
 # add paths
 ENV HOME=/home
@@ -37,19 +39,20 @@ ENV BUILD=$HOME/build
 # copy source files
 COPY . $HOME/
 
-# create build directory
-RUN cd $HOME && mkdir build
-
 WORKDIR $HOME
 
-RUN chmod +x run_benchmarks.sh
+RUN mkdir build
 
- RUN cd $HOME && pip install -r requirements.txt
+RUN pip install -r requirements.txt
+
+RUN chmod +x run_benchmarks.sh
 
 ENV CUDD=$HOME/external/cudd
 ENV DPMC=$HOME/external/dpmc
 ENV SYLVAN=$HOME/external/sylvan
 ENV STORM=$HOME/external/storm
+
+
 
 # --------- CUDD ---------
 
@@ -114,4 +117,3 @@ RUN cd $SAFETY_SYNT && mkdir build
 # prepare the safety_synthesis executable
 #RUN cd $SAFETY_SYNT/build && cmake ../../ && make -j 8
 #RUN cp $SAFETY_SYNT/build/safety_synthesis/aiger_synt $SAFETY_SYNT_BUILD
-#RUN cp $SAFETY_SYNT/models/add10n.aag $SAFETY_SYNT_BUILD
