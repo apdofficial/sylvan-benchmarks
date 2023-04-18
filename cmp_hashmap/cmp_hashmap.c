@@ -75,7 +75,7 @@ TASK_0(int, run)
 
 //            printf("r %zu | s %zu | table usage %.2f%% | runtime: %.2fns\n", round, sample, usage, runtime);
 
-#if SYLVAN_USE_LINEAR_PROBING && SYLVAN_LIMIT_PROBE_SEQUENCE
+#if SYLVAN_USE_LINEAR_PROBING
             if (usage <= 0 || usage >= 96.5) break;
 #else
             if (usage <= 0 || usage >= 97.7) break;
@@ -96,10 +96,12 @@ TASK_0(int, run)
 
     char filename[100];
 
-#if SYLVAN_USE_LINEAR_PROBING && !SYLVAN_LIMIT_PROBE_SEQUENCE
+#if SYLVAN_USE_LINEAR_PROBING
+#if SYLVAN_LIMIT_PROBE_SEQUENCE
+    sprintf(filename,   "./w%zu_probing_limited.csv", nworkers);
+#else
     sprintf(filename,   "./w%zu_probing_unlimited.csv", nworkers);
-#elif SYLVAN_USE_LINEAR_PROBING && SYLVAN_LIMIT_PROBE_SEQUENCE
-    sprintf(filename, "./w%zu_probing_limited.csv", nworkers);
+#endif
 #else
     sprintf(filename,   "./w%zu_chaining.csv", nworkers);
 #endif
@@ -121,13 +123,17 @@ TASK_0(int, run)
 
 int main(int argc, char **argv)
 {
-#if SYLVAN_USE_LINEAR_PROBING && !SYLVAN_LIMIT_PROBE_SEQUENCE
-    printf("running probing_unlimited\n");
-#elif SYLVAN_USE_LINEAR_PROBING && SYLVAN_LIMIT_PROBE_SEQUENCE
+
+#if SYLVAN_USE_LINEAR_PROBING
+#if SYLVAN_LIMIT_PROBE_SEQUENCE
     printf("running probing_limited\n");
+#else
+    printf("running probing_unlimited\n");
+#endif
 #else
     printf("running chaining\n");
 #endif
+
     size_t num_tests = nworkers;
     for (size_t i = 1; i <= num_tests; ++i) {
         nworkers = i;

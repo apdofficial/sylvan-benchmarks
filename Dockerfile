@@ -83,8 +83,8 @@ ENV DPMC_BUILD=$HOME/build/dpmc
 RUN cd $BUILD && mkdir dpmc
 
 # replace addmc sylvan source with the one in the sylvan folder
-RUN rm -r $ADDMC_SYLVAN
-RUN cp -r $SYLVAN $ADDMC_SYLVAN
+#RUN rm -r $ADDMC_SYLVAN
+#RUN cp -r $SYLVAN $ADDMC_SYLVAN
 
 # compile the colamd library and copy it into the addmc library directory
 RUN cd $SUITE_SPARSE/SuiteSparse_config/ && make -s

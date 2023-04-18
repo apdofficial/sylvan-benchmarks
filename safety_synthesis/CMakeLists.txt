@@ -17,8 +17,8 @@ if(SYLVAN_LIMIT_PROBE_SEQUENCE)
 endif()
 
 # Do we want to use chaining implementation or linear probing implementation?
-option(SYLVAN_USE_CHAINING "Unique table uses chaining instead of linear probing" OFF)
-if(SYLVAN_USE_CHAINING)
-    set_target_properties(aiger_synt PROPERTIES COMPILE_DEFINITIONS "SYLVAN_USE_CHAINING")
+option(SYLVAN_USE_LINEAR_PROBING "Unique table uses chaining instead of linear probing" OFF)
+if(SYLVAN_USE_LINEAR_PROBING)
+    set_target_properties(aiger_synt PROPERTIES COMPILE_DEFINITIONS "SYLVAN_USE_LINEAR_PROBING")
 endif ()
 
