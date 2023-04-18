@@ -43,28 +43,23 @@ WORKDIR $HOME
 
 RUN mkdir build
 
-RUN pip install -r requirements.txt
+#RUN pip install -r requirements.txt
 
-RUN chmod +x run_benchmarks.sh
+RUN chmod +x run_all.sh
+RUN chmod +x run_dpmc.sh
+RUN chmod +x build_dmc.sh
+RUN chmod +x run_storm.sh
+RUN chmod +x run_aiger_synth.sh
+RUN chmod +x run_cmp_hashmap.sh
 
 ENV CUDD=$HOME/external/cudd
 ENV DPMC=$HOME/external/dpmc
 ENV SYLVAN=$HOME/external/sylvan
 ENV STORM=$HOME/external/storm
 
-
-
-# --------- CUDD ---------
-
-# --------- Sylvan ---------
-
 # --------- STORM ---------
 ENV STORM_BUILD=$HOME/build/storm
 RUN cd $BUILD && mkdir storm
-# TODO:
-# replace the STORM Sylvan source with the one in the sylvan folder
-# compile the STORM executable
-# copy the input data into the STORM_BUILD folder
 
 # --------- DPMC ---------
 ENV DMPC=$HOME/dpmc
@@ -82,10 +77,6 @@ ENV HTD_SOLVER=$LG_SOLVERS/htd-master
 ENV DPMC_BUILD=$HOME/build/dpmc
 RUN cd $BUILD && mkdir dpmc
 
-# replace addmc sylvan source with the one in the sylvan folder
-#RUN rm -r $ADDMC_SYLVAN
-#RUN cp -r $SYLVAN $ADDMC_SYLVAN
-
 # compile the colamd library and copy it into the addmc library directory
 RUN cd $SUITE_SPARSE/SuiteSparse_config/ && make -s
 RUN rm -f $ADDMC_COLAMD/libcolamd.a
@@ -93,16 +84,16 @@ RUN cd $SUITE_SPARSE/COLAMD/ && make -s
 RUN cp $SUITE_SPARSE/COLAMD/Lib/libcolamd.a $ADDMC_COLAMD/
 
 # prepare the dmc executable
-RUN cd $DMC/ && make dmc -j 8
+RUN cd $DMC/ && make dmc -j 6
 RUN cp $DMC/dmc $DPMC_BUILD
 
 # prepare the lg executable
-RUN cd $LG/ && make -j 8
+RUN cd $LG/ && make -j 6
 RUN cp $LG/build/lg $DPMC_BUILD
 
 # prepare the htd_main-1.2.0 executable
 RUN cd $HTD_SOLVER && mkdir build
-RUN cd $HTD_SOLVER/build && cmake .. && make -j 8
+RUN cd $HTD_SOLVER/build && cmake .. && make -j 6
 RUN cp $HTD_SOLVER/build/bin/htd_main-1.2.0 $DPMC_BUILD
 
 RUN cp $DMPC_WEIGHTED_TESTS/mcc21__wff.3.75.315.cnf $DPMC_BUILD
@@ -115,5 +106,5 @@ RUN cd $BUILD && mkdir safety_synthesis
 RUN cd $SAFETY_SYNT && mkdir build
 
 # prepare the safety_synthesis executable
-#RUN cd $SAFETY_SYNT/build && cmake ../../ && make -j 8
-#RUN cp $SAFETY_SYNT/build/safety_synthesis/aiger_synt $SAFETY_SYNT_BUILD
+RUN cd $SAFETY_SYNT/build && cmake ../../ && make -j 8
+RUN cp $SAFETY_SYNT/build/safety_synthesis/aiger_synt $SAFETY_SYNT_BUILD

@@ -12,8 +12,6 @@ compile_cmp_hashmap()
   cmake --build . --target cmp_hashmap
 }
 
-# we expect to be in the current directory
-cd ../
 rm -f build
 mkdir build
 cd build || exit

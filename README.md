@@ -20,9 +20,17 @@ Currently DPMC implements additional logcounting function whcih is not at the mo
     ```shell
     docker run -i -t sylvanbenchmarks:latest
     ```
-3. inside of the image run the following shell script with all the benchmarks (work directory is set to the project workign directory):
+3. inside of the image run the following shell script with all the benchmarks (work directory is set to the project working directory):
     ```shell
-    ./run_benchmarks.sh
+    ./run_all.sh
     ```
- 
-
+    or run a specific benchmark, eg.:
+    ```shell
+    ./run_dpmc.sh "./mcc21__wff.3.75.315.cnf"
+    ```
+    ```shell
+    ./run_aiger_synth "safety_synthesis/models/driver/driver_d10y.aag"
+    ```
+    ```shell
+    ./run_cmp_hashmap 
+    ```
