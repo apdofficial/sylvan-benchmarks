@@ -35,7 +35,7 @@ static int workers = 4;
 static int verbose = 1;
 static char *model_filename = NULL; // filename of the aag file
 static int static_reorder = 0;
-static int dynamic_reorder = 0;
+static int dynamic_reorder = 1;
 
 static int sloan_w1 = 1;
 static int sloan_w2 = 8;
@@ -52,7 +52,7 @@ print_usage()
 static void
 print_help()
 {
-    printf("Usage: aigsynt [OPTION...] <model> [<output-bdd>]\n\n");
+    printf("Usage: aigsynt [OPTION...] <model> \n\n");
     printf("                             Strategy for reachability (default=par)\n");
     printf("  -d,                        Dynamic variable ordering\n");
     printf("  -w, --workers=<workers>    Number of workers (default=0: autodetect)\n");
@@ -66,9 +66,9 @@ static void
 parse_args(int argc, char **argv)
 {
     static const option longopts[] = {
-            {"workers",            required_argument, (int *) 'w', 1},
-            {"dynamic-reordering", no_argument,       nullptr,     'v'},
-            {"static-reordering",  no_argument,       nullptr,     'v'},
+            {"workers",            required_argument, (int *) 'w',  4},
+            {"dynamic-reordering", no_argument,       nullptr,     'd'},
+            {"static-reordering",  no_argument,       nullptr,     's'},
             {"verbose",            no_argument,       nullptr,     'v'},
             {"help",               no_argument,       nullptr,     'h'},
             {"usage",              no_argument,       nullptr,     99},
@@ -212,6 +212,15 @@ int *level_to_var;
 VOID_TASK_6(make_gate, int, a, MTBDD*, gates, int*, gatelhs, int*, gatelft, int*, gatergt, int*, lookup)
 {
     if (gates[a] != sylvan_invalid) return;
+
+    if(dynamic_reorder){
+        size_t used, total;
+        sylvan_table_usage(&used, &total);
+        if (used > total * 0.96) {
+            sylvan_reorder_all();
+        }
+    }
+
     int lft = gatelft[a] / 2;
     int rgt = gatergt[a] / 2;
 //    if (verbose) {
@@ -238,15 +247,6 @@ VOID_TASK_6(make_gate, int, a, MTBDD*, gates, int*, gatelhs, int*, gatelft, int*
     if (gatergt[a] & 1) r = sylvan_not(r);
     gates[a] = sylvan_and(l, r);
     mtbdd_protect(&gates[a]);
-
-#if 1
-    size_t used, total;
-    sylvan_table_usage(&used, &total);
-    if (did_gc or 2*used > total) {
-        sylvan_reorder_all();
-        did_gc = 0;
-    }
-#endif
 }
 
 VOID_TASK_0(parse)
@@ -717,17 +717,17 @@ VOID_TASK_0(gc_mark)
 
 VOID_TASK_0(gc_start)
 {
-    did_gc = 1;
-    size_t used, total;
-    sylvan_table_usage(&used, &total);
-    INFO("GC: str: %zu/%zu size\n", used, total);
+//    did_gc = 1;
+//    size_t used, total;
+//    sylvan_table_usage(&used, &total);
+//    INFO("GC: str: %zu/%zu size\n", used, total);
 }
 
 VOID_TASK_0(gc_end)
 {
-    size_t used, total;
-    sylvan_table_usage(&used, &total);
-    INFO("GC: end: %zu/%zu size\n", used, total);
+//    size_t used, total;
+//    sylvan_table_usage(&used, &total);
+//    INFO("GC: end: %zu/%zu size\n", used, total);
 }
 
 static size_t prev_size = 0;
@@ -737,13 +737,14 @@ VOID_TASK_0(reordering_start)
     sylvan_gc();
     size_t size = llmsset_count_marked(nodes);
     prev_size = size;
-    INFO("RE: str: %zu size\n", size);
+    INFO("---RE: str: %zu size---\n", size);
 }
 
 VOID_TASK_0(reordering_progress)
 {
     size_t size = llmsset_count_marked(nodes);
-    if (prev_size <= size) terminate_reordering = 1;
+    // we need at least 4% reduction in size to continue
+    if (size >= prev_size * 0.96) terminate_reordering = 1;
     else prev_size = size;
     INFO("RE: prg: %zu size\n", size);
 }
@@ -751,7 +752,7 @@ VOID_TASK_0(reordering_progress)
 VOID_TASK_0(reordering_end)
 {
     size_t size = llmsset_count_marked(nodes);
-    INFO("RE: end: %zu size\n", size);
+    INFO("---RE: end: %zu size---\n", size);
 }
 
 int should_reordering_terminate()
@@ -779,17 +780,16 @@ int main(int argc, char **argv)
 
 
     // Init Sylvan
-    // Give 4 GB memory
-    sylvan_set_limits(6LL << 30, 1, 16);
+    sylvan_set_limits(2LL << 30, 1, 12);
     sylvan_init_package();
     sylvan_init_mtbdd();
     sylvan_init_reorder();
 
-    sylvan_set_reorder_maxswap(100);
-    sylvan_set_reorder_maxvar(10);
+    sylvan_set_reorder_maxswap(5000);
+    sylvan_set_reorder_maxvar(50);
     sylvan_set_reorder_threshold(128);
     sylvan_set_reorder_maxgrowth(1.2f);
-    sylvan_set_reorder_timelimit(1 * 60 * 1000); // 1 minute
+    sylvan_set_reorder_timelimit(1 * 30 * 1000);
 
     sylvan_re_hook_prere(TASK(reordering_start));
     sylvan_re_hook_postre(TASK(reordering_end));
