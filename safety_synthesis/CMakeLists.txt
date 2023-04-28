@@ -11,7 +11,7 @@ endmacro(add_benchmark)
 add_benchmark(aiger_synt aiger_synt.cpp)
 
 # Check if we have Boost
-find_package(Boost 1.81.0)
+find_package(Boost 1.71.0)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
     target_link_libraries(aiger_synt ${Boost_LIBRARIES})
