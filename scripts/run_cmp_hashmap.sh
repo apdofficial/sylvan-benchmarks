@@ -12,8 +12,6 @@ compile_cmp_hashmap()
   cmake --build . --target cmp_hashmap
 }
 
-# we expect to be in the current directory
-cd ../
 rm -f build
 mkdir build
 cd build || exit
@@ -23,7 +21,7 @@ compile_cmp_hashmap
 echo "Running cmp_hashmap with linear probing + limit the probe sequence"
 run_cmp_hashmap
 
-cmake .. -DCMAKE_BUILD_TYPE=Debug -DSYLVAN_USE_LINEAR_PROBING=OFF -DSYLVAN_LIMIT_PROBE_SEQUENCE=OFF
+cmake .. -DCMAKE_BUILD_TYPE=Debug -DSYLVAN_USE_LINEAR_PROBING=ON -DSYLVAN_LIMIT_PROBE_SEQUENCE=OFF
 compile_cmp_hashmap
 echo "Running cmp_hashmap with linear probing + dont limit the probe sequence"
 run_cmp_hashmap
