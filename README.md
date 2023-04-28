@@ -6,8 +6,6 @@
 - [safety_synthesis](http://www.syntcomp.org/rules/): Safety Synthesis solver
 - [cmp_hashmap](https://github.com/apdofficial/sylvan-benchmarks/tree/main/hashmap_cmp): Comparison of linear probing vs chaining
 - [cmp_sylvancudd](https://github.com/apdofficial/sylvan-benchmarks/tree/main/sylvancudd_cmp): Comparison of [Sylvan](https://github.com/trolando/sylvan) and [CUDD](https://web.archive.org/web/20150215010013/http://vlsi.colorado.edu/~fabio/)
-### Note
-Currently DPMC implements additional logcounting function whcih is not at the moment part of Sylvan. Hence, in this repo we use Sylvan specifically from the following branch [feature/MSC-54](https://github.com/apdofficial/sylvan/tree/feature/MSC-54) which provides the latest changes from my thesis as well as the logcounting function.
 
 # Usage
 
@@ -22,15 +20,12 @@ Currently DPMC implements additional logcounting function whcih is not at the mo
     ```
 3. inside of the image run the following shell script with all the benchmarks (work directory is set to the project working directory):
     ```shell
-    ./run_all.sh
+    cd $SCRIPTS && ./run_all.sh
     ```
     or run a specific benchmark, eg.:
     ```shell
-    ./run_dpmc.sh "./mcc21__wff.3.75.315.cnf"
+    cd $SCRIPTS && ./run_dpmc.sh "$DMPC_TESTS/weighted/mcc21__wff.3.75.315.cnf"
     ```
     ```shell
-    ./run_aiger_synth "safety_synthesis/models/driver/driver_d10y.aag"
-    ```
-    ```shell
-    ./run_cmp_hashmap 
+    cd $SCRIPTS && ./run_safety_synth.sh "$SAFETY_SYNT_MODELS/driver/driver_d10y.aag"
     ```

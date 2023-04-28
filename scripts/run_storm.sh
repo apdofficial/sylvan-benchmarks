@@ -3,6 +3,7 @@ run_storm_benchmark()
 {
 #    input_file_path=$1
     echo "Running STORM benchmark"
+    cd ../ || exit
     cd ./build/storm || exit
     # run benchmark
     cd ../../ || exit
