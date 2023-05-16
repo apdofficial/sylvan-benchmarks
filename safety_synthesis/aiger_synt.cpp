@@ -213,11 +213,11 @@ VOID_TASK_6(make_gate, int, a, MTBDD*, gates, int*, gatelhs, int*, gatelft, int*
 {
     if (gates[a] != sylvan_invalid) return;
 
-    if(dynamic_reorder){
+    if (dynamic_reorder) {
         size_t used, total;
         sylvan_table_usage(&used, &total);
-        if (used > total * 0.96) {
-            sylvan_reorder_all();
+        if (used > total * 0.85) {
+            sylvan_reduce_heap();
         }
     }
 
@@ -736,16 +736,12 @@ VOID_TASK_0(reordering_start)
     terminate_reordering = 0;
     sylvan_gc();
     size_t size = llmsset_count_marked(nodes);
-    prev_size = size;
     INFO("---RE: str: %zu size---\n", size);
 }
 
 VOID_TASK_0(reordering_progress)
 {
     size_t size = llmsset_count_marked(nodes);
-    // we need at least 4% reduction in size to continue
-    if (size >= prev_size * 0.96) terminate_reordering = 1;
-    else prev_size = size;
     INFO("RE: prg: %zu size\n", size);
 }
 
@@ -780,7 +776,7 @@ int main(int argc, char **argv)
 
 
     // Init Sylvan
-    sylvan_set_limits(2LL << 30, 1, 12);
+    sylvan_set_limits(2LL << 30, 1, 8);
     sylvan_init_package();
     sylvan_init_mtbdd();
     sylvan_init_reorder();
