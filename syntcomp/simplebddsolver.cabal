@@ -4,21 +4,19 @@
 name:                simplebddsolver
 version:             0.1.0.0
 synopsis:            Simple BDD based game solver
--- description:         
 license:             BSD3
 license-file:        LICENSE
 author:              Adam Walker
 maintainer:          adamwalker10@gmail.com
 copyright:           2016 Adam Walker
--- category:            
 build-type:          Simple
--- extra-source-files:  
 cabal-version:       >=1.10
 
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Solver
+  exposed-modules:     SylvanSolver
+                     , CuddSolver
                      , Cudd.File
                      , Cudd.Convert
                      , Cudd.Reorder
@@ -29,9 +27,8 @@ library
                      , Cudd.Cudd
                      , Cudd.GC
                      , Cudd.Imperative
+                     , Sylvan.Sylvan
   other-modules:       AAG
-                     , BDD
-                     , BDDCudd
                      , Cudd.ForeignHelpers
   other-extensions:    OverloadedStrings, RecordWildCards, DeriveFunctor, DeriveFoldable, DeriveTraversable
   build-depends:       base >=4.7 && <5
@@ -44,6 +41,8 @@ library
                      , attoparsec >=0.11 && <=0.14.4
                      , transformers
                      , errors
+                     , primitive >=0.5 && <=0.8
+                     , optparse-applicative >=0.8 && <0.17
   build-tools:         c2hs, hsc2hs
   default-language:    Haskell2010
   include-dirs:        .
@@ -51,15 +50,24 @@ library
   c-sources:           
                        src/cudd/c_sources/cuddwrap.c
                      , src/cudd/c_sources/stubs.c
-  extra-libraries:     cudd, m
+  extra-libraries:     sylvan, cudd, m
   extra-lib-dirs:      /usr/local/lib
                      , /opt/homebrew/Cellar/cudd/3.0.0/lib
 
-executable solver
-  main-is:             Main.hs
+executable cudd-solver
+  main-is:             MainCudd.hs
   build-depends:       base >=4.7 && <5
                      , simplebddsolver
                      , optparse-applicative >=0.8 && <0.17
   build-tools:         c2hs, hsc2hs
   default-language:    Haskell2010
-  ghc-options:         -O2
+  ghc-options:         -O2 
+
+executable sylvan-solver
+  main-is:             MainSylvan.hs
+  build-depends:       base >=4.7 && <5
+                     , simplebddsolver
+                     , optparse-applicative >=0.8 && <0.17
+  build-tools:         c2hs, hsc2hs
+  default-language:    Haskell2010
+  ghc-options:         -O2 

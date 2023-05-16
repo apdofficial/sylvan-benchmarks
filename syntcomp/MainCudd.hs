@@ -1,7 +1,8 @@
 import Data.Monoid 
 
 import Options.Applicative as O
-import Solver
+
+import CuddSolver
 
 main = execParser opts >>= run
     where
