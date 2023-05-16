@@ -6,7 +6,7 @@
 - [safety_synthesis](http://www.syntcomp.org/rules/): Safety Synthesis solver
 - [cmp_hashmap](https://github.com/apdofficial/sylvan-benchmarks/tree/main/hashmap_cmp): Comparison of linear probing vs chaining
 - [cmp_sylvancudd](https://github.com/apdofficial/sylvan-benchmarks/tree/main/sylvancudd_cmp): Comparison of [Sylvan](https://github.com/trolando/sylvan) and [CUDD](https://web.archive.org/web/20150215010013/http://vlsi.colorado.edu/~fabio/)
-
+- [syntcomp](https://github.com/apdofficial/sylvan-benchmarks/tree/main/syntcomp): A simple BDD based safety game solver for the Reactive Synthesis Competition.
 # Usage
 
 1.  The repository contains a Docker file using which you can build a docker image **sylvanbenchmarks**:
