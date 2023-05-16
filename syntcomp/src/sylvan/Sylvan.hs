@@ -233,4 +233,3 @@ cube :: PrimMonad m => BDD -> [Polarity] -> m BDD
 cube (BDD vars) polarities = liftM BDD $ unsafePrimToPrim $ 
     withArrayLen (map polarityToInt polarities) $ \_ pp -> 
         c_cube vars pp
-
