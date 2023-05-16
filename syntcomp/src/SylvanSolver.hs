@@ -331,10 +331,10 @@ doIt (Options {..}) = runExceptT $ do
     let (cInputs, uInputs) = categorizeInputs symbols inputs
 
     lift $ do
-        S.laceInit threads 1000000
-        S.laceStartup
-        S.sylvanInitPackage (1 `shiftL` 21) (1 `shiftL` 25) (1 `shiftL` 21) (1 `shiftL` 25)
-        S.sylvanInit 
+        S.laceStart threads 1000000
+        S.setLimits (1 `shiftL` 30) 1 8
+        S.initPackage
+        S.initMtbdd 
 
     lift $ stToIO $ do
         setupManager quiet 
