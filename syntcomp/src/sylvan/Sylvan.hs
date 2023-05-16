@@ -57,7 +57,6 @@ foreign import ccall safe "sylvan_set_sizes"
 setSizes :: PrimMonad m => Int -> Int -> Int -> Int -> m ()
 setSizes minTableSize maxTableSize minCacheSize maxCacheSize = unsafePrimToPrim $ c_sylvanSetSizes (fromIntegral minTableSize) (fromIntegral maxTableSize) (fromIntegral minCacheSize) (fromIntegral maxCacheSize)
 
-
 foreign import ccall safe "sylvan_quit"
     c_sylvanQuit :: IO ()
 

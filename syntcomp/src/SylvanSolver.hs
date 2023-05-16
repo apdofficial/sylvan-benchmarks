@@ -202,7 +202,7 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
         im   = Map.unions [tf, mpCI, mpUI, mpL]
 
     --compile the and gates
-    stab     <- fmap fst $ mapAccumLM (doAndGates ops andMap) im andGates 
+    stab     <- fst <$> mapAccumLM (doAndGates ops andMap) im andGates
 
     --get the safety condition
     let sr   = fromJustNote "compile" $ Map.lookup safeIndex stab
@@ -222,7 +222,7 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
 
 safeCpre :: (Show a, Eq a) => Bool -> Ops s v m a -> SynthState v m a -> a -> ST s a
 safeCpre quiet ops@Ops{..} SynthState{..} s = do
-    when (not quiet) $ unsafeIOToST $ print "*"
+    unless quiet $ unsafeIOToST $ print "*"
     scu' <- vectorCompose s trel
 
     scu <- andAbstract cInputCube safeRegion scu'
@@ -247,7 +247,7 @@ fixedPoint ops@Ops{..} init start func = do
 solveSafety :: (Eq a, Show a) => Bool -> Ops s v m a -> SynthState v m a -> a -> a -> ST s Bool
 solveSafety quiet ops@Ops{..} ss init safeRegion = do
     ref btrue
-    fixedPoint ops init btrue $ safeCpre quiet ops ss 
+    fixedPoint ops init btrue (safeCpre quiet ops ss) 
 
 categorizeInputs :: [Symbol] -> [Int] -> ([Int], [Int])
 categorizeInputs symbols inputs = (cont, inputs \\ cont)
@@ -265,7 +265,7 @@ doIt (Options {..}) = runExceptT $ do
         let (cInputs, uInputs) = categorizeInputs symbols inputs
         stToIO $ do
             S.laceStart threads 1000000
-            S.setLimits (6 `shiftL` 30) 1 8
+            S.setLimits (1 `shiftL` 25) 1 8
             S.initPackage
             S.initMtbdd 
             S.gcEnable
