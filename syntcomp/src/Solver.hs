@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings, RecordWildCards, DeriveFunctor, DeriveFoldable, DeriveTraversable #-}
-module SimpleBDDSolver.Slver
+module Solver
     ( run
     , doIt
     , Options(..)
@@ -33,8 +33,9 @@ import qualified Cudd.Imperative as Cudd
 import Cudd.Imperative (DDManager, DDNode)
 import Cudd.Reorder
 
-import SimpleBDDSolver.AAG
-import SimpleBDDSolver.BDD
+import AAG
+import BDD
+import BDDCudd
 
 --Compiling the AIG
 makeAndMap :: [(Int, Int, Int)] -> Map Int (Int, Int)
