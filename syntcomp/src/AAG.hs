@@ -70,4 +70,3 @@ aag = do
     andGates <- replicateM a andGate
     symbols  <- many symbol
     return AAG {..}
-

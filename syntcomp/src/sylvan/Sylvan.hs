@@ -51,6 +51,13 @@ foreign import ccall safe "sylvan_set_limits"
 setLimits :: PrimMonad m => Int -> Int -> Int -> m ()
 setLimits memoryCap tableRatio initialRatio = unsafePrimToPrim $ c_sylvanSetLimits (fromIntegral memoryCap) (fromIntegral tableRatio) (fromIntegral initialRatio)
 
+foreign import ccall safe "sylvan_set_sizes"
+    c_sylvanSetSizes :: CInt -> CInt -> CInt -> CInt -> IO ()
+
+setSizes :: PrimMonad m => Int -> Int -> Int -> Int -> m ()
+setSizes minTableSize maxTableSize minCacheSize maxCacheSize = unsafePrimToPrim $ c_sylvanSetSizes (fromIntegral minTableSize) (fromIntegral maxTableSize) (fromIntegral minCacheSize) (fromIntegral maxCacheSize)
+
+
 foreign import ccall safe "sylvan_quit"
     c_sylvanQuit :: IO ()
 
@@ -174,7 +181,7 @@ setFromArray vars = liftM BDD $ unsafePrimToPrim $
         c_setFromArray p (fromIntegral l)
 
 mapEmpty :: BDDMap
-mapEmpty = BDDMap c_sylvanFalse
+mapEmpty = BDDMap c_sylvanFalse 
 
 foreign import ccall safe "mtbdd_map_add"
     c_mapAdd :: CBDDMap -> CBDDVar -> CBDD -> IO CBDDMap
