@@ -1,5 +1,5 @@
 cudd:
-	cabal run cudd-solver $(model) \
+	time cabal run cudd-solver $(model) \
     --extra-lib-dirs=/opt/homebrew/Cellar/cudd/3.0.0/lib \
     --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/_deps/lace-build \
     --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/src \
@@ -9,7 +9,7 @@ cudd:
     --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan/src
 
 sylvan:
-	cabal run sylvan-solver $(model) \
+	time cabal run sylvan-solver $(model) \
     --extra-lib-dirs=/opt/homebrew/Cellar/cudd/3.0.0/lib \
     --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/_deps/lace-build \
     --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/src \
