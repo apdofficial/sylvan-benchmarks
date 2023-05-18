@@ -45,6 +45,7 @@ data Ops s v m a = Ops {
     computeVarSet :: [Int] -> ST s v,
     computeCube   :: v -> [Bool] -> ST s a,
     ithVar        :: Int -> ST s a,
+    ithLevel      :: Int -> ST s a,
     bforall       :: v -> a -> ST s a,
     bexists       :: v -> a -> ST s a,
     deref         :: a -> ST s (),
@@ -102,6 +103,10 @@ constructOps = Ops {..}
         func True  = S.Positive
     ithVar i          = do
         res <- S.ithVar $ fromIntegral i
+        ref res
+        return res
+    ithLevel i        = do
+        res <- S.ithLevel $ fromIntegral i
         ref res
         return res
     bforall v x       = do
@@ -169,7 +174,7 @@ substitutionArray Ops{..} latches andGates = constructMap pairs
 
 compile :: Ops s v m a -> [Int] -> [Int] -> [(Int, Int)] -> [(Int, Int, Int)] -> Int -> ST s (SynthState v m a)
 compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeIndex = do
-    S.newlevels (length controllableInputs + length uncontrollableInputs + length latches + length ands + 1)
+    S.newlevels (length controllableInputs + length uncontrollableInputs + length latches)
 
     let andGates = map sel1 ands
         andMap   = makeAndMap ands
@@ -177,19 +182,19 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     let nextIdx       = length controllableInputs
         cInputIndices = [0 .. nextIdx - 1]
 
-    cInputVars <- mapM ithVar cInputIndices
+    cInputVars <- mapM ithLevel cInputIndices
     cInputCube <- computeVarSet cInputIndices
 
     --create an entry for each uncontrollable input
     let nextIdx2      = nextIdx + length uncontrollableInputs
         uInputIndices = [nextIdx .. nextIdx2 - 1]
-    uInputVars <- mapM ithVar uInputIndices
+    uInputVars <- mapM ithLevel uInputIndices
     uInputCube <- computeVarSet uInputIndices
 
     --create an entry for each latch 
     let nextIdx3     = nextIdx2 + length latches
         latchIndices = [nextIdx2 .. nextIdx3 - 1]
-    latchVars  <- mapM ithVar latchIndices
+    latchVars  <- mapM ithLevel latchIndices
     latchCube  <- computeVarSet latchIndices
 
     ref btrue
@@ -206,11 +211,17 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     --compile the and gates
     stab     <- fst <$> mapAccumLM (doAndGates ops andMap) im andGates
 
+    S.reduceHeap
+
     --get the safety condition
     let sr   = fromJustNote "compile" $ Map.lookup safeIndex stab
 
+    S.reduceHeap
+
     --construct the initial state
     initState <- computeCube latchCube (replicate (length latchVars) False)
+
+    S.reduceHeap
 
     --construct the transition relation
     let latchMap = Map.fromList latches
@@ -268,9 +279,9 @@ doIt (Options {..}) = runExceptT $ do
     lift $ do
         let (cInputs, uInputs) = categorizeInputs symbols inputs
         stToIO $ do
-            S.laceStart threads 1000000
+            S.laceStart 8 1000000
 
-            S.setLimits (1 `shiftL` 25) 1 8
+            S.setLimits (3 `shiftL` 30) 1 8
 
             S.initPackage
             S.initMtbdd 
@@ -278,7 +289,7 @@ doIt (Options {..}) = runExceptT $ do
             
             S.setReorderMaxSwap 1000
             S.setReorderMaxVar 50
-            S.setReorderThreshold 128
+            S.setReorderThreshold 64
             S.setReorderTimeLimit (1 * 60 * 60000)
 
             S.gcEnable
