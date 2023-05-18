@@ -179,7 +179,7 @@ compile m ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeI
     let latchMap = Map.fromList latches
     trel <- substitutionArray ops latchMap stab
 
-    cuddReduceHeap m CuddReorderSift 0
+    -- cuddReduceHeap m CuddReorderSift 0
 
     mapM_ ref trel
     ref sr
@@ -233,7 +233,7 @@ solveSafety options@Options{..} ops@Ops{..} ss init safeRegion = do
 
 setupManager :: Options -> DDManager s u -> ST s ()
 setupManager Options{..} m = void $ do
-    -- unless noReord $ cuddAutodynEnable m CuddReorderGroupSift
+    unless noReord $ cuddAutodynEnable m CuddReorderGroupSift
     unless quiet   $ void $ do
         regStdPreReordHook m
         regStdPostReordHook m

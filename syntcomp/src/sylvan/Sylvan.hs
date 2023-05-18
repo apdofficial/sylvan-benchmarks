@@ -60,7 +60,7 @@ setLimits :: PrimMonad m => Int -> Int -> Int -> m ()
 setLimits memoryCap tableRatio initialRatio = unsafePrimToPrim $ c_sylvanSetLimits (fromIntegral memoryCap) (fromIntegral tableRatio) (fromIntegral initialRatio)
 
 foreign import ccall safe "sylvan_set_sizes"
-    c_sylvanSetSizes :: CInt -> CInt -> CInt -> CInt -> IO ()
+    c_sylvanSetSizes :: CSize -> CSize -> CSize -> CSize -> IO ()
 
 setSizes :: PrimMonad m => Int -> Int -> Int -> Int -> m ()
 setSizes minTableSize maxTableSize minCacheSize maxCacheSize = unsafePrimToPrim $ c_sylvanSetSizes (fromIntegral minTableSize) (fromIntegral maxTableSize) (fromIntegral minCacheSize) (fromIntegral maxCacheSize)
@@ -244,6 +244,13 @@ foreign import ccall safe "sylvan_reduce_heap"
 
 reduceHeap :: PrimMonad m => m ()
 reduceHeap = unsafePrimToPrim c_sylvanReduceHeap 
+
+foreign import ccall safe "sylvan_test_reduce_heap"
+    c_sylvanTestReduceHeap :: CDouble -> IO ()
+
+testReduceHeap:: PrimMonad m => Rational -> m ()
+testReduceHeap memoryPercentageThreshold  = unsafePrimToPrim $ c_sylvanTestReduceHeap (fromRational memoryPercentageThreshold)
+
 
 ----TODO: doesnt seem to exist
 --foreign import ccall safe "sylvan_report_stats"
