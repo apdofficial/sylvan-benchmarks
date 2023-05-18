@@ -1,22 +1,22 @@
 cudd:
 	cabal run cudd-solver $(model) \
     --extra-lib-dirs=/opt/homebrew/Cellar/cudd/3.0.0/lib \
-    --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/syntcomp/src/sylvan/c_sources/sylvan/build/_deps/lace-build \
-    --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/syntcomp/src/sylvan/c_sources/sylvan/build/src \
+    --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/_deps/lace-build \
+    --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/src \
     --extra-include-dirs=/opt/homebrew/Cellar/cudd/3.0.0/include \
-    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/syntcomp/src/sylvan/c_sources/sylvan/build/_deps/lace-src/src \
-    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/syntcomp/src/sylvan/c_sources/sylvan/build/_deps/lace-build \
-    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/syntcomp/src/sylvan/c_sources/sylvan/src
+    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/_deps/lace-src/src \
+    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/_deps/lace-build \
+    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan/src
 
 sylvan:
 	cabal run sylvan-solver $(model) \
     --extra-lib-dirs=/opt/homebrew/Cellar/cudd/3.0.0/lib \
-    --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/syntcomp/src/sylvan/c_sources/sylvan/build/_deps/lace-build \
-    --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/syntcomp/src/sylvan/c_sources/sylvan/build/src \
+    --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/_deps/lace-build \
+    --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/src \
     --extra-include-dirs=/opt/homebrew/Cellar/cudd/3.0.0/include \
-    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/syntcomp/src/sylvan/c_sources/sylvan/build/_deps/lace-src/src \
-    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/syntcomp/src/sylvan/c_sources/sylvan/build/_deps/lace-build \
-    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/syntcomp/src/sylvan/c_sources/sylvan/src
+    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/_deps/lace-src/src \
+    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/_deps/lace-build \
+    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan/src
 
 clean:
 	@echo "cleaning..." 

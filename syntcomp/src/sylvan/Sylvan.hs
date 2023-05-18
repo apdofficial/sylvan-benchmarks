@@ -33,6 +33,7 @@ c_sylvanTrue       =  c_sylvanFalse .|. c_sylvanComplement
 sylvanFalse = BDD c_sylvanFalse
 sylvanTrue  = BDD c_sylvanTrue
 
+--Init
 foreign import ccall safe "sylvan_init_package"
     c_sylvanInitPackage :: IO ()
 
@@ -45,6 +46,13 @@ foreign import ccall safe "sylvan_init_mtbdd"
 initMtbdd :: PrimMonad m => m ()
 initMtbdd = unsafePrimToPrim c_sylvanInitMtbdd 
 
+foreign import ccall safe "sylvan_init_reorder"
+    c_sylvanInitReorder :: IO ()
+
+initReorder :: PrimMonad m => m ()
+initReorder = unsafePrimToPrim c_sylvanInitReorder
+
+--Setters
 foreign import ccall safe "sylvan_set_limits"
     c_sylvanSetLimits :: CInt -> CInt -> CInt -> IO ()
 
@@ -57,6 +65,37 @@ foreign import ccall safe "sylvan_set_sizes"
 setSizes :: PrimMonad m => Int -> Int -> Int -> Int -> m ()
 setSizes minTableSize maxTableSize minCacheSize maxCacheSize = unsafePrimToPrim $ c_sylvanSetSizes (fromIntegral minTableSize) (fromIntegral maxTableSize) (fromIntegral minCacheSize) (fromIntegral maxCacheSize)
 
+foreign import ccall safe "sylvan_set_reorder_maxswap"
+    c_sylvanSetReorderMaxSwap :: CInt -> IO ()
+
+setReorderMaxSwap :: PrimMonad m => Int -> m ()
+setReorderMaxSwap maxSwap  = unsafePrimToPrim $ c_sylvanSetReorderMaxSwap (fromIntegral maxSwap)
+
+foreign import ccall safe "sylvan_set_reorder_maxvar"
+    c_sylvanSetReorderMaxVar :: CInt -> IO ()
+
+setReorderMaxVar :: PrimMonad m => Int -> m ()
+setReorderMaxVar maxVar  = unsafePrimToPrim $ c_sylvanSetReorderMaxVar (fromIntegral maxVar)
+
+foreign import ccall safe "sylvan_set_reorder_threshold"
+    c_sylvanSetReorderThreshold :: CInt -> IO ()
+
+setReorderThreshold:: PrimMonad m => Int -> m ()
+setReorderThreshold threshold  = unsafePrimToPrim $ c_sylvanSetReorderThreshold (fromIntegral threshold)
+
+foreign import ccall safe "sylvan_set_reorder_timelimit"
+    c_sylvanSetReorderTimeLimit :: CDouble -> IO ()
+
+setReorderTimeLimit :: PrimMonad m => Rational -> m ()
+setReorderTimeLimit timeLimit  = unsafePrimToPrim $ c_sylvanSetReorderTimeLimit (fromRational timeLimit)
+
+foreign import ccall safe "mtbdd_newlevels"
+    c_sylvanNewlevels :: CInt -> IO ()
+
+newlevels :: PrimMonad m => Int -> m ()
+newlevels amount  = unsafePrimToPrim $ c_sylvanNewlevels (fromIntegral amount)
+
+--Setters
 foreign import ccall safe "sylvan_quit"
     c_sylvanQuit :: IO ()
 
@@ -71,6 +110,12 @@ ithVar var = liftM BDD $ unsafePrimToPrim $ c_ithVar (fromIntegral var)
 
 nithVar :: PrimMonad m => BDDVar -> m BDD
 nithVar var = liftM (BDD . xor c_sylvanComplement) $ unsafePrimToPrim $ c_ithVar (fromIntegral var)
+
+foreign import ccall safe "mtbdd_ithlevel"
+    c_ithLevel :: CBDDVar -> IO CBDD
+
+ithLevel :: PrimMonad m => BDDVar -> m BDD
+ithLevel level = liftM BDD $ unsafePrimToPrim $ c_ithLevel (fromIntegral level)
 
 foreign import ccall safe "mtbdd_ref"
     c_ref :: CBDD -> IO (CBDD)
@@ -193,6 +238,12 @@ foreign import ccall safe "sylvan_compose_stub"
 
 compose :: PrimMonad m => BDD -> BDDMap -> m BDD
 compose (BDD f) (BDDMap m) = liftM BDD $ unsafePrimToPrim $ c_compose f m
+
+foreign import ccall safe "sylvan_reduce_heap"
+    c_sylvanReduceHeap :: IO ()
+
+reduceHeap :: PrimMonad m => m ()
+reduceHeap = unsafePrimToPrim c_sylvanReduceHeap 
 
 ----TODO: doesnt seem to exist
 --foreign import ccall safe "sylvan_report_stats"

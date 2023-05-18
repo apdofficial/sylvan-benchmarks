@@ -169,6 +169,8 @@ substitutionArray Ops{..} latches andGates = constructMap pairs
 
 compile :: Ops s v m a -> [Int] -> [Int] -> [(Int, Int)] -> [(Int, Int, Int)] -> Int -> ST s (SynthState v m a)
 compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeIndex = do
+    S.newlevels (length controllableInputs + length uncontrollableInputs + length latches + length ands + 1)
+
     let andGates = map sel1 ands
         andMap   = makeAndMap ands
     --create an entry for each controllable input 
@@ -218,6 +220,8 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     let func k v = when (even k) (deref v)
     Map.traverseWithKey func stab
 
+    S.reduceHeap
+
     return $ SynthState cInputCube uInputCube (neg sr) trel initState
 
 safeCpre :: (Show a, Eq a) => Bool -> Ops s v m a -> SynthState v m a -> a -> ST s a
@@ -265,10 +269,20 @@ doIt (Options {..}) = runExceptT $ do
         let (cInputs, uInputs) = categorizeInputs symbols inputs
         stToIO $ do
             S.laceStart threads 1000000
+
             S.setLimits (1 `shiftL` 25) 1 8
+
             S.initPackage
             S.initMtbdd 
+            S.initReorder
+            
+            S.setReorderMaxSwap 1000
+            S.setReorderMaxVar 50
+            S.setReorderThreshold 128
+            S.setReorderTimeLimit (1 * 60 * 60000)
+
             S.gcEnable
+
             let ops = constructOps 
             ss@SynthState{..} <- compile ops cInputs uInputs latches andGates (head outputs)
             res <- solveSafety quiet ops ss initState safeRegion

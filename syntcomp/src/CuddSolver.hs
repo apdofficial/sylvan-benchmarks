@@ -140,8 +140,8 @@ substitutionArray Ops{..} latches andGates = do
         Nothing    -> ithVar idx
         Just input -> return $ fromJustNote ("substitutionArray: " ++ show input) $ Map.lookup input andGates
 
-compile :: Ops s a -> [Int] -> [Int] -> [(Int, Int)] -> [(Int, Int, Int)] -> Int -> ST s (SynthState a)
-compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeIndex = do
+compile :: DDManager s u -> Ops s a -> [Int] -> [Int] -> [(Int, Int)] -> [(Int, Int, Int)] -> Int -> ST s (SynthState a)
+compile m ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeIndex = do
     let andGates = map sel1 ands
         andMap   = makeAndMap ands
     --create an entry for each controllable input 
@@ -178,6 +178,8 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     --construct the transition relation
     let latchMap = Map.fromList latches
     trel <- substitutionArray ops latchMap stab
+
+    cuddReduceHeap m CuddReorderGroupSift 0
 
     mapM_ ref trel
     ref sr
@@ -231,7 +233,7 @@ solveSafety options@Options{..} ops@Ops{..} ss init safeRegion = do
 
 setupManager :: Options -> DDManager s u -> ST s ()
 setupManager Options{..} m = void $ do
-    unless noReord $ cuddAutodynEnable m CuddReorderGroupSift
+    -- unless noReord $ cuddAutodynEnable m CuddReorderGroupSift
     unless quiet   $ void $ do
         regStdPreReordHook m
         regStdPostReordHook m
@@ -254,7 +256,7 @@ doIt o@Options{..} = runExceptT $ do
         stToIO $ Cudd.withManagerDefaults $ \m -> do
             setupManager o m
             let ops = constructOps m
-            ss@SynthState{..} <- compile ops cInputs uInputs latches andGates (head outputs)
+            ss@SynthState{..} <- compile m ops cInputs uInputs latches andGates (head outputs)
             res <- solveSafety o ops ss initState safeRegion
             T.mapM (deref ops) ss
             Cudd.quit m
