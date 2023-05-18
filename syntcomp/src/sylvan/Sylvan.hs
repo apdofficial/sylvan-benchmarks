@@ -54,7 +54,7 @@ initReorder = unsafePrimToPrim c_sylvanInitReorder
 
 --Setters
 foreign import ccall safe "sylvan_set_limits"
-    c_sylvanSetLimits :: CInt -> CInt -> CInt -> IO ()
+    c_sylvanSetLimits :: CSize -> CInt -> CInt -> IO ()
 
 setLimits :: PrimMonad m => Int -> Int -> Int -> m ()
 setLimits memoryCap tableRatio initialRatio = unsafePrimToPrim $ c_sylvanSetLimits (fromIntegral memoryCap) (fromIntegral tableRatio) (fromIntegral initialRatio)
