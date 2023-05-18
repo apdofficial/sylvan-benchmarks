@@ -179,7 +179,7 @@ compile m ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeI
     let latchMap = Map.fromList latches
     trel <- substitutionArray ops latchMap stab
 
-    cuddReduceHeap m CuddReorderGroupSift 0
+    cuddReduceHeap m CuddReorderSift 0
 
     mapM_ ref trel
     ref sr
