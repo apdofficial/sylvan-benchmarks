@@ -181,6 +181,7 @@ compile m ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeI
 
     -- cuddReduceHeap m CuddReorderSift 0
 
+    unsafeIOToST $ print "*"
     mapM_ ref trel
     ref sr
     let func k v = when (even k) (deref v)
@@ -233,7 +234,7 @@ solveSafety options@Options{..} ops@Ops{..} ss init safeRegion = do
 
 setupManager :: Options -> DDManager s u -> ST s ()
 setupManager Options{..} m = void $ do
-    unless noReord $ cuddAutodynEnable m CuddReorderGroupSift
+    unless noReord $ cuddAutodynEnable m CuddReorderSift
     unless quiet   $ void $ do
         regStdPreReordHook m
         regStdPostReordHook m

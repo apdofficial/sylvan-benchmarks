@@ -1,22 +1,27 @@
+SYLVAN_INC_PATH=/Users/andrejpistek/Developer/MSc/sylvan/src
+SYLVAN_LIB_PATH=/Users/andrejpistek/Developer/MSc/sylvan/build-clang-chaining
+CUDD_INC_PATH=/opt/homebrew/Cellar/cudd/3.0.0/include
+CUDD_LIB_PATH=/opt/homebrew/Cellar/cudd/3.0.0/lib
+
 cudd:
 	time cabal run cudd-solver $(model) \
-    --extra-lib-dirs=/opt/homebrew/Cellar/cudd/3.0.0/lib \
-    --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/_deps/lace-build \
-    --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/src \
-    --extra-include-dirs=/opt/homebrew/Cellar/cudd/3.0.0/include \
-    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/_deps/lace-src/src \
-    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/_deps/lace-build \
-    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan/src
+    --extra-lib-dirs=${CUDD_LIB_PATH} \
+    --extra-lib-dirs=${SYLVAN_LIB_PATH}/_deps/lace-build \
+    --extra-lib-dirs=${SYLVAN_LIB_PATH}/src \
+    --extra-include-dirs=${CUDD_INC_PATH} \
+    --extra-include-dirs=${SYLVAN_LIB_PATH}/_deps/lace-src/src \
+    --extra-include-dirs=${SYLVAN_LIB_PATH}/_deps/lace-build \
+    --extra-include-dirs=${SYLVAN_INC_PATH}
 
 sylvan:
 	time cabal run sylvan-solver $(model) \
-    --extra-lib-dirs=/opt/homebrew/Cellar/cudd/3.0.0/lib \
-    --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/_deps/lace-build \
-    --extra-lib-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/src \
-    --extra-include-dirs=/opt/homebrew/Cellar/cudd/3.0.0/include \
-    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/_deps/lace-src/src \
-    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan/build/_deps/lace-build \
-    --extra-include-dirs=/Users/andrejpistek/Developer/MSc/sylvan/src
+    --extra-lib-dirs=${CUDD_LIB_PATH} \
+    --extra-lib-dirs=${SYLVAN_LIB_PATH}/_deps/lace-build \
+    --extra-lib-dirs=${SYLVAN_LIB_PATH}/src \
+    --extra-include-dirs=${CUDD_INC_PATH} \
+    --extra-include-dirs=${SYLVAN_LIB_PATH}/_deps/lace-src/src \
+    --extra-include-dirs=${SYLVAN_LIB_PATH}/_deps/lace-build \
+    --extra-include-dirs=${SYLVAN_INC_PATH}
 
 clean:
 	@echo "cleaning..." 

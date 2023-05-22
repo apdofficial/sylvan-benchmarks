@@ -52,6 +52,7 @@ foreign import ccall safe "sylvan_init_reorder"
 initReorder :: PrimMonad m => m ()
 initReorder = unsafePrimToPrim c_sylvanInitReorder
 
+
 --Setters
 foreign import ccall safe "sylvan_set_limits"
     c_sylvanSetLimits :: CSize -> CInt -> CInt -> IO ()
@@ -77,17 +78,17 @@ foreign import ccall safe "sylvan_set_reorder_maxvar"
 setReorderMaxVar :: PrimMonad m => Int -> m ()
 setReorderMaxVar maxVar  = unsafePrimToPrim $ c_sylvanSetReorderMaxVar (fromIntegral maxVar)
 
-foreign import ccall safe "sylvan_set_reorder_threshold"
-    c_sylvanSetReorderThreshold :: CInt -> IO ()
+foreign import ccall safe "sylvan_set_reorder_nodes_threshold"
+    c_sylvanSetReorderNodesThreshold :: CInt -> IO ()
 
-setReorderThreshold:: PrimMonad m => Int -> m ()
-setReorderThreshold threshold  = unsafePrimToPrim $ c_sylvanSetReorderThreshold (fromIntegral threshold)
+setReorderNodesThreshold:: PrimMonad m => Int -> m ()
+setReorderNodesThreshold threshold  = unsafePrimToPrim $ c_sylvanSetReorderNodesThreshold (fromIntegral threshold)
 
-foreign import ccall safe "sylvan_set_reorder_timelimit"
-    c_sylvanSetReorderTimeLimit :: CDouble -> IO ()
+foreign import ccall safe "sylvan_set_reorder_timelimit_sec"
+    c_sylvanSetReorderTimeLimitSec :: CDouble -> IO ()
 
-setReorderTimeLimit :: PrimMonad m => Rational -> m ()
-setReorderTimeLimit timeLimit  = unsafePrimToPrim $ c_sylvanSetReorderTimeLimit (fromRational timeLimit)
+setReorderTimeLimitSec :: PrimMonad m => Rational -> m ()
+setReorderTimeLimitSec timeLimit  = unsafePrimToPrim $ c_sylvanSetReorderTimeLimitSec (fromRational timeLimit)
 
 foreign import ccall safe "mtbdd_newlevels"
     c_sylvanNewlevels :: CInt -> IO ()
@@ -246,10 +247,10 @@ reduceHeap :: PrimMonad m => m ()
 reduceHeap = unsafePrimToPrim c_sylvanReduceHeap 
 
 foreign import ccall safe "sylvan_test_reduce_heap"
-    c_sylvanTestReduceHeap :: CDouble -> IO ()
+    c_sylvanTestReduceHeap :: IO ()
 
-testReduceHeap:: PrimMonad m => Rational -> m ()
-testReduceHeap memoryPercentageThreshold  = unsafePrimToPrim $ c_sylvanTestReduceHeap (fromRational memoryPercentageThreshold)
+testReduceHeap:: PrimMonad m =>  m ()
+testReduceHeap  = unsafePrimToPrim c_sylvanTestReduceHeap 
 
 
 ----TODO: doesnt seem to exist

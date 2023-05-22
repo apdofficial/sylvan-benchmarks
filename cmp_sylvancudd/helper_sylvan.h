@@ -1,4 +1,5 @@
 #include "sylvan.h"
+#include "sylvan_reorder.h"
 
 void sylvan_start()
 {

@@ -59,9 +59,10 @@ constructOps :: Ops s BDD BDDMap BDD
 constructOps = Ops {..}
     where
     bAnd x y          = do
+        S.testReduceHeap
         res <- S.band x y
-        S.testReduceHeap 0.85
         ref res
+        S.testReduceHeap
         return res
     bOr x y           = do
         res <- S.bor x y
@@ -176,9 +177,9 @@ substitutionArray Ops{..} latches andGates = constructMap pairs
 compile :: Ops s v m a -> [Int] -> [Int] -> [(Int, Int)] -> [(Int, Int, Int)] -> Int -> ST s (SynthState v m a)
 compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeIndex = do
     S.newlevels (length controllableInputs + length uncontrollableInputs + length latches)
-
     let andGates = map sel1 ands
         andMap   = makeAndMap ands
+
     --create an entry for each controllable input 
     let nextIdx       = length controllableInputs
         cInputIndices = [0 .. nextIdx - 1]
@@ -274,14 +275,14 @@ doIt (Options {..}) = runExceptT $ do
         stToIO $ do
             S.laceStart 8 1000000
 
-            S.setLimits (2 `shiftL` 30) 1 8
+            S.setLimits (8 `shiftL` 30) 1 8
 
             S.initPackage
             S.initMtbdd 
             S.initReorder
 
-            S.setReorderThreshold 128
-            S.setReorderTimeLimit (1 * 60 * 60000)
+            S.setReorderNodesThreshold 32
+            S.setReorderTimeLimitSec 10
 
             S.gcEnable
 
