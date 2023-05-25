@@ -4,7 +4,7 @@ CUDD_INC_PATH=/opt/homebrew/Cellar/cudd/3.0.0/include
 CUDD_LIB_PATH=/opt/homebrew/Cellar/cudd/3.0.0/lib
 
 cudd:
-	time cabal run cudd-solver $(model) \
+	cabal run cudd-solver $(model) \
     --extra-lib-dirs=${CUDD_LIB_PATH} \
     --extra-lib-dirs=${SYLVAN_LIB_PATH}/_deps/lace-build \
     --extra-lib-dirs=${SYLVAN_LIB_PATH}/src \
@@ -14,7 +14,7 @@ cudd:
     --extra-include-dirs=${SYLVAN_INC_PATH}
 
 sylvan:
-	time cabal run sylvan-solver $(model) \
+	cabal run sylvan-solver $(model) \
     --extra-lib-dirs=${CUDD_LIB_PATH} \
     --extra-lib-dirs=${SYLVAN_LIB_PATH}/_deps/lace-build \
     --extra-lib-dirs=${SYLVAN_LIB_PATH}/src \

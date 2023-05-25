@@ -72,6 +72,12 @@ foreign import ccall safe "sylvan_set_reorder_maxswap"
 setReorderMaxSwap :: PrimMonad m => Int -> m ()
 setReorderMaxSwap maxSwap  = unsafePrimToPrim $ c_sylvanSetReorderMaxSwap (fromIntegral maxSwap)
 
+foreign import ccall safe "sylvan_set_reorder_maxgrowth"
+    c_sylvanSetReorderMaxGrowth :: CFloat -> IO ()
+
+setReorderMaxGrowth :: PrimMonad m => Rational -> m ()
+setReorderMaxGrowth maxGrowth  = unsafePrimToPrim $ c_sylvanSetReorderMaxGrowth (fromRational maxGrowth)
+
 foreign import ccall safe "sylvan_set_reorder_maxvar"
     c_sylvanSetReorderMaxVar :: CInt -> IO ()
 
@@ -85,7 +91,7 @@ setReorderNodesThreshold:: PrimMonad m => Int -> m ()
 setReorderNodesThreshold threshold  = unsafePrimToPrim $ c_sylvanSetReorderNodesThreshold (fromIntegral threshold)
 
 foreign import ccall safe "sylvan_set_reorder_timelimit_sec"
-    c_sylvanSetReorderTimeLimitSec :: CDouble -> IO ()
+    c_sylvanSetReorderTimeLimitSec :: CFloat -> IO ()
 
 setReorderTimeLimitSec :: PrimMonad m => Rational -> m ()
 setReorderTimeLimitSec timeLimit  = unsafePrimToPrim $ c_sylvanSetReorderTimeLimitSec (fromRational timeLimit)

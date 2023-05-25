@@ -59,7 +59,6 @@ constructOps :: Ops s BDD BDDMap BDD
 constructOps = Ops {..}
     where
     bAnd x y          = do
-        S.testReduceHeap
         res <- S.band x y
         ref res
         S.testReduceHeap
@@ -223,6 +222,8 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     let latchMap = Map.fromList latches
     trel <- substitutionArray ops latchMap stab
 
+    -- S.reduceHeap
+
     ref sr
     let func k v = when (even k) (deref v)
     Map.traverseWithKey func stab
@@ -275,14 +276,15 @@ doIt (Options {..}) = runExceptT $ do
         stToIO $ do
             S.laceStart 8 1000000
 
-            S.setLimits (8 `shiftL` 30) 1 8
+            S.setLimits (8 * 1024 * 1024 * 1024) 1 8
 
             S.initPackage
             S.initMtbdd 
             S.initReorder
 
             S.setReorderNodesThreshold 32
-            S.setReorderTimeLimitSec 10
+            S.setReorderTimeLimitSec 30
+            S.setReorderMaxGrowth 1.05
 
             S.gcEnable
 
