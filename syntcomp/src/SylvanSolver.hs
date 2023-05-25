@@ -274,9 +274,9 @@ doIt (Options {..}) = runExceptT $ do
     lift $ do
         let (cInputs, uInputs) = categorizeInputs symbols inputs
         stToIO $ do
-            S.laceStart 8 1000000
+            S.laceStart 8 0
 
-            S.setLimits (8 * 1024 * 1024 * 1024) 1 8
+            S.setLimits (8 * 1024 * 1024 * 1024) 1 16
 
             S.initPackage
             S.initMtbdd 
@@ -284,7 +284,7 @@ doIt (Options {..}) = runExceptT $ do
 
             S.setReorderNodesThreshold 32
             S.setReorderTimeLimitSec 30
-            S.setReorderMaxGrowth 1.05
+            S.setReorderMaxGrowth 1.2
 
             S.gcEnable
 

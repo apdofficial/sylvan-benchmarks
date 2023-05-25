@@ -91,7 +91,7 @@ setReorderNodesThreshold:: PrimMonad m => Int -> m ()
 setReorderNodesThreshold threshold  = unsafePrimToPrim $ c_sylvanSetReorderNodesThreshold (fromIntegral threshold)
 
 foreign import ccall safe "sylvan_set_reorder_timelimit_sec"
-    c_sylvanSetReorderTimeLimitSec :: CFloat -> IO ()
+    c_sylvanSetReorderTimeLimitSec :: CDouble -> IO ()
 
 setReorderTimeLimitSec :: PrimMonad m => Rational -> m ()
 setReorderTimeLimitSec timeLimit  = unsafePrimToPrim $ c_sylvanSetReorderTimeLimitSec (fromRational timeLimit)
