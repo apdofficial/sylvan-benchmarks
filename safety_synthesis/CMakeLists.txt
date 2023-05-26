@@ -9,6 +9,7 @@ macro(add_benchmark NAME SOURCE)
 endmacro(add_benchmark)
 
 add_benchmark(aiger_synt aiger_synt.cpp)
+target_sources(aiger_synt PRIVATE aag.h)
 
 # Check if we have Boost
 find_package(Boost 1.71.0)
