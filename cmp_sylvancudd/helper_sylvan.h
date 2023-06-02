@@ -1,17 +1,20 @@
 #include "sylvan.h"
+#include "sylvan_int.h"
 #include "sylvan_reorder.h"
 
 void sylvan_start()
 {
     lace_start(4, 1000000); // 4 workers, use a 1,000,000 size task queue
 
-    sylvan_set_limits(1LL * 1LL << 30, 1, 128);
+    sylvan_set_limits(1LL << 30, 1, 12);
     sylvan_init_package();
     sylvan_init_mtbdd();
     sylvan_init_reorder();
     sylvan_gc_enable();
 
-    sylvan_set_reorder_nodes_threshold(1);
+    sylvan_newlevels(6); // 6 variables
+
+    sylvan_set_reorder_nodes_threshold(2);
     sylvan_set_reorder_maxgrowth(1.2f);
     sylvan_set_reorder_timelimit_sec(30); // 1 minute
 }
@@ -29,20 +32,26 @@ void sylvan_exit()
 TASK_1(BDD, create_example_bdd, size_t, is_optimal)
 {
     // the variable indexing is relative to the current level
-    BDD v0 = sylvan_newlevel();
-    BDD v1 = sylvan_newlevel();
-    BDD v2 = sylvan_newlevel();
-    BDD v3 = sylvan_newlevel();
-    BDD v4 = sylvan_newlevel();
-    BDD v5 = sylvan_newlevel();
+    BDD v0 = sylvan_ithlevel(0);
+    BDD v1 = sylvan_ithlevel(1);
+    BDD v2 = sylvan_ithlevel(2);
+    BDD v3 = sylvan_ithlevel(3);
+    BDD v4 = sylvan_ithlevel(4);
+    BDD v5 = sylvan_ithlevel(5);
 
     if (is_optimal) {
         // optimal order 0, 1, 2, 3, 4, 5
         // minimum 8 nodes including 2 terminal nodes
-        return sylvan_or(sylvan_and(v0, v1), sylvan_or(sylvan_and(v2, v3), sylvan_and(v4, v5)));
+        BDD a = sylvan_and(v0, v1);
+        BDD b = sylvan_and(v2, v3);
+        BDD c = sylvan_and(v4, v5);
+        return sylvan_or(a, sylvan_or(b, c));
     } else {
         // not optimal order 0, 3, 1, 4, 2, 5
         // minimum 16 nodes including 2 terminal nodes
-        return sylvan_or(sylvan_and(v0, v3), sylvan_or(sylvan_and(v1, v4), sylvan_and(v2, v5)));
+        BDD a = sylvan_and(v0, v3);
+        BDD b = sylvan_and(v1, v4);
+        BDD c = sylvan_and(v2, v5);
+        return sylvan_or(a, sylvan_or(b, c));
     }
 }

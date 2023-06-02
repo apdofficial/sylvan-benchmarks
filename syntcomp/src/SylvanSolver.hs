@@ -61,7 +61,7 @@ constructOps = Ops {..}
     bAnd x y          = do
         res <- S.band x y
         ref res
-        S.testReduceHeap
+        -- S.testReduceHeap
         return res
     bOr x y           = do
         res <- S.bor x y
@@ -222,7 +222,7 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     let latchMap = Map.fromList latches
     trel <- substitutionArray ops latchMap stab
 
-    -- S.reduceHeap
+    S.testReduceHeap
 
     ref sr
     let func k v = when (even k) (deref v)
@@ -276,14 +276,14 @@ doIt (Options {..}) = runExceptT $ do
         stToIO $ do
             S.laceStart 8 0
 
-            S.setLimits (8 * 1024 * 1024 * 1024) 1 12
+            S.setLimits (4 * 1024 * 1024 * 1024) 1 12
 
             S.initPackage
             S.initMtbdd 
             S.initReorder
 
             S.setReorderNodesThreshold 32
-            S.setReorderTimeLimitSec 30
+            S.setReorderTimeLimitSec 15
             S.setReorderMaxGrowth 1.2
 
             S.gcEnable
