@@ -1,26 +1,28 @@
-SYLVAN_INC_PATH=/Users/andrejpistek/Developer/MSc/sylvan/src
-SYLVAN_LIB_PATH=/Users/andrejpistek/Developer/MSc/sylvan/build-clang-chaining
-CUDD_INC_PATH=/opt/homebrew/Cellar/cudd/3.0.0/include
-CUDD_LIB_PATH=/opt/homebrew/Cellar/cudd/3.0.0/lib
+SYLVAN_INC_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/external/sylvan/src
+SYLVAN_LIB_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/debug-clang/external/sylvan/src
+
+LACE_INC_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/debug-clang/_deps/lace-src/src
+LACE_LIB_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/debug-clang/_deps/lace-build
+
+CUDD_INC_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/external/cudd/cudd
+CUDD_LIB_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/debug-clang/external/cudd/cudd
 
 cudd:
 	cabal run cudd-solver $(model) \
     --extra-lib-dirs=${CUDD_LIB_PATH} \
-    --extra-lib-dirs=${SYLVAN_LIB_PATH}/_deps/lace-build \
-    --extra-lib-dirs=${SYLVAN_LIB_PATH}/src \
+    --extra-lib-dirs=${LACE_LIB_PATH} \
+    --extra-lib-dirs=${SYLVAN_LIB_PATH} \
     --extra-include-dirs=${CUDD_INC_PATH} \
-    --extra-include-dirs=${SYLVAN_LIB_PATH}/_deps/lace-src/src \
-    --extra-include-dirs=${SYLVAN_LIB_PATH}/_deps/lace-build \
+    --extra-include-dirs=${LACE_INC_PATH} \
     --extra-include-dirs=${SYLVAN_INC_PATH}
 
 sylvan:
 	cabal run sylvan-solver $(model) \
     --extra-lib-dirs=${CUDD_LIB_PATH} \
-    --extra-lib-dirs=${SYLVAN_LIB_PATH}/_deps/lace-build \
-    --extra-lib-dirs=${SYLVAN_LIB_PATH}/src \
+    --extra-lib-dirs=${LACE_LIB_PATH} \
+    --extra-lib-dirs=${SYLVAN_LIB_PATH} \
     --extra-include-dirs=${CUDD_INC_PATH} \
-    --extra-include-dirs=${SYLVAN_LIB_PATH}/_deps/lace-src/src \
-    --extra-include-dirs=${SYLVAN_LIB_PATH}/_deps/lace-build \
+    --extra-include-dirs=${LACE_INC_PATH} \
     --extra-include-dirs=${SYLVAN_INC_PATH}
 
 clean:

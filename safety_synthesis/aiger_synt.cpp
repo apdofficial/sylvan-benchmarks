@@ -395,7 +395,7 @@ TASK_0(int, solve_game)
     for (uint64_t gate = 0; gate < aag.header.a; gate++) make_gate(gate);
     if (verbose) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.gates, aag.header.a));
 
-    sylvan_reduce_heap(SYLVAN_REORDER_SIFT);
+    sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
 
 #if 0
     for (uint64_t g=0; g<A; g++) {

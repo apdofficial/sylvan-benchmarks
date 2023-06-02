@@ -218,11 +218,11 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     --construct the initial state
     initState <- computeCube latchCube (replicate (length latchVars) False)
 
+    S.testReduceHeap
+
     --construct the transition relation
     let latchMap = Map.fromList latches
     trel <- substitutionArray ops latchMap stab
-
-    S.testReduceHeap
 
     ref sr
     let func k v = when (even k) (deref v)

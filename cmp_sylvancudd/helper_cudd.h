@@ -19,7 +19,6 @@ DdNode *cudd_create_example_bdd(DdManager *db, int is_optimal)
         DdNode *a = Cudd_bddAnd(db, v0, v1);
         DdNode *b = Cudd_bddAnd(db, v2, v3);
         DdNode *c = Cudd_bddAnd(db, v4, v5);
-
         return Cudd_bddOr(db, a, Cudd_bddOr(db, b, c));
     } else {
         // not optimal order 0, 3, 1, 4, 2, 5
@@ -27,7 +26,6 @@ DdNode *cudd_create_example_bdd(DdManager *db, int is_optimal)
         DdNode *a = Cudd_bddAnd(db, v0, v3);
         DdNode *b = Cudd_bddAnd(db, v1, v4);
         DdNode *c = Cudd_bddAnd(db, v2, v5);
-
         return Cudd_bddOr(db, a, Cudd_bddOr(db, b, c));
     }
 }

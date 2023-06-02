@@ -20,13 +20,14 @@ int run_cudd(int is_optimal)
     DdNode *bdd = cudd_create_example_bdd(db, is_optimal);
     Cudd_Ref(bdd);
     cuddGarbageCollect(db, 1);
-    if (is_optimal){
-        FILE *file = fopen("/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/cmp_sylvancudd/example_bdd/cudd_bdd_optimal.dot","w");
-        Cudd_DumpDot(db, 1, &bdd, NULL, NULL, file);
-    } else {
-        FILE *file = fopen("/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/cmp_sylvancudd/example_bdd/cudd_bdd_not_optimal.dot","w");
-        Cudd_DumpDot(db, 1, &bdd, NULL, NULL, file);
-    }
+
+//    if (is_optimal){
+//        FILE *file = fopen("/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/cmp_sylvancudd/example_bdd/cudd_bdd_optimal.dot","w");
+//        Cudd_DumpDot(db, 1, &bdd, NULL, NULL, file);
+//    } else {
+//        FILE *file = fopen("/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/cmp_sylvancudd/example_bdd/cudd_bdd_not_optimal.dot","w");
+//        Cudd_DumpDot(db, 1, &bdd, NULL, NULL, file);
+//    }
 
     int i, j;
     DdNode *f;
@@ -53,7 +54,13 @@ int run_cudd(int is_optimal)
 //    Cudd_ReduceHeap(db, CUDD_REORDER_SIFT, 0);
 
     cudd_exit(db);
+
+    return 0;
 }
+
+/* 40 bits for the index, 24 bits for the hash */
+#define MASK_INDEX ((uint64_t)0x000000ffffffffff)
+#define MASK_HASH  ((uint64_t)0xffffff0000000000)
 
 int run_sylvan(int is_optimal)
 {
@@ -71,21 +78,26 @@ int run_sylvan(int is_optimal)
         sylvan_fprintdot(file, bdd);
     }
 
-
     sylvan_pre_reorder();
     interact_var_ref_init(levels);
 
-    size_t index = llmsset_first();
-    while (index != llmsset_nindex) {
-        mtbddnode_t node = MTBDD_GETNODE(index);
-        BDDVAR var = mtbddnode_getvariable(node);
-        counter_t int_ref_count = levels_node_ref_count_load(levels, index);
-        printf("%d (%d), ", var, int_ref_count);
-        index = llmsset_next(index);
+    size_t index = levels_ext_first();
+    index = levels_ext_next(index);
+
+    while (index != levels_nindex) {
+        assert(index == (bdd & MASK_INDEX));
+        index = levels_ext_next(index);
     }
-    printf("\n");
 
-
+//    index = llmsset_first();
+//    while (index != llmsset_nindex) {
+//        mtbddnode_t node = MTBDD_GETNODE(index);
+//        BDDVAR var = mtbddnode_getvariable(node);
+//        counter_t int_ref_count = levels_node_ref_count_load(levels, index);
+//        printf("%d (%d), ", var, int_ref_count);
+//        index = llmsset_next(index);
+//    }
+//    printf("\n");
 
     // let's sort them based on the levels in quick ugly way (easier to compare with CUDD)
     for (int level = 0; level < sylvan_levelscount(); ++level) {
@@ -102,10 +114,8 @@ int run_sylvan(int is_optimal)
     }
     printf("\n");
 
-
     printf("table node count:   %zu\n", llmsset_count_marked(nodes) - 2);
     printf("bdd node count:     %zu\n", sylvan_nodecount(bdd));
-
 
 //    sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
 

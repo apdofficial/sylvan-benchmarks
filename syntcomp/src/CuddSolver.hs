@@ -175,11 +175,11 @@ compile m ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeI
     --construct the initial state
     initState <- computeCube2 latchVars (replicate (length latchVars) False)
 
+    cuddReduceHeap m CuddReorderSift 0
+
     --construct the transition relation
     let latchMap = Map.fromList latches
     trel <- substitutionArray ops latchMap stab
-
-    cuddReduceHeap m CuddReorderSift 0
 
     mapM_ ref trel
     ref sr
