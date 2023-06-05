@@ -61,7 +61,7 @@ constructOps = Ops {..}
     bAnd x y          = do
         res <- S.band x y
         ref res
-        -- S.testReduceHeap
+        S.testReduceHeap
         return res
     bOr x y           = do
         res <- S.bor x y
@@ -218,7 +218,7 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     --construct the initial state
     initState <- computeCube latchCube (replicate (length latchVars) False)
 
-    S.testReduceHeap
+    -- S.testReduceHeap
 
     --construct the transition relation
     let latchMap = Map.fromList latches
@@ -274,9 +274,9 @@ doIt (Options {..}) = runExceptT $ do
     lift $ do
         let (cInputs, uInputs) = categorizeInputs symbols inputs
         stToIO $ do
-            S.laceStart 8 0
+            S.laceStart 1 0
 
-            S.setLimits (4 * 1024 * 1024 * 1024) 1 12
+            S.setLimits (1 * 1024 * 1024 * 1024) 1 8
 
             S.initPackage
             S.initMtbdd 

@@ -18,3 +18,5 @@ CMakeFiles/
 syntcomp/models/*
 
 syntcomp/dist-newstyle/
+/debug-gcc/
+/debug-clang/

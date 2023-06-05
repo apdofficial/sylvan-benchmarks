@@ -51,7 +51,7 @@ int run_cudd(int is_optimal)
     printf("table node count:   %zu\n", Cudd_ReadNodeCount(db));
     printf("bdd node count:     %d\n", Cudd_DagSize(bdd));
 
-//    Cudd_ReduceHeap(db, CUDD_REORDER_SIFT, 0);
+    Cudd_ReduceHeap(db, CUDD_REORDER_SIFT, 0);
 
     cudd_exit(db);
 
@@ -79,7 +79,8 @@ int run_sylvan(int is_optimal)
     }
 
     sylvan_pre_reorder();
-    interact_var_ref_init(levels);
+    interaction_matrix_init(levels);
+    var_ref_init(levels);
 
     size_t index = levels_ext_first();
     index = levels_ext_next(index);
@@ -117,8 +118,9 @@ int run_sylvan(int is_optimal)
     printf("table node count:   %zu\n", llmsset_count_marked(nodes) - 2);
     printf("bdd node count:     %zu\n", sylvan_nodecount(bdd));
 
-//    sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
+    sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
 
     sylvan_exit();
+    return 0;
 }
 
