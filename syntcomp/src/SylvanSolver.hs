@@ -61,7 +61,7 @@ constructOps = Ops {..}
     bAnd x y          = do
         res <- S.band x y
         ref res
-        S.testReduceHeap
+        -- S.testReduceHeap
         return res
     bOr x y           = do
         res <- S.bor x y
@@ -215,14 +215,16 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     --get the safety condition
     let sr   = fromJustNote "compile" $ Map.lookup safeIndex stab
 
+    S.testReduceHeap
+    
     --construct the initial state
     initState <- computeCube latchCube (replicate (length latchVars) False)
-
-    -- S.testReduceHeap
 
     --construct the transition relation
     let latchMap = Map.fromList latches
     trel <- substitutionArray ops latchMap stab
+
+    
 
     ref sr
     let func k v = when (even k) (deref v)
@@ -276,7 +278,7 @@ doIt (Options {..}) = runExceptT $ do
         stToIO $ do
             S.laceStart 1 0
 
-            S.setLimits (1 * 1024 * 1024 * 1024) 1 8
+            S.setLimits (3 * 1024 * 1024 * 1024) 1 7
 
             S.initPackage
             S.initMtbdd 
