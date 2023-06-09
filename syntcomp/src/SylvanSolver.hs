@@ -278,7 +278,7 @@ doIt (Options {..}) = runExceptT $ do
         stToIO $ do
             S.laceStart 1 0
 
-            S.setLimits (3 * 1024 * 1024 * 1024) 1 7
+            S.setLimits (3 * 1024 * 1024 * 1024) 1 5
 
             S.initPackage
             S.initMtbdd 

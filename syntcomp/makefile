@@ -8,8 +8,8 @@ LACE_LIB_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/cmake-build-re
 CUDD_INC_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/external/cudd/cudd
 CUDD_LIB_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/cmake-build-debug-clang/external/cudd/cudd
 
-# CUDD_INC_PATH=/opt/homebrew/Cellar/cudd/3.0.0/include
-# CUDD_LIB_PATH=/opt/homebrew/Cellar/cudd/3.0.0/lib
+CUDD_INC_PATH=/opt/homebrew/Cellar/cudd/3.0.0/include
+CUDD_LIB_PATH=/opt/homebrew/Cellar/cudd/3.0.0/lib
 
 cudd:
 	cabal run cudd-solver $(model) \
