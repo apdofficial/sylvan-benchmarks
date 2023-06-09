@@ -63,9 +63,11 @@ static aag_file_t aag{
         .gatergt = nullptr
 };
 static aag_buffer_t aag_buffer{
-        .content = nullptr,
+        .content = NULL,
         .size = 0,
-        .pos = 0
+        .pos = 0,
+        .file_descriptor = -1,
+        .filestat = {}
 };
 static safety_game_t game{
         .gates = nullptr,
@@ -345,7 +347,6 @@ VOID_TASK_1(make_gate, int, gate)
 #define solve_game() RUN(solve_game)
 TASK_0(int, solve_game)
 {
-    sylvan_newlevels(aag.header.m + 1);
     game.level_to_order = new int[aag.header.m + 1];
 
     if (static_reorder) {
@@ -546,16 +547,7 @@ int main(int argc, char **argv)
         Abort("Invalid file name.\n");
     }
 
-    int fd = open(filename, O_RDONLY);
-
-    struct stat filestat{};
-    if (fstat(fd, &filestat) != 0) Abort("cannot stat file\n");
-
-    aag_buffer.size = filestat.st_size;
-    aag_buffer.content = (uint8_t *) mmap(nullptr, filestat.st_size, PROT_READ, MAP_SHARED, fd, 0);
-    if (aag_buffer.content == MAP_FAILED) Abort("mmap failed\n");
-    aag_buffer.pos = 0;
-
+    aag_buffer_open(&aag_buffer, filename, O_RDONLY);
     aag_file_read(&aag, &aag_buffer);
 
     if (verbose) {
@@ -582,6 +574,8 @@ int main(int argc, char **argv)
     // Report Sylvan statistics (if SYLVAN_STATS is set)
     if (verbose) sylvan_stats_report(stdout);
 
+    aag_buffer_close(&aag_buffer);
+    sylvan_quit();
     lace_stop();
 
     return 0;
