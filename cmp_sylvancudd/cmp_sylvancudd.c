@@ -78,7 +78,7 @@ int run_sylvan(int is_optimal)
         sylvan_fprintdot(file, bdd);
     }
 
-    sylvan_pre_reorder();
+    sylvan_pre_reorder(SYLVAN_REORDER_BOUNDED_SIFT);
     interaction_matrix_init(levels);
     var_ref_init(levels);
 

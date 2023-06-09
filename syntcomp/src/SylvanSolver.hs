@@ -284,8 +284,8 @@ doIt (Options {..}) = runExceptT $ do
             S.initMtbdd 
             S.initReorder
 
-            S.setReorderNodesThreshold 32
-            S.setReorderTimeLimitSec 15
+            S.setReorderNodesThreshold 1
+            S.setReorderTimeLimitSec 60
             S.setReorderMaxGrowth 1.2
 
             S.gcEnable

@@ -402,9 +402,7 @@ TASK_0(int, solve_game)
     for (uint64_t g=0; g<A; g++) {
         INFO("gate %d has size %zu\n", (int)g, sylvan_nodecount(gates[g]));
     }
-#endif
 
-#if 0
     for (uint64_t g=0; g<A; g++) {
         MTBDD supp = sylvan_support(gates[g]);
         while (supp != sylvan_set_empty()) {
@@ -413,9 +411,7 @@ TASK_0(int, solve_game)
         }
         printf("\n");
     }
-#endif
 
-#if 0
     MTBDD lnext[L];
     for (uint64_t l=0; l<L; l++) {
         MTBDD nxt;
@@ -428,18 +424,14 @@ TASK_0(int, solve_game)
         lnext[l] = sylvan_equiv(sylvan_ithvar(latches[l]+1), nxt);
     }
     INFO("done making latches\n");
-#endif
 
-#if 0
     MTBDD Lvars = sylvan_set_empty();
     mtbdd_protect(&Lvars);
 
     for (uint64_t l = 0; l < aag.header.l; l++) {
         Lvars = sylvan_set_add(Lvars, game.level_to_order[aag.latches[l] / 2]);
     }
-#endif
 
-#if 0
     MTBDD LtoPrime = sylvan_map_empty();
     for (uint64_t l=0; l<L; l++) {
         LtoPrime = sylvan_map_add(LtoPrime, latches[l], latches[l]+1);
@@ -527,7 +519,7 @@ int main(int argc, char **argv)
     sylvan_init_reorder();
     sylvan_gc_enable();
 
-    sylvan_set_reorder_nodes_threshold(2);
+    sylvan_set_reorder_nodes_threshold(1);
     sylvan_set_reorder_maxgrowth(1.2f);
     sylvan_set_reorder_timelimit_sec(60);
     sylvan_set_reorder_type(SYLVAN_REORDER_BOUNDED_SIFT);
