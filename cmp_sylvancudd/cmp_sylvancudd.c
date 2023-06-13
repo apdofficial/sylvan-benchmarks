@@ -79,16 +79,16 @@ int run_sylvan(int is_optimal)
     }
 
     sylvan_pre_reorder(SYLVAN_REORDER_BOUNDED_SIFT);
-    interaction_matrix_init(levels);
-    var_ref_init(levels);
-
-    size_t index = levels_ext_first();
-    index = levels_ext_next(index);
-
-    while (index != levels_nindex) {
-        assert(index == (bdd & MASK_INDEX));
-        index = levels_ext_next(index);
-    }
+//    interaction_matrix_init(levels);
+//    var_ref_init(levels);
+//
+//    size_t index = levels_ext_first();
+//    index = levels_ext_next(index);
+//
+//    while (index != levels_nindex) {
+//        assert(index == (bdd & MASK_INDEX));
+//        index = levels_ext_next(index);
+//    }
 
 //    index = llmsset_first();
 //    while (index != llmsset_nindex) {
@@ -101,19 +101,19 @@ int run_sylvan(int is_optimal)
 //    printf("\n");
 
     // let's sort them based on the levels in quick ugly way (easier to compare with CUDD)
-    for (int level = 0; level < sylvan_levelscount(); ++level) {
-        size_t index = llmsset_first();
-        while (index != llmsset_nindex) {
-            mtbddnode_t node = MTBDD_GETNODE(index);
-            BDDVAR var = mtbddnode_getvariable(node);
-            if (var == level) {
-                counter_t int_ref_count = levels_node_ref_count_load(levels, index);
-                printf("%d (%d), ", var, int_ref_count);
-            }
-            index = llmsset_next(index);
-        }
-    }
-    printf("\n");
+//    for (int level = 0; level < sylvan_levelscount(); ++level) {
+//        size_t index = llmsset_first();
+//        while (index != llmsset_nindex) {
+//            mtbddnode_t node = MTBDD_GETNODE(index);
+//            BDDVAR var = mtbddnode_getvariable(node);
+//            if (var == level) {
+//                counter_t int_ref_count = levels_node_ref_count_load(levels, index);
+//                printf("%d (%d), ", var, int_ref_count);
+//            }
+//            index = llmsset_next(index);
+//        }
+//    }
+//    printf("\n");
 
     printf("table node count:   %zu\n", llmsset_count_marked(nodes) - 2);
     printf("bdd node count:     %zu\n", sylvan_nodecount(bdd));

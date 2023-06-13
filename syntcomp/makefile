@@ -5,8 +5,8 @@ SYLVAN_LIB_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/cmake-build-
 LACE_INC_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/cmake-build-release-clang/_deps/lace-src/src
 LACE_LIB_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/cmake-build-release-clang/_deps/lace-build
 
-CUDD_INC_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/external/cudd/cudd
-CUDD_LIB_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/cmake-build-debug-clang/external/cudd/cudd
+# CUDD_INC_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/external/cudd/cudd
+# CUDD_LIB_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/cmake-build-debug-clang/external/cudd/cudd
 
 CUDD_INC_PATH=/opt/homebrew/Cellar/cudd/3.0.0/include
 CUDD_LIB_PATH=/opt/homebrew/Cellar/cudd/3.0.0/lib

@@ -96,12 +96,6 @@ foreign import ccall safe "sylvan_set_reorder_timelimit_sec"
 setReorderTimeLimitSec :: PrimMonad m => Rational -> m ()
 setReorderTimeLimitSec timeLimit  = unsafePrimToPrim $ c_sylvanSetReorderTimeLimitSec (fromRational timeLimit)
 
-foreign import ccall safe "mtbdd_newlevels"
-    c_sylvanNewlevels :: CInt -> IO ()
-
-newlevels :: PrimMonad m => Int -> m ()
-newlevels amount  = unsafePrimToPrim $ c_sylvanNewlevels (fromIntegral amount)
-
 --Setters
 foreign import ccall safe "sylvan_quit"
     c_sylvanQuit :: IO ()
@@ -117,12 +111,6 @@ ithVar var = liftM BDD $ unsafePrimToPrim $ c_ithVar (fromIntegral var)
 
 nithVar :: PrimMonad m => BDDVar -> m BDD
 nithVar var = liftM (BDD . xor c_sylvanComplement) $ unsafePrimToPrim $ c_ithVar (fromIntegral var)
-
-foreign import ccall safe "mtbdd_ithlevel"
-    c_ithLevel :: CBDDVar -> IO CBDD
-
-ithLevel :: PrimMonad m => BDDVar -> m BDD
-ithLevel level = liftM BDD $ unsafePrimToPrim $ c_ithLevel (fromIntegral level)
 
 foreign import ccall safe "mtbdd_ref"
     c_ref :: CBDD -> IO (CBDD)

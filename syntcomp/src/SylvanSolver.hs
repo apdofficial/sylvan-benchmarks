@@ -45,7 +45,6 @@ data Ops s v m a = Ops {
     computeVarSet :: [Int] -> ST s v,
     computeCube   :: v -> [Bool] -> ST s a,
     ithVar        :: Int -> ST s a,
-    ithLevel      :: Int -> ST s a,
     bforall       :: v -> a -> ST s a,
     bexists       :: v -> a -> ST s a,
     deref         :: a -> ST s (),
@@ -104,10 +103,6 @@ constructOps = Ops {..}
         func True  = S.Positive
     ithVar i          = do
         res <- S.ithVar $ fromIntegral i
-        ref res
-        return res
-    ithLevel i        = do
-        res <- S.ithLevel $ fromIntegral i
         ref res
         return res
     bforall v x       = do
@@ -175,7 +170,7 @@ substitutionArray Ops{..} latches andGates = constructMap pairs
 
 compile :: Ops s v m a -> [Int] -> [Int] -> [(Int, Int)] -> [(Int, Int, Int)] -> Int -> ST s (SynthState v m a)
 compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeIndex = do
-    S.newlevels (length controllableInputs + length uncontrollableInputs + length latches)
+    -- S.newlevels (length controllableInputs + length uncontrollableInputs + length latches)
     let andGates = map sel1 ands
         andMap   = makeAndMap ands
 
@@ -183,19 +178,19 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     let nextIdx       = length controllableInputs
         cInputIndices = [0 .. nextIdx - 1]
 
-    cInputVars <- mapM ithLevel cInputIndices
+    cInputVars <- mapM ithVar cInputIndices
     cInputCube <- computeVarSet cInputIndices
 
     --create an entry for each uncontrollable input
     let nextIdx2      = nextIdx + length uncontrollableInputs
         uInputIndices = [nextIdx .. nextIdx2 - 1]
-    uInputVars <- mapM ithLevel uInputIndices
+    uInputVars <- mapM ithVar uInputIndices
     uInputCube <- computeVarSet uInputIndices
 
     --create an entry for each latch 
     let nextIdx3     = nextIdx2 + length latches
         latchIndices = [nextIdx2 .. nextIdx3 - 1]
-    latchVars  <- mapM ithLevel latchIndices
+    latchVars  <- mapM ithVar latchIndices
     latchCube  <- computeVarSet latchIndices
 
     ref btrue

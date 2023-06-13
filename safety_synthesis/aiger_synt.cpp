@@ -11,9 +11,6 @@
 #include <span>
 
 #include <sylvan.h>
-#include <sylvan_int.h>
-#include <sylvan_table.h>
-#include <sylvan_reorder.h>
 #include "aag.h"
 
 using namespace sylvan;
@@ -165,20 +162,23 @@ VOID_TASK_0(gc_end)
 VOID_TASK_0(reordering_start)
 {
     sylvan_gc();
-    size_t table_size = llmsset_count_marked(nodes);
-    INFO("RE: str: %zu size\n", table_size);
+    size_t used, total;
+    sylvan_table_usage(&used, &total);
+    INFO("RE: str: %zu size\n", total);
 }
 
 VOID_TASK_0(reordering_progress)
 {
-    size_t table_size = llmsset_count_marked(nodes);
-    INFO("RE: prg: %zu size\n", table_size);
+    size_t used, total;
+    sylvan_table_usage(&used, &total);
+    INFO("RE: prg: %zu size\n", total);
 }
 
 VOID_TASK_0(reordering_end)
 {
-    size_t table_size = llmsset_count_marked(nodes);
-    INFO("RE: end: %zu size\n", table_size);
+    size_t used, total;
+    sylvan_table_usage(&used, &total);
+    INFO("RE: end: %zu size\n", total);
 }
 
 void order_statically()
@@ -327,7 +327,7 @@ VOID_TASK_1(make_gate, int, gate)
         make_gate(aag.lookup[lft]);
         l = game.gates[aag.lookup[lft]];
     } else {
-        l = sylvan_ithlevel(game.level_to_order[lft]); // always use even variables (prime is odd)
+        l = sylvan_ithvar(game.level_to_order[lft]); // always use even variables (prime is odd)
     }
     if (rgt == 0) {
         r = sylvan_false;
@@ -335,7 +335,7 @@ VOID_TASK_1(make_gate, int, gate)
         make_gate(aag.lookup[rgt]);
         r = game.gates[aag.lookup[rgt]];
     } else {
-        r = sylvan_ithlevel(game.level_to_order[rgt]); // always use even variables (prime is odd)
+        r = sylvan_ithvar(game.level_to_order[rgt]); // always use even variables (prime is odd)
     }
     if (aag.gatelft[gate] & 1) l = sylvan_not(l);
     if (aag.gatergt[gate] & 1) r = sylvan_not(r);
@@ -397,6 +397,7 @@ TASK_0(int, solve_game)
     if (verbose) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.gates, aag.header.a));
 
     sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
+//    sylvan_reduce_heap(SYLVAN_REORDER_SIFT);
 
 #if 0
     for (uint64_t g=0; g<A; g++) {
@@ -445,7 +446,7 @@ TASK_0(int, solve_game)
     for (uint64_t l = 0; l < aag.header.l; l++) {
         MTBDD nxt;
         if (aag.lookup[aag.l_next[l] / 2] == -1) {
-            nxt = sylvan_ithlevel(game.level_to_order[aag.l_next[l] / 2]);
+            nxt = sylvan_ithvar(game.level_to_order[aag.l_next[l] / 2]);
         } else {
             nxt = game.gates[aag.lookup[aag.l_next[l] / 2]];
         }
@@ -458,7 +459,7 @@ TASK_0(int, solve_game)
     MTBDD Unsafe;
     mtbdd_protect(&Unsafe);
     if (aag.lookup[aag.outputs[0] / 2] == -1) {
-        Unsafe = sylvan_ithlevel(aag.outputs[0] / 2);
+        Unsafe = sylvan_ithvar(aag.outputs[0] / 2);
     } else {
         Unsafe = game.gates[aag.lookup[aag.outputs[0] / 2]];
     }
@@ -513,7 +514,7 @@ int main(int argc, char **argv)
 
     lace_start(workers, 0);
 
-    sylvan_set_limits(3LL * 1024 * 1024 * 1024, 1, 7);
+    sylvan_set_limits(3LL * 1024 * 1024 * 1024, 1, 5);
     sylvan_init_package();
     sylvan_init_mtbdd();
     sylvan_init_reorder();
