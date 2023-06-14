@@ -12,7 +12,7 @@ void sylvan_start()
     sylvan_init_reorder();
     sylvan_gc_enable();
 
-    sylvan_newlevels(6); // 6 variables
+//    sylvan_newlevels(6); // 6 variables
 
     sylvan_set_reorder_nodes_threshold(2);
     sylvan_set_reorder_maxgrowth(1.2f);
@@ -32,12 +32,12 @@ void sylvan_exit()
 TASK_1(BDD, create_example_bdd, size_t, is_optimal)
 {
     // the variable indexing is relative to the current level
-    BDD v0 = sylvan_ithlevel(0);
-    BDD v1 = sylvan_ithlevel(1);
-    BDD v2 = sylvan_ithlevel(2);
-    BDD v3 = sylvan_ithlevel(3);
-    BDD v4 = sylvan_ithlevel(4);
-    BDD v5 = sylvan_ithlevel(5);
+    BDD v0 = sylvan_ithvar(0);
+    BDD v1 = sylvan_ithvar(1);
+    BDD v2 = sylvan_ithvar(2);
+    BDD v3 = sylvan_ithvar(3);
+    BDD v4 = sylvan_ithvar(4);
+    BDD v5 = sylvan_ithvar(5);
 
     if (is_optimal) {
         // optimal order 0, 1, 2, 3, 4, 5

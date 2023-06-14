@@ -219,8 +219,6 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     let latchMap = Map.fromList latches
     trel <- substitutionArray ops latchMap stab
 
-    
-
     ref sr
     let func k v = when (even k) (deref v)
     Map.traverseWithKey func stab
@@ -273,7 +271,8 @@ doIt (Options {..}) = runExceptT $ do
         stToIO $ do
             S.laceStart 1 0
 
-            S.setLimits (3 * 1024 * 1024 * 1024) 1 5
+            S.setLimits (1 `shiftL` 24) 1 4
+            -- S.setLimits (1 * 1024 * 1024 * 1024) 1 8
 
             S.initPackage
             S.initMtbdd 

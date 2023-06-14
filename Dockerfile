@@ -86,7 +86,6 @@ RUN cd $SCRIPTS && chmod +x run_dpmc.sh
 RUN cd $SCRIPTS && chmod +x build_safety_synth.sh
 RUN cd $SCRIPTS && chmod +x run_safety_synth.sh
 RUN cd $SCRIPTS && chmod +x run_storm.sh
-RUN cd $SCRIPTS && chmod +x run_cmp_hashmap.sh
 
 ENV CUDD=$HOME/external/cudd
 ENV DPMC=$HOME/external/dpmc

@@ -340,8 +340,7 @@ VOID_TASK_1(make_gate, int, gate)
     if (aag.gatelft[gate] & 1) l = sylvan_not(l);
     if (aag.gatergt[gate] & 1) r = sylvan_not(r);
     game.gates[gate] = sylvan_and(l, r);
-    mtbdd_protect(&game.gates[gate]);
-//    if (dynamic_reorder) sylvan_test_reduce_heap();
+    mtbdd_ref(game.gates[gate]);
 }
 
 #define solve_game() RUN(solve_game)
@@ -393,11 +392,13 @@ TASK_0(int, solve_game)
 
     game.gates = new MTBDD[aag.header.a];
     for (uint64_t a = 0; a < aag.header.a; a++) game.gates[a] = sylvan_invalid;
-    for (uint64_t gate = 0; gate < aag.header.a; gate++) make_gate(gate);
+    for (uint64_t gate = 0; gate < aag.header.a; gate++) {
+        make_gate(gate);
+//        if (dynamic_reorder) sylvan_test_reduce_heap();
+    }
     if (verbose) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.gates, aag.header.a));
 
-    sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
-//    sylvan_reduce_heap(SYLVAN_REORDER_SIFT);
+//    sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
 
 #if 0
     for (uint64_t g=0; g<A; g++) {
@@ -514,7 +515,12 @@ int main(int argc, char **argv)
 
     lace_start(workers, 0);
 
-    sylvan_set_limits(3LL * 1024 * 1024 * 1024, 1, 5);
+    // 1LL<<21: 16384 nodes
+    // 1LL<<22: 32768 nodes
+    // 1LL<<23: 65536 nodes
+    // 1LL<<24: 131072 nodes
+    // 1LL<<25: 262144 nodes
+    sylvan_set_limits(1LL<<22, 1, 3);
     sylvan_init_package();
     sylvan_init_mtbdd();
     sylvan_init_reorder();
@@ -531,8 +537,8 @@ int main(int argc, char **argv)
 //        sylvan_re_hook_postre(TASK(reordering_end));
 //        sylvan_re_hook_progre(TASK(reordering_progress));
 //        sylvan_re_hook_termre(should_reordering_terminate);
-        sylvan_gc_hook_pregc(TASK(gc_start));
-        sylvan_gc_hook_postgc(TASK(gc_end));
+//        sylvan_gc_hook_pregc(TASK(gc_start));
+//        sylvan_gc_hook_postgc(TASK(gc_end));
     }
 
     INFO("Model: %s\n", filename);
