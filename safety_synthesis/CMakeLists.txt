@@ -9,18 +9,13 @@ macro(add_benchmark NAME SOURCE)
 endmacro(add_benchmark)
 
 add_benchmark(aiger_synt aiger_synt.cpp)
+target_sources(aiger_synt PRIVATE aag.h)
 
 # Check if we have Boost
 find_package(Boost 1.71.0)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
     target_link_libraries(aiger_synt ${Boost_LIBRARIES})
-endif()
-
-# Do we want to limit the probe sequence?
-option(SYLVAN_LIMIT_PROBE_SEQUENCE "Let Sylvan limit number of iterations for insertion until returning error" OFF)
-if(SYLVAN_LIMIT_PROBE_SEQUENCE)
-    set_target_properties(aiger_synt PROPERTIES COMPILE_DEFINITIONS "SYLVAN_LIMIT_PROBE_SEQUENCE")
 endif()
 
 # Do we want to use chaining implementation or linear probing implementation?

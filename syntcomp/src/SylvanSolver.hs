@@ -31,69 +31,7 @@ import Data.Attoparsec.Text as P
 import qualified Sylvan.Sylvan as S
 import Sylvan.Sylvan (BDD, BDDVar, BDDMap)
 
---Parsing
-data Header = Header {
-    m :: Int,
-    i :: Int,
-    l :: Int,
-    o :: Int,
-    a :: Int
-} deriving (Show)
-
-data InputType  = Cont | UCont deriving (Show)
-data SymbolType = Is InputType | Ls | Os deriving (Show)
-
-data Symbol = Symbol {
-    typ :: SymbolType,
-    idx :: Int,
-    str :: String
-} deriving (Show)
-
-data AAG = AAG {
-    header   :: Header,
-    inputs   :: [Int],
-    latches  :: [(Int, Int)],
-    outputs  :: [Int],
-    andGates :: [(Int, Int, Int)],
-    symbols  :: [Symbol]
-} deriving (Show)
-
-ws  = skipSpace
-eol = endOfLine
-
-header' = Header <$  string "aag" 
-                 <*  ws
-                 <*> decimal
-                 <*  ws
-                 <*> decimal
-                 <*  ws
-                 <*> decimal
-                 <*  ws
-                 <*> decimal
-                 <*  ws
-                 <*> decimal
-                 <*  eol
-input   = decimal <* eol
-latch   = (,) <$> decimal <*  ws <*> decimal <* eol
-output  = decimal <* eol
-andGate = (,,) <$> decimal <*  ws <*> decimal <*  ws <*> decimal <* eol
-symbol  = iSymbol <|> lSymbol <|> oSymbol
-    where
-    iSymbol = constructISymbol <$ char 'i' <*> decimal <* ws <*> isCont <*> manyTill anyChar endOfLine
-        where 
-        isCont = P.option UCont (Cont <$ string "controllable") 
-        constructISymbol idx cont name = Symbol (Is cont) idx name
-    lSymbol = Symbol <$> (Ls <$ char 'l') <*> decimal <* ws <*> manyTill anyChar endOfLine
-    oSymbol = Symbol <$> (Os <$ char 'o') <*> decimal <* ws <*> manyTill anyChar endOfLine
-
-aag = do
-    header@Header{..} <- header' 
-    inputs   <- replicateM i input
-    latches  <- replicateM l latch
-    outputs  <- replicateM o output
-    andGates <- replicateM a andGate
-    symbols  <- many symbol
-    return $ AAG {..}
+import AAG
 
 --BDD operations
 data Ops s v m a = Ops {
@@ -122,6 +60,7 @@ constructOps = Ops {..}
     bAnd x y          = do
         res <- S.band x y
         ref res
+        S.testReduceHeap
         return res
     bOr x y           = do
         res <- S.bor x y
@@ -233,6 +172,7 @@ compile :: Ops s v m a -> [Int] -> [Int] -> [(Int, Int)] -> [(Int, Int, Int)] ->
 compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeIndex = do
     let andGates = map sel1 ands
         andMap   = makeAndMap ands
+
     --create an entry for each controllable input 
     let nextIdx       = length controllableInputs
         cInputIndices = [0 .. nextIdx - 1]
@@ -264,11 +204,14 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
         im   = Map.unions [tf, mpCI, mpUI, mpL]
 
     --compile the and gates
-    stab     <- fmap fst $ mapAccumLM (doAndGates ops andMap) im andGates 
+    stab     <- fst <$> mapAccumLM (doAndGates ops andMap) im andGates
 
+    -- S.testReduceHeap
+    
     --get the safety condition
     let sr   = fromJustNote "compile" $ Map.lookup safeIndex stab
-
+    
+    
     --construct the initial state
     initState <- computeCube latchCube (replicate (length latchVars) False)
 
@@ -284,7 +227,7 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
 
 safeCpre :: (Show a, Eq a) => Bool -> Ops s v m a -> SynthState v m a -> a -> ST s a
 safeCpre quiet ops@Ops{..} SynthState{..} s = do
-    when (not quiet) $ unsafeIOToST $ print "*"
+    unless quiet $ unsafeIOToST $ print "*"
     scu' <- vectorCompose s trel
 
     scu <- andAbstract cInputCube safeRegion scu'
@@ -309,11 +252,7 @@ fixedPoint ops@Ops{..} init start func = do
 solveSafety :: (Eq a, Show a) => Bool -> Ops s v m a -> SynthState v m a -> a -> a -> ST s Bool
 solveSafety quiet ops@Ops{..} ss init safeRegion = do
     ref btrue
-    fixedPoint ops init btrue $ safeCpre quiet ops ss 
-
-setupManager :: Bool -> ST s ()
-setupManager quiet = void $ do
-    return ()
+    fixedPoint ops init btrue (safeCpre quiet ops ss) 
 
 categorizeInputs :: [Symbol] -> [Int] -> ([Int], [Int])
 categorizeInputs symbols inputs = (cont, inputs \\ cont)
@@ -327,24 +266,29 @@ doIt :: Options -> IO (Either String Bool)
 doIt (Options {..}) = runExceptT $ do
     contents    <- lift $ T.readFile filename
     aag@AAG{..} <- hoistEither $ parseOnly aag contents
-
-    let (cInputs, uInputs) = categorizeInputs symbols inputs
-
     lift $ do
-        S.laceInit threads 1000000
-        S.laceStartup
-        S.sylvanInitPackage (1 `shiftL` 21) (1 `shiftL` 25) (1 `shiftL` 21) (1 `shiftL` 25)
-        S.sylvanInit 
+        let (cInputs, uInputs) = categorizeInputs symbols inputs
+        stToIO $ do
+            S.laceStart 8 0
 
-    lift $ stToIO $ do
-        setupManager quiet 
-        S.gcEnable
-        let ops = constructOps 
-        ss@SynthState{..} <- compile ops cInputs uInputs latches andGates (head outputs)
+            S.setLimits (1 `shiftL` 21) 1 0
 
-        res <- solveSafety quiet ops ss initState safeRegion
-        T.mapM (deref ops) ss
-        return res
+            S.initPackage
+            S.initMtbdd 
+            S.initReorder
+
+            S.setReorderNodesThreshold 1
+            S.setReorderTimeLimitSec 60
+            S.setReorderMaxGrowth 1.2
+
+            S.gcEnable
+
+            let ops = constructOps 
+            ss@SynthState{..} <- compile ops cInputs uInputs latches andGates (head outputs)
+            res <- solveSafety quiet ops ss initState safeRegion
+            T.mapM (deref ops) ss
+            S.sylvanQuit
+            return res
 
 run :: Options -> IO ()
 run g = do

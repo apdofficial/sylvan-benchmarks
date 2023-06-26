@@ -15,4 +15,8 @@ cmake-build-*/
 CMakeFiles/
 .vscode/
 
+syntcomp/models/*
+
 syntcomp/dist-newstyle/
+/debug-gcc/
+/debug-clang/

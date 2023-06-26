@@ -1,0 +1,26 @@
+digraph "DD" {
+graph [dpi = 300];
+center = true;
+edge [dir = forward];
+root [style=invis];
+root -> 4107 [style=solid dir=both arrowtail=none];
+4107 [label="0"];
+4105 [label="2"];
+4104 [label="4"];
+0 [shape=box, style=filled, label="F"];
+4101 [label="5"];
+4101 -> 0 [style=dashed];
+4101 -> 0 [style=solid dir=both arrowtail=dot];
+4104 -> 0 [style=dashed];
+4104 -> 4101 [style=solid dir=both arrowtail=none];
+6144 [label="3"];
+6144 -> 4104 [style=dashed];
+6144 -> 0 [style=solid dir=both arrowtail=dot];
+4105 -> 4104 [style=dashed];
+4105 -> 6144 [style=solid dir=both arrowtail=none];
+4106 [label="1"];
+4106 -> 4105 [style=dashed];
+4106 -> 0 [style=solid dir=both arrowtail=dot];
+4107 -> 4105 [style=dashed];
+4107 -> 4106 [style=solid dir=both arrowtail=none];
+}

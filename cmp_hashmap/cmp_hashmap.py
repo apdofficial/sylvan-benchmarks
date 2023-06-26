@@ -8,8 +8,7 @@ sns.set_context("notebook", font_scale=1.5, rc={"lines.linewidth": 1.0})
 
 X = "table_usage"
 Y = "runtime_ms"
-DATA = "../build/hashmap_cmp"
-FIGURES = "./figures"
+DATA = "./old"
 
 
 def linspace(start, stop, step=1.):
@@ -32,35 +31,19 @@ if __name__ == "__main__":
     col = 0
 
     for w in range(1, nworkers + 1):
-        try:
-            gfg = sns.lineplot(x=X,
-                               y=Y,
-                               data=pd.read_csv(f"{DATA}/w{w}_chaining.csv"),
-                               legend='brief',
-                               label=f"w={w} Chaining",
-                               ax=ax[row][col])
-        except FileNotFoundError:
-            pass
+        gfg = sns.lineplot(x=X,
+                           y=Y,
+                           data=pd.read_csv(f"{DATA}/w{w}_chaining.csv"),
+                           legend='brief',
+                           label=f"w={w} Chaining",
+                           ax=ax[row][col])
 
-        try:
-            gfg = sns.lineplot(x=X,
-                               y=Y,
-                               data=pd.read_csv(f"{DATA}/w{w}_probing_limited.csv"),
-                               legend='brief',
-                               label=f"w={w} Probing limited",
-                               ax=ax[row][col])
-        except FileNotFoundError:
-            pass
-
-        try:
-            gfg = sns.lineplot(x=X,
-                               y=Y,
-                               data=pd.read_csv(f"{DATA}/w{w}_probing_unlimited.csv"),
-                               legend='brief',
-                               label=f"w={w} Probing unlimited",
-                               ax=ax[row][col])
-        except FileNotFoundError:
-            pass
+        gfg = sns.lineplot(x=X,
+                           y=Y,
+                           data=pd.read_csv(f"{DATA}/w{w}_probing.csv"),
+                           legend='brief',
+                           label=f"w={w} Probing",
+                           ax=ax[row][col])
 
         gfg.set_yticks(linspace(start=0, stop=110, step=15))
         gfg.set_xticks(linspace(start=0, stop=100, step=10))
@@ -72,4 +55,4 @@ if __name__ == "__main__":
             row += 1
             col = 0
 
-    plt.savefig(f"{FIGURES}/hashmap_cmp.svg")
+    plt.savefig(f"{DATA}/hashmap_cmp.svg")

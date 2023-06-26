@@ -9,17 +9,11 @@ import Data.Bits
 import Control.Monad.Primitive
 
 --Lace
-foreign import ccall safe "lace_init"
-    c_laceInit :: CInt -> CInt -> IO ()
+foreign import ccall safe "lace_start"
+    c_laceStart :: CInt -> CInt -> IO ()
 
-laceInit :: PrimMonad m => Int -> Int -> m ()
-laceInit workers deque = unsafePrimToPrim $ c_laceInit (fromIntegral workers) (fromIntegral deque)
-
-foreign import ccall safe "lace_startup"
-    c_laceStartup :: CInt -> Ptr () -> Ptr () -> IO ()
-
-laceStartup :: PrimMonad m => m ()
-laceStartup = unsafePrimToPrim $ c_laceStartup 0 nullPtr nullPtr
+laceStart :: PrimMonad m => Int -> Int -> m ()
+laceStart workers deque = unsafePrimToPrim $ c_laceStart (fromIntegral workers) (fromIntegral deque)
 
 --Sylvan
 type    CBDD    = CLLong
@@ -39,25 +33,77 @@ c_sylvanTrue       =  c_sylvanFalse .|. c_sylvanComplement
 sylvanFalse = BDD c_sylvanFalse
 sylvanTrue  = BDD c_sylvanTrue
 
-foreign import ccall safe "sylvan_init_mtbdd"
-    c_sylvanInit :: IO ()
-
-sylvanInit :: PrimMonad m => m ()
-sylvanInit = unsafePrimToPrim c_sylvanInit 
-
+--Init
 foreign import ccall safe "sylvan_init_package"
-    c_sylvanInitPackage :: CInt -> CInt -> CInt -> CInt -> IO ()
+    c_sylvanInitPackage :: IO ()
 
-sylvanInitPackage :: PrimMonad m => Int -> Int -> Int -> Int -> m ()
-sylvanInitPackage tableSize maxSize cacheSize maxCacheSize = unsafePrimToPrim $ c_sylvanInitPackage (fromIntegral tableSize) (fromIntegral maxSize) (fromIntegral cacheSize) (fromIntegral maxCacheSize)
+initPackage :: PrimMonad m => m ()
+initPackage = unsafePrimToPrim c_sylvanInitPackage 
 
+foreign import ccall safe "sylvan_init_mtbdd"
+    c_sylvanInitMtbdd :: IO ()
+
+initMtbdd :: PrimMonad m => m ()
+initMtbdd = unsafePrimToPrim c_sylvanInitMtbdd 
+
+foreign import ccall safe "sylvan_init_reorder"
+    c_sylvanInitReorder :: IO ()
+
+initReorder :: PrimMonad m => m ()
+initReorder = unsafePrimToPrim c_sylvanInitReorder
+
+
+--Setters
+foreign import ccall safe "sylvan_set_limits"
+    c_sylvanSetLimits :: CSize -> CInt -> CInt -> IO ()
+
+setLimits :: PrimMonad m => Int -> Int -> Int -> m ()
+setLimits memoryCap tableRatio initialRatio = unsafePrimToPrim $ c_sylvanSetLimits (fromIntegral memoryCap) (fromIntegral tableRatio) (fromIntegral initialRatio)
+
+foreign import ccall safe "sylvan_set_sizes"
+    c_sylvanSetSizes :: CSize -> CSize -> CSize -> CSize -> IO ()
+
+setSizes :: PrimMonad m => Int -> Int -> Int -> Int -> m ()
+setSizes minTableSize maxTableSize minCacheSize maxCacheSize = unsafePrimToPrim $ c_sylvanSetSizes (fromIntegral minTableSize) (fromIntegral maxTableSize) (fromIntegral minCacheSize) (fromIntegral maxCacheSize)
+
+foreign import ccall safe "sylvan_set_reorder_maxswap"
+    c_sylvanSetReorderMaxSwap :: CInt -> IO ()
+
+setReorderMaxSwap :: PrimMonad m => Int -> m ()
+setReorderMaxSwap maxSwap  = unsafePrimToPrim $ c_sylvanSetReorderMaxSwap (fromIntegral maxSwap)
+
+foreign import ccall safe "sylvan_set_reorder_maxgrowth"
+    c_sylvanSetReorderMaxGrowth :: CFloat -> IO ()
+
+setReorderMaxGrowth :: PrimMonad m => Rational -> m ()
+setReorderMaxGrowth maxGrowth  = unsafePrimToPrim $ c_sylvanSetReorderMaxGrowth (fromRational maxGrowth)
+
+foreign import ccall safe "sylvan_set_reorder_maxvar"
+    c_sylvanSetReorderMaxVar :: CInt -> IO ()
+
+setReorderMaxVar :: PrimMonad m => Int -> m ()
+setReorderMaxVar maxVar  = unsafePrimToPrim $ c_sylvanSetReorderMaxVar (fromIntegral maxVar)
+
+foreign import ccall safe "sylvan_set_reorder_nodes_threshold"
+    c_sylvanSetReorderNodesThreshold :: CInt -> IO ()
+
+setReorderNodesThreshold:: PrimMonad m => Int -> m ()
+setReorderNodesThreshold threshold  = unsafePrimToPrim $ c_sylvanSetReorderNodesThreshold (fromIntegral threshold)
+
+foreign import ccall safe "sylvan_set_reorder_timelimit_sec"
+    c_sylvanSetReorderTimeLimitSec :: CDouble -> IO ()
+
+setReorderTimeLimitSec :: PrimMonad m => Rational -> m ()
+setReorderTimeLimitSec timeLimit  = unsafePrimToPrim $ c_sylvanSetReorderTimeLimitSec (fromRational timeLimit)
+
+--Setters
 foreign import ccall safe "sylvan_quit"
     c_sylvanQuit :: IO ()
 
 sylvanQuit :: PrimMonad m => m ()
 sylvanQuit = unsafePrimToPrim c_sylvanQuit
 
-foreign import ccall safe "sylvan_ithvar"
+foreign import ccall safe "mtbdd_ithvar"
     c_ithVar :: CBDDVar -> IO CBDD
 
 ithVar :: PrimMonad m => BDDVar -> m BDD
@@ -165,7 +211,7 @@ foreign import ccall safe "sylvan_and_exists_stub"
 andExists :: PrimMonad m => BDD -> BDD -> BDD -> m BDD
 andExists (BDD a) (BDD b) (BDD vars) = liftM BDD $ unsafePrimToPrim $ c_and_exists a b vars
 
-foreign import ccall safe "mtbdd_fromarray"
+foreign import ccall safe "mtbdd_set_from_array"
     c_setFromArray :: Ptr CBDDVar -> CSize -> IO CBDD
 
 setFromArray :: PrimMonad m => [BDDVar] -> m BDD
@@ -174,7 +220,7 @@ setFromArray vars = liftM BDD $ unsafePrimToPrim $
         c_setFromArray p (fromIntegral l)
 
 mapEmpty :: BDDMap
-mapEmpty = BDDMap c_sylvanFalse
+mapEmpty = BDDMap c_sylvanFalse 
 
 foreign import ccall safe "mtbdd_map_add"
     c_mapAdd :: CBDDMap -> CBDDVar -> CBDD -> IO CBDDMap
@@ -187,6 +233,19 @@ foreign import ccall safe "sylvan_compose_stub"
 
 compose :: PrimMonad m => BDD -> BDDMap -> m BDD
 compose (BDD f) (BDDMap m) = liftM BDD $ unsafePrimToPrim $ c_compose f m
+
+foreign import ccall safe "sylvan_reduce_heap"
+    c_sylvanReduceHeap :: IO ()
+
+reduceHeap :: PrimMonad m => m ()
+reduceHeap = unsafePrimToPrim c_sylvanReduceHeap 
+
+foreign import ccall safe "sylvan_test_reduce_heap"
+    c_sylvanTestReduceHeap :: IO ()
+
+testReduceHeap:: PrimMonad m =>  m ()
+testReduceHeap  = unsafePrimToPrim c_sylvanTestReduceHeap 
+
 
 ----TODO: doesnt seem to exist
 --foreign import ccall safe "sylvan_report_stats"
