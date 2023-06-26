@@ -8,8 +8,7 @@ sns.set_context("notebook", font_scale=1.5, rc={"lines.linewidth": 1.0})
 
 X = "table_usage"
 Y = "runtime_ms"
-DATA = "../build/cmp_hashmap"
-FIGURES = "./figures"
+DATA = "./old"
 
 
 def linspace(start, stop, step=1.):
@@ -56,4 +55,4 @@ if __name__ == "__main__":
             row += 1
             col = 0
 
-    plt.savefig(f"{FIGURES}/hashmap_cmp.svg")
+    plt.savefig(f"{DATA}/hashmap_cmp.svg")

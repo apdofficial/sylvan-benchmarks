@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 # this is for timezone config
 ENV DEBIAN_FRONTEND=noninteractive
@@ -23,10 +23,9 @@ RUN apt install -y libsqlite3-dev
 RUN apt install -y gdb
 RUN apt install -y git
 RUN apt install -y texlive texlive-latex-extra
-RUN apt-add-repository ppa:deadsnakes/ppa 
-RUN apt update
-RUN apt install -y python3.11 
-RUN apt install -y python3-pip
+#RUN apt-add-repository ppa:deadsnakes/ppa
+RUN #apt install -y python3.11
+RUN #apt install -y python3-pip
 
 # system packages
 RUN apt-get update
@@ -62,9 +61,10 @@ RUN apt-get install -y valgrind
 # MSan silently tracks the spread of uninitialized data in memory, and reports a warning when a code
 # branch is taken (or not taken) depending on an uninitialized value.
 
-RUN ln -s /usr/bin/python3.11 /usr/bin/python
-RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 1
-RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 1
+# enable if you wans to test DPMC it works only with gcc-10
+#RUN ln -s /usr/bin/python3.11 /usr/bin/python
+#RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 1
+#RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 1
 
 # add paths
 ENV HOME=/home

@@ -60,7 +60,7 @@ constructOps = Ops {..}
     bAnd x y          = do
         res <- S.band x y
         ref res
-        -- S.testReduceHeap
+        S.testReduceHeap
         return res
     bOr x y           = do
         res <- S.bor x y
@@ -170,7 +170,6 @@ substitutionArray Ops{..} latches andGates = constructMap pairs
 
 compile :: Ops s v m a -> [Int] -> [Int] -> [(Int, Int)] -> [(Int, Int, Int)] -> Int -> ST s (SynthState v m a)
 compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeIndex = do
-    -- S.newlevels (length controllableInputs + length uncontrollableInputs + length latches)
     let andGates = map sel1 ands
         andMap   = makeAndMap ands
 
@@ -207,10 +206,11 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     --compile the and gates
     stab     <- fst <$> mapAccumLM (doAndGates ops andMap) im andGates
 
+    -- S.testReduceHeap
+    
     --get the safety condition
     let sr   = fromJustNote "compile" $ Map.lookup safeIndex stab
-
-    S.testReduceHeap
+    
     
     --construct the initial state
     initState <- computeCube latchCube (replicate (length latchVars) False)
@@ -269,10 +269,9 @@ doIt (Options {..}) = runExceptT $ do
     lift $ do
         let (cInputs, uInputs) = categorizeInputs symbols inputs
         stToIO $ do
-            S.laceStart 1 0
+            S.laceStart 8 0
 
-            S.setLimits (1 `shiftL` 24) 1 4
-            -- S.setLimits (1 * 1024 * 1024 * 1024) 1 8
+            S.setLimits (1 `shiftL` 21) 1 0
 
             S.initPackage
             S.initMtbdd 

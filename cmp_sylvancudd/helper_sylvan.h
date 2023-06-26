@@ -12,8 +12,6 @@ void sylvan_start()
     sylvan_init_reorder();
     sylvan_gc_enable();
 
-//    sylvan_newlevels(6); // 6 variables
-
     sylvan_set_reorder_nodes_threshold(2);
     sylvan_set_reorder_maxgrowth(1.2f);
     sylvan_set_reorder_timelimit_sec(30); // 1 minute
