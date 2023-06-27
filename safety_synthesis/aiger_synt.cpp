@@ -339,6 +339,13 @@ VOID_TASK_1(make_gate, int, gate)
     game.gates[gate] = sylvan_and(l, r);
     mtbdd_protect(&game.gates[gate]);
 //    if (dynamic_reorder) sylvan_test_reduce_heap();
+#ifndef NDEBUG
+//    size_t used, total;
+//    sylvan_table_usage(&used, &total);
+//    printf("%6zu/%6zu (%6.2f%%) | ", used, total, (double)used/(double)total*100);
+//    printf("gate %3d lhs %3d (%3d) rhs %3d (%3d) | ", gate, lft, aag.lookup[lft], rgt, aag.lookup[rgt]);
+//    printf("%5llu = sylvan_and(%5llu, %5llu)  \n", (size_t)game.gates[gate] & SYLVAN_TABLE_MASK_INDEX, l & SYLVAN_TABLE_MASK_INDEX, r & SYLVAN_TABLE_MASK_INDEX);
+#endif
 }
 
 #define solve_game() RUN(solve_game)
@@ -359,8 +366,8 @@ TASK_0(int, solve_game)
     for (uint64_t gate = 0; gate < aag.header.a; gate++) {
         make_gate(gate);
     }
-//    if (verbose) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.gates, aag.header.a));
-    sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
+    if (verbose && dynamic_reorder) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.gates, aag.header.a));
+    if (dynamic_reorder) sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
     if (verbose) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.gates, aag.header.a));
 
     game.c_inputs = sylvan_set_empty();
@@ -452,7 +459,6 @@ TASK_0(int, solve_game)
     }
 
     // now make output
-    INFO("output is %zu (lookup: %d)\n", (size_t) aag.outputs[0], aag.lookup[aag.outputs[0] / 2]);
     MTBDD Unsafe;
     mtbdd_protect(&Unsafe);
     if (aag.lookup[aag.outputs[0] / 2] == -1) {
@@ -515,7 +521,7 @@ int main(int argc, char **argv)
     aag_buffer_open(&aag_buffer, filename, O_RDONLY);
     aag_file_read(&aag, &aag_buffer);
 
-    if (0) {
+    if (verbose) {
         INFO("----------header----------\n");
         INFO("# of variables            \t %lu\n", aag.header.m);
         INFO("# of inputs               \t %lu\n", aag.header.i);
@@ -538,14 +544,14 @@ int main(int argc, char **argv)
     // 1LL<<23: 131072 nodes
     // 1LL<<24: 262144 nodes
     // 1LL<<25: 524288 nodes
-    sylvan_set_limits(1LL << 25, 1, 0);
+    sylvan_set_limits(1LL << 23, 1, 0);
     sylvan_init_package();
     sylvan_init_mtbdd();
-    sylvan_init_reorder();
+    if (dynamic_reorder) sylvan_init_reorder();
     sylvan_gc_disable();
 
-    sylvan_set_reorder_type(SYLVAN_REORDER_BOUNDED_SIFT);
-
+    if (dynamic_reorder) sylvan_set_reorder_type(SYLVAN_REORDER_BOUNDED_SIFT);
+    if (dynamic_reorder) sylvan_set_reorder_print(verbose);
     // Set hooks for logging garbage collection & dynamic variable reordering
     if (verbose) {
 //        sylvan_re_hook_prere(TASK(reordering_start));
