@@ -4,10 +4,14 @@ This folder contains BDD solver created by [Adam Walker](https://github.com/adam
 
 The solver is written in Haskell and contains Haskell bindings to CUDD and Sylvan bdd packages written also by Adam Walker.
 
-This fodler serves as a benchamrk to compare the dynamic variable reordering between Sylvan and CUDD.
+This fodler serves as a benchmark to compare the dynamic variable reordering between Sylvan and CUDD.
 
 ### Usage
 Install **hyperfine** and execute the following command in the current directory:
 ```shell
-hyperfine -L benchmark moving_obstacle_8x8_1glitches,add14y -L solver sylvan,cudd --warmup 1 'make {solver} model={benchmark}.aag'
+hyperfine -L benchmark models/toy_examples/add10y.aag,models/toy_examples/add12y.aag,models/toy_examples/add14y.aag,models/toy_examples/add16y.aag,models/toy_examples/add18y.aag,models/toy_examples/add20y.aag -L solver run-sylvan,run-cudd --warmup 1 'make {solver} model={benchmark}' --export-json sylvan_cudd_safety.json
+```
+
+```shell
+hyperfine -L benchmark models/toy_examples/add8y.aag,models/toy_examples/add12y.aag,models/toy_examples/add16y.aag,models/toy_examples/add20y.aag,models/toy_examples/add24y.aag,models/toy_examples/add24y.aag --warmup 1 'make run-sylvan model={benchmark}' --export-json sylvan_cudd_safety.json
 ```

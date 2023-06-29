@@ -400,10 +400,6 @@ TASK_0(int, solve_game)
     printf("\n");
     sylvan_print(Xu);
     printf("\n");
-#endif
-
-
-#if 0
     for (uint64_t g=0; g<A; g++) {
         INFO("gate %d has size %zu\n", (int)g, sylvan_nodecount(gates[g]));
     }
@@ -544,7 +540,7 @@ int main(int argc, char **argv)
     // 1LL<<23: 131072 nodes
     // 1LL<<24: 262144 nodes
     // 1LL<<25: 524288 nodes
-    sylvan_set_limits(1LL << 23, 1, 0);
+    sylvan_set_limits(1LL << 25, 1, 0);
     sylvan_init_package();
     sylvan_init_mtbdd();
     if (dynamic_reorder) sylvan_init_reorder();
