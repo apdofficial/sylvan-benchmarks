@@ -2,7 +2,6 @@
 
 ## This repository contains the following benchmark usecases:
 - [DPMC](https://github.com/allrtaken/DPMC): Solver that solves weighted model counting (WMC)
-- [STORM](https://github.com/moves-rwth/storm): A Modern Probabilistic Model Checker
 - [safety_synthesis](http://www.syntcomp.org/rules/): Safety Synthesis solver
 - [cmp_hashmap](https://github.com/apdofficial/sylvan-benchmarks/tree/main/hashmap_cmp): Comparison of linear probing vs chaining
 - [cmp_sylvancudd](https://github.com/apdofficial/sylvan-benchmarks/tree/main/sylvancudd_cmp): Comparison of [Sylvan](https://github.com/trolando/sylvan) and [CUDD](https://web.archive.org/web/20150215010013/http://vlsi.colorado.edu/~fabio/)

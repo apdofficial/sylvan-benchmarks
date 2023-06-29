@@ -6,10 +6,6 @@
 	path = external/sylvan
 	url = https://github.com/apdofficial/sylvan
 
-[submodule "external/storm"]
-	path = external/storm
-	url = https://github.com/apdofficial/storm
-
 [submodule "external/cudd"]
 	path = external/cudd
 	url = https://github.com/apdofficial/cudd
