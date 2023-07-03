@@ -338,7 +338,7 @@ VOID_TASK_1(make_gate, int, gate)
     if (aag.gatergt[gate] & 1) r = sylvan_not(r);
     game.gates[gate] = sylvan_and(l, r);
     mtbdd_protect(&game.gates[gate]);
-//    if (dynamic_reorder) sylvan_test_reduce_heap();
+    if (dynamic_reorder) sylvan_test_reduce_heap();
 #ifndef NDEBUG
 //    size_t used, total;
 //    sylvan_table_usage(&used, &total);
@@ -366,8 +366,8 @@ TASK_0(int, solve_game)
     for (uint64_t gate = 0; gate < aag.header.a; gate++) {
         make_gate(gate);
     }
-    if (verbose && dynamic_reorder) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.gates, aag.header.a));
-    if (dynamic_reorder) sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
+//    if (verbose && dynamic_reorder) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.gates, aag.header.a));
+//    if (dynamic_reorder) sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
     if (verbose) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.gates, aag.header.a));
 
     game.c_inputs = sylvan_set_empty();
@@ -517,7 +517,8 @@ int main(int argc, char **argv)
     aag_buffer_open(&aag_buffer, filename, O_RDONLY);
     aag_file_read(&aag, &aag_buffer);
 
-    if (verbose) {
+//    if (verbose) {
+    if (0) {
         INFO("----------header----------\n");
         INFO("# of variables            \t %lu\n", aag.header.m);
         INFO("# of inputs               \t %lu\n", aag.header.i);
@@ -540,7 +541,7 @@ int main(int argc, char **argv)
     // 1LL<<23: 131072 nodes
     // 1LL<<24: 262144 nodes
     // 1LL<<25: 524288 nodes
-    sylvan_set_limits(1LL << 25, 1, 0);
+    sylvan_set_limits(1LL << 26, 1, 6);
     sylvan_init_package();
     sylvan_init_mtbdd();
     if (dynamic_reorder) sylvan_init_reorder();

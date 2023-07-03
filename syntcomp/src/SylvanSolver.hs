@@ -270,8 +270,7 @@ doIt (Options {..}) = runExceptT $ do
         let (cInputs, uInputs) = categorizeInputs symbols inputs
         stToIO $ do
             S.laceStart 8 0
-
-            S.setLimits (1 `shiftL` 21) 1 0
+            S.setLimits (1 `shiftL` 26) 1 7
 
             S.initPackage
             S.initMtbdd 
