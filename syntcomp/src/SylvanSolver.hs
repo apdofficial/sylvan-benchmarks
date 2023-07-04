@@ -210,8 +210,7 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     
     --get the safety condition
     let sr   = fromJustNote "compile" $ Map.lookup safeIndex stab
-    
-    
+
     --construct the initial state
     initState <- computeCube latchCube (replicate (length latchVars) False)
 

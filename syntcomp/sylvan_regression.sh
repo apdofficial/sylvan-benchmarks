@@ -11,7 +11,7 @@ CUDD_LIB_PATH=/Users/andrejpistek/Developer/MSc/sylvan-benchmarks/cmake-build-re
 
 cabal clean
 
-cabal build sylvan-solver\
+cabal build \
     --extra-lib-dirs=${CUDD_LIB_PATH} \
     --extra-lib-dirs=${LACE_LIB_PATH} \
     --extra-lib-dirs=${SYLVAN_LIB_PATH} \
@@ -21,11 +21,16 @@ cabal build sylvan-solver\
 
 mv ./dist-newstyle/build/aarch64-osx/ghc-9.2.7/solver-0.1.0.0/x/sylvan-solver/build/sylvan-solver/sylvan-solver .
 chmod +x sylvan-solver
-mv sylvan-solver sylvan-solver-2
+mv sylvan-solver sylvan-solver-1
 
-hyperfine -L benchmark $ADD/add12y.aag -L solver sylvan-solver-1,sylvan-solver-2 --warmup 1 './{solver} {benchmark}' --export-json sylvan_regression_add12y.json
-hyperfine -L benchmark $ADD/add28y.aag -L solver sylvan-solver-1,sylvan-solver-2 --warmup 1 './{solver} {benchmark}' --export-json sylvan_regression_add28y.json
+#./sylvan-solver models/toy_examples/add8y.aag
+#./sylvan-solver models/toy_examples/add10y.aag
+#./sylvan-solver models/toy_examples/add12y.aag
+#./sylvan-solver models/toy_examples/add14y.aag
+
+#hyperfine -L benchmark $ADD/add12y.aag -L solver sylvan-solver-1,sylvan-solver-2 --warmup 1 './{solver} {benchmark}'
+#hyperfine -L benchmark $ADD/add28y.aag -L solver sylvan-solver-1,sylvan-solver-2 --warmup 1 './{solver} {benchmark}'
 
 # sylvan-solver-1:
 # S.laceStart 8 0
-# S.setLimits (1 `shiftL` 28) 1 8
+# S.setLimits (1 `shiftL` 26) 1 7
