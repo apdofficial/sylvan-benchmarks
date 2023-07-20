@@ -2,8 +2,7 @@ MODEL_PATH="models"
 ADD=$MODEL_PATH/"toy_examples"
 DRV=$MODEL_PATH/"driver"
 
-
-SYLVAN_INC_PATH=/home/s2641682/sylvan-benchmarks/sylvan-benchmarks/cmake-build-release-chaining/external/sylvan/src
+SYLVAN_INC_PATH=/home/s2641682/sylvan-benchmarks/sylvan-benchmarks/external/sylvan/src
 SYLVAN_LIB_PATH=/home/s2641682/sylvan-benchmarks/sylvan-benchmarks/cmake-build-release-chaining/external/sylvan/src
 
 LACE_INC_PATH=/home/s2641682/sylvan-benchmarks/sylvan-benchmarks/cmake-build-release-chaining/_deps/lace-src/src
@@ -11,9 +10,6 @@ LACE_LIB_PATH=/home/s2641682/sylvan-benchmarks/sylvan-benchmarks/cmake-build-rel
 
 CUDD_INC_PATH=/home/s2641682/sylvan-benchmarks/sylvan-benchmarks/external/cudd/cudd
 CUDD_LIB_PATH=/home/s2641682/sylvan-benchmarks/sylvan-benchmarks/cmake-build-release-chaining/external/cudd/cudd
-
-#CUDD_INC_PATH2=/home/s2641682/sylvan-benchmarks/sylvan-benchmarks/cmake-build-release-chaining/external/cudd/dddmp
-#CUDD_LIB_PATH2=/home/s2641682/sylvan-benchmarks/sylvan-benchmarks/cmake-build-release-chaining/external/cudd/dddmp
 
 cabal new-clean
 
@@ -25,11 +21,12 @@ cabal new-build \
     --extra-include-dirs=${LACE_INC_PATH} \
     --extra-include-dirs=${SYLVAN_INC_PATH}
 
-#mv ./dist-newstyle/build/aarch64-osx/ghc-9.2.7/solver-0.1.0.0/x/cudd-solver/build/cudd-solver/cudd-solver .
-#mv ./dist-newstyle/build/aarch64-osx/ghc-9.2.7/solver-0.1.0.0/x/sylvan-solver/build/sylvan-solver/sylvan-solver .
-#
-#chmod +x cudd-solver
-#chmod +x sylvan-solver
+mv ./dist-newstyle/build/x86_64-linux/ghc-8.6.5/solver-0.1.0.0/x/cudd-solver/build/cudd-solver/cudd-solver .
+mv ./dist-newstyle/build/x86_64-linux/ghc-8.6.5/solver-0.1.0.0/x/sylvan-solver/build/sylvan-solver/sylvan-solver .
+
+chmod +x cudd-solver
+chmod +x sylvan-solver
+
 #TEST_MODEL=$ADD/add12y.aag
 #time ./sylvan-solver $TEST_MODEL
 #time ./cudd-solver $TEST_MODEL
