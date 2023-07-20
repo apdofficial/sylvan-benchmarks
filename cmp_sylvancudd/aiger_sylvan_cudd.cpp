@@ -382,7 +382,6 @@ int main(int argc, char **argv)
     // Set hooks for logging garbage collection & dynamic variable reordering
     if (verbose) {
         sylvan_re_hook_prere(TASK(reordering_start));
-        sylvan_re_hook_progre(TASK(reordering_progress));
         sylvan_re_hook_postre(TASK(reordering_end));
         sylvan_gc_hook_pregc(TASK(gc_start));
         sylvan_gc_hook_postgc(TASK(gc_end));
