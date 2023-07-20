@@ -14,3 +14,5 @@ add_subdirectory(safety_synthesis)
 add_subdirectory(external/cudd)
 add_subdirectory(cmp_sylvancudd)
 
+
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
