@@ -8,7 +8,6 @@
 #include <string>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <span>
 
 #include <sylvan_int.h>
 #include "aag.h"
