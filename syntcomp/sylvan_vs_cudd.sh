@@ -26,9 +26,9 @@ mv ./dist-newstyle/build/aarch64-osx/ghc-9.2.7/solver-0.1.0.0/x/sylvan-solver/bu
 
 chmod +x cudd-solver
 chmod +x sylvan-solver
-#TEST_MODEL=$ADD/add12y.aag
-#time ./sylvan-solver $TEST_MODEL
-#time ./cudd-solver $TEST_MODEL
+TEST_MODEL=$ADD/add14y.aag
+time ./sylvan-solver $TEST_MODEL
+time ./cudd-solver $TEST_MODEL
 
 #hyperfine -L benchmark $ADD/add8y.aag,$ADD/add12y.aag,$ADD/add16y.aag,$ADD/add20y.aag,$ADD/add24y.aag,$ADD/add28y.aag,$ADD/add32y.aag --warmup 1 './sylvan-solver {benchmark}'
 #hyperfine -L benchmark $ADD/add12y.aag,$ADD/add20y.aag,$ADD/add28y.aag,$DRV/driver_d10y.aag,$DRV/driver_d8y.aag,$DRV/driver_d6y.aag -L solver sylvan-solver,cudd-solver --warmup 1 './{solver} {benchmark}' --export-json sylvan_vs_cudd.json

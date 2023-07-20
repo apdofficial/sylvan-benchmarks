@@ -29,6 +29,17 @@ double t_start;
 #define Abort(s, ...) { fprintf(stderr, "\r[% 8.2f] " s, wctime()-t_start, ##__VA_ARGS__); exit(-1); }
 
 
+int binarySearch2(int arr[], int l, int r, int x)
+{
+    if (r >= l) {
+        int mid = l + (r - l) / 2;
+        if (arr[mid] == x) return mid;
+        if (arr[mid] > x) return binarySearch2(arr, l, mid - 1, x);
+        return binarySearch2(arr, mid + 1, r, x);
+    }
+    return -1;
+}
+
 /* Configuration */
 static int workers = 1;
 static int verbose = 0;
@@ -158,13 +169,11 @@ VOID_TASK_0(gc_end)
     printf("(%zu / %zu)\n", llmsset_count_marked(nodes), llmsset_get_size(nodes));
 }
 
-VOID_TASK_0(reordering_start)
-{
+VOID_TASK_0(reordering_start) {
     printf("\r[% 8.2f] RE: from %zu to ... ", wctime()-t_start, llmsset_count_marked(nodes));
 }
 
-VOID_TASK_0(reordering_end)
-{
+VOID_TASK_0(reordering_end) {
     printf("%zu nodes in %f\n", llmsset_count_marked(nodes), wctime() - reorder_db->config.t_start_sifting);
 }
 
@@ -347,11 +356,11 @@ TASK_0(int, solve_game)
     for (uint64_t a = 0; a < aag.header.a; a++) game.s_gates[a] = sylvan_invalid;
     for (uint64_t gate = 0; gate < aag.header.a; gate++) {
         make_gate(gate);
-        if (dynamic_reorder) sylvan_test_reduce_heap();
+//        if (dynamic_reorder) sylvan_test_reduce_heap();
     }
 
-//    if (verbose && dynamic_reorder) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.gates, aag.header.a));
-//    if (dynamic_reorder) sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
+    if (verbose && dynamic_reorder) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.s_gates, aag.header.a));
+    if (dynamic_reorder) sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
     INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.s_gates, aag.header.a));
 
     game.c_inputs = sylvan_set_empty();

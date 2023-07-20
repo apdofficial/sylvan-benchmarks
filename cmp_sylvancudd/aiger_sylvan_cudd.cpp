@@ -234,23 +234,19 @@ TASK_1(int, solve_game, DdManager*, db)
         make_gate(gate, db);
 //        sylvan_test_reduce_heap();
 //        INFO("Sylvan: %5zu Cudd: %zu\n", llmsset_count_marked(nodes), Cudd_ReadNodeCount(db));
-        if (llmsset_count_marked(nodes) >= reorder_db->config.size_threshold) {
-            sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
-            Cudd_ReduceHeap(db, CUDD_REORDER_SIFT, 0);
-        }
+//        if (llmsset_count_marked(nodes) >= reorder_db->config.size_threshold & reorder_db->call_count == 0) {
+//            sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
+//            Cudd_ReduceHeap(db, CUDD_REORDER_SIFT, 0);
+//        }
     }
 
-//    printf("Sylvan levels count:  %zu\n", levels_get_count(&reorder_db->levels));
-//    printf("Cudd levels count:    %d\n", Cudd_ReadSize(db));
-//
-//    INFO("Sylvan gates have size %zu\n", mtbdd_nodecount_more(sylvan_game.gates, aag.header.a));
-//    INFO("Cudd   gates have size %zu\n", Cudd_ReadNodeCount(db));
-//
-//    sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
-//    Cudd_ReduceHeap(db, CUDD_REORDER_SIFT, 0);
-//
-//    INFO("Sylvan gates have size %zu\n", mtbdd_nodecount_more(sylvan_game.gates, aag.header.a));
-//    INFO("Cudd   gates have size %zu\n", Cudd_ReadNodeCount(db));
+    INFO("Sylvan gates have size %zu\n", mtbdd_nodecount_more(sylvan_game.gates, aag.header.a));
+    INFO("Cudd   gates have size %zu\n", Cudd_ReadNodeCount(db));
+    sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
+    Cudd_ReduceHeap(db, CUDD_REORDER_SIFT, 0);
+
+    INFO("Sylvan gates have size %zu\n", mtbdd_nodecount_more(sylvan_game.gates, aag.header.a));
+    INFO("Cudd   gates have size %zu\n", Cudd_ReadNodeCount(db));
 
     sylvan_game.c_inputs = sylvan_set_empty();
     sylvan_game.u_inputs = sylvan_set_empty();
@@ -380,16 +376,16 @@ int main(int argc, char **argv)
     sylvan_set_granularity(2); // granularity 3 is decent value for this small problem - 1 means "use cache for every operation"
     sylvan_init_mtbdd();
     if (dynamic_reorder) sylvan_init_reorder();
-
     if (dynamic_reorder) sylvan_set_reorder_type(SYLVAN_REORDER_BOUNDED_SIFT);
-    if (dynamic_reorder) sylvan_set_reorder_print(verbose);
+    if (dynamic_reorder) sylvan_set_reorder_print(0);
 
     // Set hooks for logging garbage collection & dynamic variable reordering
     if (verbose) {
-//        sylvan_re_hook_prere(TASK(reordering_start));
-//        sylvan_re_hook_postre(TASK(reordering_end));
-//        sylvan_gc_hook_pregc(TASK(gc_start));
-//        sylvan_gc_hook_postgc(TASK(gc_end));
+        sylvan_re_hook_prere(TASK(reordering_start));
+        sylvan_re_hook_progre(TASK(reordering_progress));
+        sylvan_re_hook_postre(TASK(reordering_end));
+        sylvan_gc_hook_pregc(TASK(gc_start));
+        sylvan_gc_hook_postgc(TASK(gc_end));
     }
 
     int is_realizable = solve_game(db);

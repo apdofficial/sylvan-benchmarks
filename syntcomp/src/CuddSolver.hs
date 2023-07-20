@@ -178,7 +178,7 @@ compile m ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeI
     --construct the initial state
     initState <- computeCube2 latchVars (replicate (length latchVars) False)
 
-    -- cuddReduceHeap m CuddReorderSift 0
+    cuddReduceHeap m CuddReorderSift 0
 
     --construct the transition relation
     let latchMap = Map.fromList latches
@@ -236,7 +236,7 @@ solveSafety options@Options{..} ops@Ops{..} ss init safeRegion = do
 
 setupManager :: Options -> DDManager s u -> ST s ()
 setupManager Options{..} m = void $ do
-    unless noReord $ cuddAutodynEnable m CuddReorderSift
+    -- unless noReord $ cuddAutodynEnable m CuddReorderSift
     unless quiet   $ void $ do
         regStdPreReordHook m
         regStdPostReordHook m
