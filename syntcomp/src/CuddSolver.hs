@@ -72,7 +72,10 @@ bddSynopsis Ops{..} x
 constructOps :: DDManager s u -> Ops s (DDNode s u)
 constructOps m = Ops {..}
     where
-    bAnd              = Cudd.bAnd m
+    bAnd  x y         = do
+        res <- Cudd.bAnd m x y
+        -- cuddReduceHeap m CuddReorderSift 0
+        return res
     bOr               = Cudd.bOr  m
     lEq               = Cudd.lEq  m
     neg               = Cudd.bNot
@@ -233,7 +236,7 @@ solveSafety options@Options{..} ops@Ops{..} ss init safeRegion = do
 
 setupManager :: Options -> DDManager s u -> ST s ()
 setupManager Options{..} m = void $ do
-    unless noReord $ cuddAutodynEnable m CuddReorderSift
+    -- unless noReord $ cuddAutodynEnable m CuddReorderSift
     unless quiet   $ void $ do
         regStdPreReordHook m
         regStdPostReordHook m

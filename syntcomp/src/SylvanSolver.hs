@@ -60,7 +60,7 @@ constructOps = Ops {..}
     bAnd x y          = do
         res <- S.band x y
         ref res
-        S.testReduceHeap
+        -- S.testReduceHeap
         return res
     bOr x y           = do
         res <- S.bor x y
@@ -206,12 +206,11 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     --compile the and gates
     stab     <- fst <$> mapAccumLM (doAndGates ops andMap) im andGates
 
-    -- S.testReduceHeap
+    S.testReduceHeap
     
     --get the safety condition
     let sr   = fromJustNote "compile" $ Map.lookup safeIndex stab
-    
-    
+
     --construct the initial state
     initState <- computeCube latchCube (replicate (length latchVars) False)
 
@@ -233,7 +232,7 @@ safeCpre quiet ops@Ops{..} SynthState{..} s = do
     scu <- andAbstract cInputCube safeRegion scu'
     deref scu'
 
-    s   <- bforall uInputCube scu
+    s <- bforall uInputCube scu
     deref scu
     return s
 
@@ -269,16 +268,15 @@ doIt (Options {..}) = runExceptT $ do
     lift $ do
         let (cInputs, uInputs) = categorizeInputs symbols inputs
         stToIO $ do
-            S.laceStart 8 0
-
-            S.setLimits (1 `shiftL` 21) 1 0
+            S.laceStart 4 0
+            S.setLimits (1 `shiftL` 26) 1 7
 
             S.initPackage
             S.initMtbdd 
             S.initReorder
 
             S.setReorderNodesThreshold 1
-            S.setReorderTimeLimitSec 60
+            S.setReorderTimeLimitSec 600
             S.setReorderMaxGrowth 1.2
 
             S.gcEnable

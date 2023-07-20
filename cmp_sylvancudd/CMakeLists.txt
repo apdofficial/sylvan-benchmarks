@@ -19,10 +19,16 @@ endmacro(add_benchmark)
 
 add_benchmark(cmp_sylvancudd cmp_sylvancudd.c)
 
-option(SYLVAN_LIMIT_PROBE_SEQUENCE "Let Sylvan limit number of iterations for insertion until returning error" OFF)
-if(SYLVAN_LIMIT_PROBE_SEQUENCE)
-    set_target_properties(cmp_sylvancudd PROPERTIES COMPILE_DEFINITIONS "SYLVAN_LIMIT_PROBE_SEQUENCE")
+add_benchmark(aiger_sylvan_cudd aiger_sylvan_cudd.cpp)
+target_sources(aiger_sylvan_cudd PRIVATE aag.h)
+
+# Check if we have Boost
+find_package(Boost 1.71.0)
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS})
+    target_link_libraries(aiger_synt ${Boost_LIBRARIES})
 endif()
+
 
 option(SYLVAN_USE_LINEAR_PROBING "Unique table uses linear probing instead of chaining" OFF)
 if(SYLVAN_USE_LINEAR_PROBING)

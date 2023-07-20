@@ -4,6 +4,8 @@ import pandas as pd
 import seaborn as sns
 
 sns.set_style("whitegrid")
+# sns.set(font_scale=1.5, rc={'text.usetex' : True})
+
 sns.set_context("notebook", font_scale=1.5, rc={"lines.linewidth": 1.0})
 
 X = "table_usage"
@@ -48,7 +50,7 @@ if __name__ == "__main__":
         gfg.set_yticks(linspace(start=0, stop=110, step=15))
         gfg.set_xticks(linspace(start=0, stop=100, step=10))
         gfg.legend(loc='upper left')
-        gfg.set(ylabel="Runtime (ms)", xlabel="Used table (%)")
+        gfg.set(ylabel="Runtime of makenode (ms)", xlabel="Table usage (%)")
 
         col += 1
         if col % ncols == 0:

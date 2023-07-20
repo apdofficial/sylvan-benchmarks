@@ -114,10 +114,10 @@ ENV DPMC_BUILD=$HOME/build/dpmc
 RUN cd $BUILD && mkdir dpmc
 
 # compile the colamd library and copy it into the addmc library directory
-RUN cd $SUITE_SPARSE/SuiteSparse_config/ && make -s
-RUN rm -f $ADDMC_COLAMD/libcolamd.a
-RUN cd $SUITE_SPARSE/COLAMD/ && make -s
-RUN cp $SUITE_SPARSE/COLAMD/Lib/libcolamd.a $ADDMC_COLAMD/
+#RUN cd $SUITE_SPARSE/SuiteSparse_config/ && make -s
+#RUN rm -f $ADDMC_COLAMD/libcolamd.a
+#RUN cd $SUITE_SPARSE/COLAMD/ && make -s
+#RUN cp $SUITE_SPARSE/COLAMD/Lib/libcolamd.a $ADDMC_COLAMD/
 
 # --------- Safety Synthesis ---------
 ENV SAFETY_SYNT=$HOME/safety_synthesis

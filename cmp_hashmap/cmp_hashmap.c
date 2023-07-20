@@ -39,8 +39,6 @@ VOID_TASK_2(create_variables, size_t, start, size_t, end)
 {
     for (; start < end; ++start) {
         MTBDD v = mtbdd_makenode(start, mtbdd_false, mtbdd_true);
-//        int created = 0;
-//        MTBDD v = mtbdd_varswap_makenode(1, mtbdd_false, mtbdd_true, &created);
         if (v == mtbdd_invalid) {
             printf("table is full\n");
             return;
