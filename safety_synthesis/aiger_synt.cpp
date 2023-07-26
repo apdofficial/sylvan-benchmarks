@@ -355,11 +355,11 @@ TASK_0(int, solve_game)
     for (uint64_t a = 0; a < aag.header.a; a++) game.s_gates[a] = sylvan_invalid;
     for (uint64_t gate = 0; gate < aag.header.a; gate++) {
         make_gate(gate);
-//        if (dynamic_reorder) sylvan_test_reduce_heap();
+        if (dynamic_reorder) sylvan_test_reduce_heap();
     }
 
-    if (verbose && dynamic_reorder) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.s_gates, aag.header.a));
-    if (dynamic_reorder) sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
+//    if (verbose && dynamic_reorder) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.s_gates, aag.header.a));
+//    if (dynamic_reorder) sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
     INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.s_gates, aag.header.a));
 
     game.c_inputs = sylvan_set_empty();
@@ -387,50 +387,6 @@ TASK_0(int, solve_game)
     }
     INFO("There are %zu controllable and %zu uncontrollable inputs.\n", sylvan_set_count(game.c_inputs), sylvan_set_count(game.u_inputs));
 
-#if 0
-    sylvan_print(Xc);
-    printf("\n");
-    sylvan_print(Xu);
-    printf("\n");
-    for (uint64_t g=0; g<A; g++) {
-        INFO("gate %d has size %zu\n", (int)g, sylvan_nodecount(gates[g]));
-    }
-
-    for (uint64_t g=0; g<A; g++) {
-        MTBDD supp = sylvan_support(gates[g]);
-        while (supp != sylvan_set_empty()) {
-            printf("%d ", sylvan_set_first(supp));
-            supp = sylvan_set_next(supp);
-        }
-        printf("\n");
-    }
-
-    MTBDD lnext[L];
-    for (uint64_t l=0; l<L; l++) {
-        MTBDD nxt;
-        if (lookup[l_next[l]/2] == -1) {
-            nxt = sylvan_ithlevel(l_next[l]&1);
-        } else {
-            nxt = gates[lookup[l_next[l]]];
-        }
-        if (l_next[l]&1) nxt = sylvan_not(nxt);
-        lnext[l] = sylvan_equiv(sylvan_ithvar(latches[l]+1), nxt);
-    }
-    INFO("done making latches\n");
-
-    MTBDD Lvars = sylvan_set_empty();
-    mtbdd_protect(&Lvars);
-
-    for (uint64_t l = 0; l < aag.header.l; l++) {
-        Lvars = sylvan_set_add(Lvars, game.level_to_order[aag.latches[l] / 2]);
-    }
-
-    MTBDD LtoPrime = sylvan_map_empty();
-    for (uint64_t l=0; l<L; l++) {
-        LtoPrime = sylvan_map_add(LtoPrime, latches[l], latches[l]+1);
-    }
-#endif
-
     // Actually just make the compose vector
     MTBDD CV = sylvan_map_empty();
     mtbdd_protect(&CV);
@@ -457,17 +413,6 @@ TASK_0(int, solve_game)
     if (aag.outputs[0] & 1) Unsafe = sylvan_not(Unsafe);
     Unsafe = sylvan_forall(Unsafe, game.c_inputs);
     Unsafe = sylvan_exists(Unsafe, game.u_inputs);
-
-
-#if 0
-    MTBDD supp = sylvan_support(Unsafe);
-    while (supp != sylvan_set_empty()) {
-        printf("%d ", sylvan_set_first(supp));
-        supp = sylvan_set_next(supp);
-    }
-    printf("\n");
-    INFO("exactly %.0f states are bad\n", sylvan_satcount(Unsafe, Lvars));
-#endif
 
     MTBDD OldUnsafe = sylvan_false; // empty set
     MTBDD Step = sylvan_false;
@@ -509,8 +454,7 @@ int main(int argc, char **argv)
     aag_buffer_open(&aag_buffer, filename, O_RDONLY);
     aag_file_read(&aag, &aag_buffer);
 
-//    if (verbose) {
-    if (0) {
+    if (verbose) {
         INFO("----------header----------\n");
         INFO("# of variables            \t %lu\n", aag.header.m);
         INFO("# of inputs               \t %lu\n", aag.header.i);
@@ -549,8 +493,8 @@ int main(int argc, char **argv)
     if (verbose) {
         sylvan_re_hook_prere(TASK(reordering_start));
         sylvan_re_hook_postre(TASK(reordering_end));
-//        sylvan_gc_hook_pregc(TASK(gc_start));
-//        sylvan_gc_hook_postgc(TASK(gc_end));
+        sylvan_gc_hook_pregc(TASK(gc_start));
+        sylvan_gc_hook_postgc(TASK(gc_end));
     }
 
     int is_realizable = solve_game();

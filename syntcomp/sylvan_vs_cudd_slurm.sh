@@ -59,9 +59,13 @@ time ./sylvan-solver $MUL/mult_bool_matrix_2_3_6.aag
 echo "cudd:mult_bool_matrix_2_3_6"
 time ./cudd-solver $MUL/mult_bool_matrix_2_3_6.aag
 
+./hyperfine -L solver cudd,sylvan -L model $ADD/add12y.aag --warmup 1 './{solver}-solver {model}'
+./hyperfine -L solver cudd,sylvan -L model $ADD/add14y.aag --warmup 1 './{solver}-solver {model}'
+./hyperfine -L solver cudd,sylvan -L model $ADD/add16y.aag --warmup 1 './{solver}-solver {model}'
+./hyperfine -L solver cudd,sylvan -L model $ADD/add20y.aag --warmup 1 './{solver}-solver {model}'
+./hyperfine -L solver cudd,sylvan -L model $ADD/add24y.aag --warmup 1 './{solver}-solver {model}'
+./hyperfine -L solver cudd,sylvan -L model $ADD/add28y.aag --warmup 1 './{solver}-solver {model}'
 
-./hyperfine -L benchmark $ADD/add12y.aag,$ADD/add16y.aag,$ADD/add20y.aag,$ADD/add24y.aag --warmup 1 './sylvan-solver {benchmark}'
-./hyperfine -L benchmark $ADD/add12y.aag,$ADD/add16y.aag,$ADD/add20y.aag,$ADD/add24y.aag --warmup 1 './cudd-solver'' {benchmark}'
-
-./hyperfine -L benchmark $MUL/mult_bool_matrix_2_3_3.aag,$MUL/mult_bool_matrix_2_3_4.aag,$MUL/mult_bool_matrix_2_3_5.aag --warmup 1 './sylvan-solver {benchmark}'
-./hyperfine -L benchmark $MUL/mult_bool_matrix_2_3_3.aag,$MUL/mult_bool_matrix_2_3_4.aag,$MUL/mult_bool_matrix_2_3_5.aag --warmup 1 './cudd-solver {benchmark}'
+./hyperfine -L solver cudd,sylvan -L model $MUL/mult_bool_matrix_2_3_3.aag --warmup 1 './{solver}-solver {model}'
+./hyperfine -L solver cudd,sylvan -L model $MUL/mult_bool_matrix_2_3_4.aag --warmup 1 './{solver}-solver {model}'
+./hyperfine -L solver cudd,sylvan -L model $MUL/mult_bool_matrix_2_3_5.aag --warmup 1 './{solver}-solver {model}'
