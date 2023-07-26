@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 
 # this is for timezone config
 ENV DEBIAN_FRONTEND=noninteractive
@@ -62,9 +62,9 @@ RUN apt-get install -y valgrind
 # branch is taken (or not taken) depending on an uninitialized value.
 
 # enable if you wans to test DPMC it works only with gcc-10
-#RUN ln -s /usr/bin/python3.11 /usr/bin/python
-#RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 1
-#RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 1
+RUN ln -s /usr/bin/python3.11 /usr/bin/python
+RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 1
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 1
 
 # add paths
 ENV HOME=/home
@@ -86,6 +86,8 @@ RUN cd $SCRIPTS && chmod +x run_dpmc.sh
 RUN cd $SCRIPTS && chmod +x build_safety_synth.sh
 RUN cd $SCRIPTS && chmod +x run_safety_synth.sh
 RUN cd $SCRIPTS && chmod +x run_storm.sh
+RUN cd $SCRIPTS && chmod +x test_sylvan_dpmc.sh
+RUN cd $SCRIPTS && chmod +x test_cudd_dpmc.sh
 
 ENV CUDD=$HOME/external/cudd
 ENV DPMC=$HOME/external/dpmc
@@ -114,10 +116,10 @@ ENV DPMC_BUILD=$HOME/build/dpmc
 RUN cd $BUILD && mkdir dpmc
 
 # compile the colamd library and copy it into the addmc library directory
-#RUN cd $SUITE_SPARSE/SuiteSparse_config/ && make -s
-#RUN rm -f $ADDMC_COLAMD/libcolamd.a
-#RUN cd $SUITE_SPARSE/COLAMD/ && make -s
-#RUN cp $SUITE_SPARSE/COLAMD/Lib/libcolamd.a $ADDMC_COLAMD/
+RUN cd $SUITE_SPARSE/SuiteSparse_config/ && make -s
+RUN rm -f $ADDMC_COLAMD/libcolamd.a
+RUN cd $SUITE_SPARSE/COLAMD/ && make -s
+RUN cp $SUITE_SPARSE/COLAMD/Lib/libcolamd.a $ADDMC_COLAMD/
 
 # --------- Safety Synthesis ---------
 ENV SAFETY_SYNT=$HOME/safety_synthesis

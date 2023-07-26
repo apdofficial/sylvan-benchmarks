@@ -13,7 +13,7 @@ CUDD_LIB_PATH=/home/s2641682/sylvan-benchmarks/sylvan-benchmarks/cmake-build-rel
 
 cabal new-clean
 
-cabal new-build \
+cabal new-build \w
     --extra-lib-dirs=${CUDD_LIB_PATH} \
     --extra-lib-dirs=${LACE_LIB_PATH} \
     --extra-lib-dirs=${SYLVAN_LIB_PATH} \

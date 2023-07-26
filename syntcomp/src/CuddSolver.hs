@@ -74,7 +74,7 @@ constructOps m = Ops {..}
     where
     bAnd  x y         = do
         res <- Cudd.bAnd m x y
-        -- cuddReduceHeap m CuddReorderSift 0
+        cuddReduceHeap m CuddReorderSift 0
         return res
     bOr               = Cudd.bOr  m
     lEq               = Cudd.lEq  m
@@ -178,7 +178,7 @@ compile m ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeI
     --construct the initial state
     initState <- computeCube2 latchVars (replicate (length latchVars) False)
 
-    cuddReduceHeap m CuddReorderSift 0
+    -- cuddReduceHeap m CuddReorderSift 0
 
     --construct the transition relation
     let latchMap = Map.fromList latches
