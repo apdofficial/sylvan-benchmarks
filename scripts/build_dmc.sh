@@ -1,13 +1,13 @@
 # prepare the dmc executable
 rm -r "$ADDMC"/libraries/sylvan/build
-cd "$ADDMC"/ && make sylvan -j 6 SYLDEV=1
+cd "$ADDMC"/ && make sylvan -j 6
 cd "$ADDMC"/ && make cudd -j 6
 cd "$ADDMC"/ && make cryptominisat -j 6
-cd "$ADDMC"/ && make dmc -j 6 SYLDEV=1
-cp "$ADDMC"/dmc -j 6 opt=-Ofast link=-static "$DPMC_BUILD"
+cd "$ADDMC"/ && make dmc -j 6 opt=-Ofast link=-static
+cp "$ADDMC"/build/* "$DPMC_BUILD"
 
 # prepare the lg executable
-cd "$LG"/ && make -j 6
+cd "$LG"/ && make -j
 cp "$LG"/build/lg "$DPMC_BUILD"
 
 # prepare the htd_main-1.2.0 executable
