@@ -1,5 +1,5 @@
 # prepare the dmc executable
-rm -r "$ADDMC"/libraries/sylvan/build
+#rm -r "$ADDMC"/libraries/sylvan/build
 cd "$ADDMC"/ && make sylvan -j 6
 cd "$ADDMC"/ && make cudd -j 6
 cd "$ADDMC"/ && make cryptominisat -j 6

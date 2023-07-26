@@ -80,12 +80,7 @@ RUN mkdir build
 
 #RUN pip install -r requirements.txt
 
-RUN cd $SCRIPTS && chmod +x run_all.sh
 RUN cd $SCRIPTS && chmod +x build_dmc.sh
-RUN cd $SCRIPTS && chmod +x run_dpmc.sh
-RUN cd $SCRIPTS && chmod +x build_safety_synth.sh
-RUN cd $SCRIPTS && chmod +x run_safety_synth.sh
-RUN cd $SCRIPTS && chmod +x run_storm.sh
 RUN cd $SCRIPTS && chmod +x test_sylvan_dpmc.sh
 RUN cd $SCRIPTS && chmod +x test_cudd_dpmc.sh
 
