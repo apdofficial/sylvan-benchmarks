@@ -28,11 +28,11 @@ for solver in "${auto_solvers[@]}"
 do
   for model in "${auto_add_models[@]}"
   do
-    ./"$solver" "$ADD"/"$model".aag > $RESULTS_AUTO/"$solver"_"$model".txt
+    ./"$solver" "$ADD"/"$model".aag > $RESULTS_AUTO/"$solver"-"$model".txt
   done
   for model in "${auto_mult_models[@]}"
   do
-    ./"$solver" "$MUL"/"$model".aag > $RESULTS_AUTO/"$solver"_"$model".txt
+    ./"$solver" "$MUL"/"$model".aag > $RESULTS_AUTO/"$solver"-"$model".txt
   done
 done
 
@@ -64,11 +64,11 @@ for solver in "${manu_solvers[@]}"
 do
   for model in "${manu_add_models[@]}"
   do
-    ./"$solver" "$ADD"/"$model".aag > $RESULTS_MANU/"$solver"_"$model".txt
+    ./"$solver" "$ADD"/"$model".aag > $RESULTS_MANU/"$solver"-"$model".txt
   done
   for model in "${manu_mult_models[@]}"
   do
-    ./"$solver" "$MUL"/"$model".aag > $RESULTS_MANU/"$solver"_"$model".txt
+    ./"$solver" "$MUL"/"$model".aag > $RESULTS_MANU/"$solver"-"$model".txt
   done
 done
 

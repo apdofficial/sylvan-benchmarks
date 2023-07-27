@@ -21,7 +21,7 @@ class Benchmark:
     reorderings: [Reordering]
 
 
-def txt_size_benchmark(path: Path) -> Benchmark:
+def txt_to_benchmark(path: Path) -> Benchmark:
     with open(path, 'r') as f:
         lines = f.readlines()
         lines = [line.strip() for line in lines if line.startswith("BDD")]
@@ -35,15 +35,15 @@ def txt_size_benchmark(path: Path) -> Benchmark:
         return benchmark
 
 
-def extract_size_benchmarks(path: Path) -> [Benchmark]:
+def load_size_benchmarks(path: Path) -> [Benchmark]:
     size_results = list(path.glob('*.txt'))
     benchmarks: [Benchmark] = []
     for path in size_results:
-        benchmarks.append(txt_size_benchmark(path))
+        benchmarks.append(txt_to_benchmark(path))
     return benchmarks
 
 
-def write_benchmarks_to_csv(benchmarks: [Benchmark]):
+def write_size_benchmarks_to_csv(benchmarks: [Benchmark]):
     for benchmark in benchmarks:
         with open(benchmark.path.with_suffix('.csv'), 'w') as f:
             w = DataclassWriter(f, benchmark.reorderings, Reordering)
@@ -51,7 +51,7 @@ def write_benchmarks_to_csv(benchmarks: [Benchmark]):
 
 
 if __name__ == "__main__":
-    manu_size_benchmarks = extract_size_benchmarks(results_manu)
-    write_benchmarks_to_csv(manu_size_benchmarks)
-    auto_size_benchmarks = extract_size_benchmarks(results_auto)
-    write_benchmarks_to_csv(auto_size_benchmarks)
+    manu_size_benchmarks = load_size_benchmarks(results_manu)
+    write_size_benchmarks_to_csv(manu_size_benchmarks)
+    auto_size_benchmarks = load_size_benchmarks(results_auto)
+    write_size_benchmarks_to_csv(auto_size_benchmarks)
