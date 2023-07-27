@@ -37,7 +37,7 @@ def txt_to_benchmark(path: Path) -> Benchmark:
         return benchmark
 
 
-def load_size_benchmarks(path: Path) -> [Benchmark]:
+def load_quality_benchmarks(path: Path) -> [Benchmark]:
     size_results = list(path.glob('*.txt'))
     benchmarks: [Benchmark] = []
     for path in size_results:
@@ -45,7 +45,7 @@ def load_size_benchmarks(path: Path) -> [Benchmark]:
     return benchmarks
 
 
-def write_size_benchmarks_to_csv(benchmarks: [Benchmark]):
+def write_quality_benchmarks_to_csv(benchmarks: [Benchmark]):
     for benchmark in benchmarks:
         with open(benchmark.path.with_suffix('.csv'), 'w') as f:
             w = DataclassWriter(f, benchmark.reorderings, Reordering)
@@ -58,12 +58,13 @@ def filter_quality_benchmark(path: Path) -> bool:
     return is_cudd or is_sylvan
 
 
-def load_quality_benchmarks(path: Path) -> DataFrame:
+def load_quality_df(path: Path) -> DataFrame:
     size_results = filter(filter_quality_benchmark, list(path.glob('*.csv')))
     frames: [DataFrame] = []
     for path in size_results:
         frame = pd.read_csv(path)
-        frame["benchmark"] = path.name.split(".")[0]
+        frame["solver"] = path.name.split("solver")[0][:-1]
+        frame["model"] = path.name.split("solver")[1][1:]
         frames.append(frame)
     return pd.concat(frames)
 
@@ -74,7 +75,7 @@ def filter_runtime_benchmark(path: Path) -> bool:
     return not is_cudd and not is_sylvan
 
 
-def load_runtime_benchmarks(path: Path) -> DataFrame:
+def load_runtime_df(path: Path) -> DataFrame:
     size_results = filter(filter_runtime_benchmark, list(path.glob('*.csv')))
     frames: [DataFrame] = []
     for path in size_results:
@@ -85,23 +86,35 @@ def load_runtime_benchmarks(path: Path) -> DataFrame:
 
 if __name__ == "__main__":
     # convert the txt files to csv files for the quality benchmarks
-    manu_size_benchmarks = load_size_benchmarks(results_manu)
-    write_size_benchmarks_to_csv(manu_size_benchmarks)
-    auto_size_benchmarks = load_size_benchmarks(results_auto)
-    write_size_benchmarks_to_csv(auto_size_benchmarks)
+    manu_size_benchmarks = load_quality_benchmarks(results_manu)
+    write_quality_benchmarks_to_csv(manu_size_benchmarks)
+    auto_size_benchmarks = load_quality_benchmarks(results_auto)
+    write_quality_benchmarks_to_csv(auto_size_benchmarks)
 
-    manu_quality_benchmarks = load_quality_benchmarks(results_manu)
+    manu_quality_benchmarks = load_quality_df(results_manu)
+    manu_quality_benchmarks["model"] = manu_quality_benchmarks.apply(lambda row: row["model"].replace(".csv", ".aag"),
+                                                                     axis=1)
     print(manu_quality_benchmarks.head())
     manu_quality_benchmarks.to_csv(cwd / "manu_quality_benchmarks.csv", encoding='utf-8', index=False)
 
-    auto_quality_benchmarks = load_quality_benchmarks(results_auto)
+    auto_quality_benchmarks = load_quality_df(results_auto)
+    auto_quality_benchmarks["model"] = auto_quality_benchmarks.apply(lambda row: row["model"].replace(".csv", ".aag"),
+                                                                      axis=1)
     print(auto_quality_benchmarks.head())
-    auto_quality_benchmarks.to_csv(cwd /"auto_quality_benchmarks.csv", encoding='utf-8', index=False)
+    auto_quality_benchmarks.to_csv(cwd / "auto_quality_benchmarks.csv", encoding='utf-8', index=False)
 
-    manu_runtime_benchmarks = load_runtime_benchmarks(results_manu)
+    manu_runtime_benchmarks = load_runtime_df(results_manu)
+    manu_runtime_benchmarks = manu_runtime_benchmarks.drop("command", axis=1)
+    manu_runtime_benchmarks = manu_runtime_benchmarks.rename(columns={"parameter_model": "model", "parameter_solver": "solver"})
+    manu_runtime_benchmarks["solver"] = manu_runtime_benchmarks.apply(lambda row: row["solver"].replace("-solver", ""), axis=1)
+    manu_runtime_benchmarks["model"] = manu_runtime_benchmarks.apply(lambda row: row["model"].split("/")[-1], axis=1)
     print(manu_runtime_benchmarks.head())
-    manu_runtime_benchmarks.to_csv(cwd /"manu_runtime_benchmarks.csv", encoding='utf-8', index=False)
+    manu_runtime_benchmarks.to_csv(cwd / "manu_runtime_benchmarks.csv", encoding='utf-8', index=False)
 
-    auto_runtime_benchmarks = load_runtime_benchmarks(results_auto)
+    auto_runtime_benchmarks = load_runtime_df(results_auto)
+    auto_runtime_benchmarks = auto_runtime_benchmarks.drop("command", axis=1)
+    auto_runtime_benchmarks = auto_runtime_benchmarks.rename(columns={"parameter_model": "model", "parameter_solver": "solver"})
+    auto_runtime_benchmarks["solver"] = auto_runtime_benchmarks.apply(lambda row: row["solver"].replace("-solver", ""), axis=1)
+    auto_runtime_benchmarks["model"] = auto_runtime_benchmarks.apply(lambda row: row["model"].split("/")[-1], axis=1)
     print(auto_runtime_benchmarks.head())
-    auto_runtime_benchmarks.to_csv(cwd /"auto_runtime_benchmarks.csv", encoding='utf-8', index=False)
+    auto_runtime_benchmarks.to_csv(cwd / "auto_runtime_benchmarks.csv", encoding='utf-8', index=False)
