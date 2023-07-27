@@ -23,8 +23,3 @@ option(SYLVAN_USE_LINEAR_PROBING "Unique table uses chaining instead of linear p
 if(SYLVAN_USE_LINEAR_PROBING)
     set_target_properties(aiger_synt PROPERTIES COMPILE_DEFINITIONS "SYLVAN_USE_LINEAR_PROBING")
 endif ()
-
-
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
-set(CMAKE_OSX_ARCHITECTURES "arm64")

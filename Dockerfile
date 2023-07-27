@@ -81,8 +81,8 @@ RUN mkdir build
 #RUN pip install -r requirements.txt
 
 RUN cd $SCRIPTS && chmod +x build_dmc.sh
-RUN cd $SCRIPTS && chmod +x test_sylvan_dpmc.sh
-RUN cd $SCRIPTS && chmod +x test_cudd_dpmc.sh
+RUN cd $SCRIPTS && chmod +x test_sylvan_dmc.sh
+RUN cd $SCRIPTS && chmod +x test_cudd_dmc.sh
 
 ENV CUDD=$HOME/external/cudd
 ENV DPMC=$HOME/external/dpmc
