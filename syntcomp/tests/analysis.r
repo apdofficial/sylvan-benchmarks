@@ -1,0 +1,7 @@
+suppressPackageStartupMessages(library('tidyverse'))
+suppressPackageStartupMessages(library('ggplot2'))
+suppressPackageStartupMessages(library('tikzDevice'))
+suppressPackageStartupMessages(library('xtable'))
+suppressPackageStartupMessages(library('lemon'))
+suppressPackageStartupMessages(library('knitr'))
+suppressPackageStartupMessages(library('scales'))
