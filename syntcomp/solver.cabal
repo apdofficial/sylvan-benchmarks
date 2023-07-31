@@ -56,7 +56,7 @@ executable cudd-solver
                      , optparse-applicative >=0.8 && <0.17
   build-tools:         c2hs, hsc2hs
   default-language:    Haskell2010
-  ghc-options:         -O2 
+  ghc-options:         -O2
 
 executable sylvan-solver
   main-is:             MainSylvan.hs
@@ -65,4 +65,4 @@ executable sylvan-solver
                      , optparse-applicative >=0.8 && <0.17
   build-tools:         c2hs, hsc2hs
   default-language:    Haskell2010
-  ghc-options:         -O2 
+  ghc-options:         -O2

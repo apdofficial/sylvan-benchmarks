@@ -10,4 +10,5 @@ main = execParser opts >>= run
     parser = Options <$> flag False True (long "quiet"   <> short 'q' <> help "Be quiet")
                      <*> flag False True (long "noreord" <> short 'n' <> help "Disable reordering")
                      <*> flag False True (long "noearly" <> short 'e' <> help "Disable early termination")
+                     <*> O.option str (long "reordering_trigger" <> long "rt" <>  help "Reordering tigger: m (manual), sa (semi-autoamtic), a (automatic), else disabled. (m)" <> value "m")
                      <*> argument O.str (metavar "INPUT")

@@ -66,36 +66,6 @@ foreign import ccall safe "sylvan_set_sizes"
 setSizes :: PrimMonad m => Int -> Int -> Int -> Int -> m ()
 setSizes minTableSize maxTableSize minCacheSize maxCacheSize = unsafePrimToPrim $ c_sylvanSetSizes (fromIntegral minTableSize) (fromIntegral maxTableSize) (fromIntegral minCacheSize) (fromIntegral maxCacheSize)
 
-foreign import ccall safe "sylvan_set_reorder_maxswap"
-    c_sylvanSetReorderMaxSwap :: CInt -> IO ()
-
-setReorderMaxSwap :: PrimMonad m => Int -> m ()
-setReorderMaxSwap maxSwap  = unsafePrimToPrim $ c_sylvanSetReorderMaxSwap (fromIntegral maxSwap)
-
-foreign import ccall safe "sylvan_set_reorder_maxgrowth"
-    c_sylvanSetReorderMaxGrowth :: CFloat -> IO ()
-
-setReorderMaxGrowth :: PrimMonad m => Rational -> m ()
-setReorderMaxGrowth maxGrowth  = unsafePrimToPrim $ c_sylvanSetReorderMaxGrowth (fromRational maxGrowth)
-
-foreign import ccall safe "sylvan_set_reorder_maxvar"
-    c_sylvanSetReorderMaxVar :: CInt -> IO ()
-
-setReorderMaxVar :: PrimMonad m => Int -> m ()
-setReorderMaxVar maxVar  = unsafePrimToPrim $ c_sylvanSetReorderMaxVar (fromIntegral maxVar)
-
-foreign import ccall safe "sylvan_set_reorder_nodes_threshold"
-    c_sylvanSetReorderNodesThreshold :: CInt -> IO ()
-
-setReorderNodesThreshold:: PrimMonad m => Int -> m ()
-setReorderNodesThreshold threshold  = unsafePrimToPrim $ c_sylvanSetReorderNodesThreshold (fromIntegral threshold)
-
-foreign import ccall safe "sylvan_set_reorder_timelimit_sec"
-    c_sylvanSetReorderTimeLimitSec :: CDouble -> IO ()
-
-setReorderTimeLimitSec :: PrimMonad m => Rational -> m ()
-setReorderTimeLimitSec timeLimit  = unsafePrimToPrim $ c_sylvanSetReorderTimeLimitSec (fromRational timeLimit)
-
 --Setters
 foreign import ccall safe "sylvan_quit"
     c_sylvanQuit :: IO ()
@@ -234,16 +204,48 @@ foreign import ccall safe "sylvan_compose_stub"
 compose :: PrimMonad m => BDD -> BDDMap -> m BDD
 compose (BDD f) (BDDMap m) = liftM BDD $ unsafePrimToPrim $ c_compose f m
 
-foreign import ccall safe "sylvan_reduce_heap"
+foreign import ccall safe "sylvan_set_reorder_maxswap"
+    c_sylvanSetReorderMaxSwap :: CInt -> IO ()
+
+setReorderMaxSwap :: PrimMonad m => Int -> m ()
+setReorderMaxSwap maxSwap  = unsafePrimToPrim $ c_sylvanSetReorderMaxSwap (fromIntegral maxSwap)
+
+foreign import ccall safe "sylvan_set_reorder_maxgrowth"
+    c_sylvanSetReorderMaxGrowth :: CFloat -> IO ()
+
+setReorderMaxGrowth :: PrimMonad m => Rational -> m ()
+setReorderMaxGrowth maxGrowth  = unsafePrimToPrim $ c_sylvanSetReorderMaxGrowth (fromRational maxGrowth)
+
+foreign import ccall safe "sylvan_set_reorder_maxvar"
+    c_sylvanSetReorderMaxVar :: CInt -> IO ()
+
+setReorderMaxVar :: PrimMonad m => Int -> m ()
+setReorderMaxVar maxVar  = unsafePrimToPrim $ c_sylvanSetReorderMaxVar (fromIntegral maxVar)
+
+foreign import ccall safe "sylvan_set_reorder_nodes_threshold"
+    c_sylvanSetReorderNodesThreshold :: CInt -> IO ()
+
+setReorderNodesThreshold:: PrimMonad m => Int -> m ()
+setReorderNodesThreshold threshold  = unsafePrimToPrim $ c_sylvanSetReorderNodesThreshold (fromIntegral threshold)
+
+foreign import ccall safe "sylvan_set_reorder_timelimit_sec"
+    c_sylvanSetReorderTimeLimitSec :: CDouble -> IO ()
+
+setReorderTimeLimitSec :: PrimMonad m => Rational -> m ()
+setReorderTimeLimitSec timeLimit  = unsafePrimToPrim $ c_sylvanSetReorderTimeLimitSec (fromRational timeLimit)
+
+foreign import ccall safe "sylvan_reduce_heap_bounded"
     c_sylvanReduceHeap :: IO ()
 
+--Reorder right now
 reduceHeap :: PrimMonad m => m ()
 reduceHeap = unsafePrimToPrim c_sylvanReduceHeap 
 
 foreign import ccall safe "sylvan_test_reduce_heap"
     c_sylvanTestReduceHeap :: IO ()
 
-testReduceHeap:: PrimMonad m =>  m ()
+--Reorder right now if needed
+testReduceHeap:: PrimMonad m => m ()
 testReduceHeap  = unsafePrimToPrim c_sylvanTestReduceHeap 
 
 

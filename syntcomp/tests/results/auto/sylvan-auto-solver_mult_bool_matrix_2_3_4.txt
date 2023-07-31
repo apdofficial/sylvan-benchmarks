@@ -1,5 +1,0 @@
-"*"
-REALIZABLE
-BDD reordering with sifting: from 5112 to ... 1504 nodes in 0.053324 sec
-BDD reordering with sifting: from 3435 to ... 1932 nodes in 0.044672 sec
-BDD reordering with sifting: from 7511 to ... 4041 nodes in 0.084449 sec

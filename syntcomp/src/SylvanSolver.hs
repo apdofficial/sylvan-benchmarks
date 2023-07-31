@@ -54,13 +54,13 @@ data Ops s v m a = Ops {
     andAbstract   :: v -> a -> a -> ST s a
 }
 
-constructOps :: Ops s BDD BDDMap BDD
-constructOps = Ops {..}
+constructOps :: Options -> Ops s BDD BDDMap BDD
+constructOps Options{..} = Ops {..}
     where
     bAnd x y          = do
         res <- S.band x y
         ref res
-        -- S.testReduceHeap
+        when (reordering_trigger == "sa") S.testReduceHeap
         return res
     bOr x y           = do
         res <- S.bor x y
@@ -168,8 +168,8 @@ substitutionArray Ops{..} latches andGates = constructMap pairs
     ls = Map.toList latches 
     pairs = map ((\x -> (x `quot` 2) - 1) *** fromJustNote "substitutionArray" . flip Map.lookup andGates) ls
 
-compile :: Ops s v m a -> [Int] -> [Int] -> [(Int, Int)] -> [(Int, Int, Int)] -> Int -> ST s (SynthState v m a)
-compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeIndex = do
+compile :: Options -> Ops s v m a -> [Int] -> [Int] -> [(Int, Int)] -> [(Int, Int, Int)] -> Int -> ST s (SynthState v m a)
+compile options@Options{..} ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeIndex = do
     let andGates = map sel1 ands
         andMap   = makeAndMap ands
 
@@ -206,8 +206,8 @@ compile ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeInd
     --compile the and gates
     stab     <- fst <$> mapAccumLM (doAndGates ops andMap) im andGates
 
-    S.testReduceHeap
-    
+    when (reordering_trigger == "m") S.reduceHeap
+        
     --get the safety condition
     let sr   = fromJustNote "compile" $ Map.lookup safeIndex stab
 
@@ -261,43 +261,54 @@ categorizeInputs symbols inputs = (cont, inputs \\ cont)
     isControllable (Is Cont) = True
     isControllable _         = False
 
-doIt :: Options -> IO (Either String Bool)
-doIt (Options {..}) = runExceptT $ do
+_run :: Options -> IO (Either String Bool)
+_run o@Options{..} = runExceptT $ do
     contents    <- lift $ T.readFile filename
     aag@AAG{..} <- hoistEither $ parseOnly aag contents
     lift $ do
         let (cInputs, uInputs) = categorizeInputs symbols inputs
         stToIO $ do
-            S.laceStart 4 0
-            S.setLimits (1 `shiftL` 33) 1 10
+            S.laceStart threads 0
+            S.setLimits (1 `shiftL` table_size) 1 table_ratio
 
             S.initPackage
             S.initMtbdd 
             S.initReorder
 
-            S.setReorderNodesThreshold 128
-            S.setReorderTimeLimitSec 600
-            S.setReorderMaxGrowth 1.2
+            S.setReorderMaxGrowth (toRational max_growth)
+            S.setReorderMaxVar max_var
+            S.setReorderMaxSwap max_swap
+            S.setReorderNodesThreshold nodes_threshold
+            S.setReorderTimeLimitSec 6000
 
             S.gcEnable
 
-            let ops = constructOps 
-            ss@SynthState{..} <- compile ops cInputs uInputs latches andGates (head outputs)
+            let ops = constructOps o
+            ss@SynthState{..} <- compile o ops cInputs uInputs latches andGates (head outputs)
             res <- solveSafety quiet ops ss initState safeRegion
-            T.mapM (deref ops) ss
-            S.sylvanQuit
-            return res
+            mapM_ (deref ops) ss
 
+            S.sylvanQuit
+
+            return res
+            
 run :: Options -> IO ()
 run g = do
-    res <- doIt g 
+    res <- _run g 
     case res of
         Left err    -> putStrLn $ "Error: " ++ err
         Right True  -> putStrLn "REALIZABLE"
         Right False -> putStrLn "UNREALIZABLE"
 
 data Options = Options {
-    quiet    :: Bool,
-    threads  :: Int,
-    filename :: String
+    quiet               :: Bool,
+    threads             :: Int,
+    nodes_threshold     :: Int,
+    table_ratio         :: Int,
+    table_size          :: Int,
+    max_var             :: Int,
+    max_swap            :: Int,
+    max_growth          :: Float,
+    reordering_trigger  :: String,
+    filename            :: String
 }

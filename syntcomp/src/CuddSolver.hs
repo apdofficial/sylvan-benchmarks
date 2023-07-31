@@ -1,7 +1,6 @@
 {-# LANGUAGE OverloadedStrings, RecordWildCards, DeriveFunctor, DeriveFoldable, DeriveTraversable #-}
 module CuddSolver
     ( run
-    , doIt
     , Options(..)
     ) where
 
@@ -69,12 +68,13 @@ bddSynopsis Ops{..} x
     | otherwise   = unsafeIOToST $ print x
 
 
-constructOps :: DDManager s u -> Ops s (DDNode s u)
-constructOps m = Ops {..}
+constructOps :: Options -> DDManager s u -> Ops s (DDNode s u)
+constructOps o@Options{..} m =  Ops {..}
     where
     bAnd  x y         = do
         res <- Cudd.bAnd m x y
-        -- cuddReduceHeap m CuddReorderSift 0
+        -- when (reordering_trigger == "sa-s") cuddTestReduceHeap m CuddReorderSift 0
+        -- when (reordering_trigger == "sa-g") cuddTestReduceHeap m CuddReorderGroupSift 0
         return res
     bOr               = Cudd.bOr  m
     lEq               = Cudd.lEq  m
@@ -143,8 +143,8 @@ substitutionArray Ops{..} latches andGates = do
         Nothing    -> ithVar idx
         Just input -> return $ fromJustNote ("substitutionArray: " ++ show input) $ Map.lookup input andGates
 
-compile :: DDManager s u -> Ops s a -> [Int] -> [Int] -> [(Int, Int)] -> [(Int, Int, Int)] -> Int -> ST s (SynthState a)
-compile m ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeIndex = do
+compile :: Options -> DDManager s u -> Ops s a -> [Int] -> [Int] -> [(Int, Int)] -> [(Int, Int, Int)] -> Int -> ST s (SynthState a)
+compile o@Options{..} m ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeIndex = do
     let andGates = map sel1 ands
         andMap   = makeAndMap ands
     --create an entry for each controllable input 
@@ -178,8 +178,9 @@ compile m ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeI
     --construct the initial state
     initState <- computeCube2 latchVars (replicate (length latchVars) False)
 
-    cuddReduceHeap m CuddReorderGroupSift 0
-
+    -- when (reordering_trigger == "m-s") cuddReduceHeap m CuddReorderSift 0
+    -- when (reordering_trigger == "m-g") cuddReduceHeap m CuddReorderGroupSift 0
+    
     --construct the transition relation
     let latchMap = Map.fromList latches
     trel <- substitutionArray ops latchMap stab
@@ -236,7 +237,8 @@ solveSafety options@Options{..} ops@Ops{..} ss init safeRegion = do
 
 setupManager :: Options -> DDManager s u -> ST s ()
 setupManager Options{..} m = void $ do
-    -- unless noReord $ cuddAutodynEnable m CuddReorderGroupSift
+    when (reordering_trigger == "a-g") $ cuddAutodynEnable m CuddReorderGroupSift
+    when (reordering_trigger == "a-s") $ cuddAutodynEnable m CuddReorderSift
     unless quiet   $ void $ do
         regStdPreReordHook m
         regStdPostReordHook m
@@ -250,16 +252,16 @@ categorizeInputs symbols inputs = (cont, inputs \\ cont)
     isControllable (Is Cont) = True
     isControllable _         = False
 
-doIt :: Options -> IO (Either String Bool)
-doIt o@Options{..} = runExceptT $ do
+_run :: Options -> IO (Either String Bool)
+_run o@Options{..} = runExceptT $ do
     contents    <- lift $ T.readFile filename
     aag@AAG{..} <- hoistEither $ parseOnly aag contents
     lift $ do
         let (cInputs, uInputs) = categorizeInputs symbols inputs
         stToIO $ Cudd.withManagerDefaults $ \m -> do
             setupManager o m
-            let ops = constructOps m
-            ss@SynthState{..} <- compile m ops cInputs uInputs latches andGates (head outputs)
+            let ops = constructOps o m
+            ss@SynthState{..} <- compile o m ops cInputs uInputs latches andGates (head outputs)
             res <- solveSafety o ops ss initState safeRegion
             T.mapM (deref ops) ss
             Cudd.quit m
@@ -267,15 +269,16 @@ doIt o@Options{..} = runExceptT $ do
 
 run :: Options -> IO ()
 run g = do
-    res <- doIt g 
+    res <- _run g 
     case res of
         Left err    -> putStrLn $ "Error: " ++ err
         Right True  -> putStrLn "REALIZABLE"
         Right False -> putStrLn "UNREALIZABLE"
 
 data Options = Options {
-    quiet    :: Bool,
-    noReord  :: Bool,
-    noEarly  :: Bool,
-    filename :: String
+    quiet               :: Bool,
+    noReord             :: Bool,
+    noEarly             :: Bool,
+    reordering_trigger  :: String,
+    filename            :: String
 }

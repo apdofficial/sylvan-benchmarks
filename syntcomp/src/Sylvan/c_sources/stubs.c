@@ -28,3 +28,7 @@ void sylvan_gc_stub(){
     sylvan_gc();
 }
 
+void sylvan_reduce_heap_bounded(){
+    sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
+}
+

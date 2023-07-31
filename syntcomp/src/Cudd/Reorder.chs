@@ -6,6 +6,7 @@ module Cudd.Reorder (
     cuddAutodynEnable,
     cuddAutodynDisable,
     cuddReduceHeap,
+    cuddTestReduceHeap,
     cuddMakeTreeNode,
     cuddReadReorderingTime,
     cuddReadReorderings,
@@ -96,6 +97,13 @@ foreign import ccall safe "Cudd_ReduceHeap"
 
 cuddReduceHeap :: DDManager s u -> CuddReorderingType -> Int -> ST s Int
 cuddReduceHeap (DDManager m) typ minsize = unsafeIOToST $ liftM fromIntegral $ c_cuddReduceHeap m (fromIntegral $ fromEnum typ) (fromIntegral minsize)
+
+--Reorder right now if needed
+foreign import ccall safe "Cudd_TestReduceHeap"
+	c_cuddTestReduceHeap :: Ptr CDDManager -> CInt -> CInt -> IO (CInt)
+
+cuddTestReduceHeap :: DDManager s u -> CuddReorderingType -> Int -> ST s Int
+cuddTestReduceHeap (DDManager m) typ minsize = unsafeIOToST $ liftM fromIntegral $ c_cuddTestReduceHeap m (fromIntegral $ fromEnum typ) (fromIntegral minsize)
 
 --Grouping
 foreign import ccall safe "Cudd_MakeTreeNode"

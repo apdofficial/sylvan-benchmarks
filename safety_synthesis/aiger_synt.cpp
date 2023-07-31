@@ -359,7 +359,7 @@ TASK_0(int, solve_game)
     }
 
 //    if (verbose && dynamic_reorder) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.s_gates, aag.header.a));
-//    if (dynamic_reorder) sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
+    if (dynamic_reorder) sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
     INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.s_gates, aag.header.a));
 
     game.c_inputs = sylvan_set_empty();
@@ -480,7 +480,7 @@ int main(int argc, char **argv)
     // Cache table size: 36 bytes * cache entries
     // With 2^20 nodes and 2^18 cache entries, that's 33 MB
     // With 2^24 nodes and 2^22 cache entries, that's 528 MB
-    sylvan_set_sizes(1LL<<14, 1LL<<18, 1LL<<14, 1LL<<18);
+    sylvan_set_sizes(1LL<<16, 1LL<<20, 1LL<<14, 1LL<<18);
     sylvan_init_package();
     sylvan_set_granularity(2); // granularity 3 is decent value for this small problem - 1 means "use cache for every operation"
     sylvan_init_mtbdd();
