@@ -67,7 +67,7 @@ declare -a tuning_runtime_models=(
 # measure measure runtime effect of the tuning parameters
 for model in "${tuning_runtime_models[@]}"
 do
-   hyperfine \
+   ./hyperfine \
      -L model $MODELS_PATH/"$model".aag \
      -L workers 1,2,3,4,5,6,7,8,9,10,11,12,14,16,18,24,32 \
      -L nodes_threshold 1,128,256 \
