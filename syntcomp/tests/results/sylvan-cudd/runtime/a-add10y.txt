@@ -1,11 +1,11 @@
 Benchmark 1: ./cudd-solver  --rt=a --h=sift ./models/add10y.aag
-  Time (mean ± σ):      16.7 ms ±   3.4 ms    [User: 9.8 ms, System: 3.4 ms]
-  Range (min … max):    12.9 ms …  29.5 ms    146 runs
+  Time (mean ± σ):      17.8 ms ±   4.6 ms    [User: 9.9 ms, System: 3.7 ms]
+  Range (min … max):    12.3 ms …  28.9 ms    139 runs
  
 Benchmark 2: ./cudd-solver  --rt=a --h=group ./models/add10y.aag
-  Time (mean ± σ):      16.1 ms ±   2.3 ms    [User: 6.1 ms, System: 3.3 ms]
-  Range (min … max):    12.9 ms …  32.4 ms    137 runs
+  Time (mean ± σ):      16.2 ms ±   3.6 ms    [User: 6.2 ms, System: 3.6 ms]
+  Range (min … max):    11.7 ms …  40.1 ms    139 runs
  
 Summary
   './cudd-solver  --rt=a --h=group ./models/add10y.aag' ran
-    1.04 ± 0.26 times faster than './cudd-solver  --rt=a --h=sift ./models/add10y.aag'
+    1.09 ± 0.37 times faster than './cudd-solver  --rt=a --h=sift ./models/add10y.aag'

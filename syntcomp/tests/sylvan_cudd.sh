@@ -107,6 +107,7 @@ do
      -L reordering-trigger "m" \
      -L solver "sylvan-solver -n 8 --nt 1 --tr 13 --ts 35 --mg 1.2 --mv 200 --ms 10000","cudd-solver --h="sift"","cudd-solver --h="group"" \
      -L model $MODELS_PATH/"$model".aag \
+     --runs 10 \
      --warmup 1 \
      './{solver} --rt={reordering-trigger} {model}' \
      --export-csv $RUNTIME_RESULTS_PATH/m-"$model".csv \
@@ -121,6 +122,7 @@ do
      -L reordering-trigger "sa" \
      -L solver "sylvan-solver -n 8 --nt 1 --tr 13 --ts 35 --mg 1.2 --mv 200 --ms 10000","cudd-solver --h="sift"","cudd-solver --h="group"" \
      -L model $MODELS_PATH/"$model".aag \
+     --runs 10 \
      --warmup 1 \
      './{solver} --rt={reordering-trigger} {model}' \
      --export-csv $RUNTIME_RESULTS_PATH/sa-"$model".csv \
@@ -136,6 +138,7 @@ do
      -L reordering-trigger "a" \
      -L solver "cudd-solver " \
      -L model $MODELS_PATH/"$model".aag \
+     --runs 10 \
      --warmup 1 \
      './{solver} --rt={reordering-trigger} --h={heuristic} {model}' \
      --export-csv $RUNTIME_RESULTS_PATH/a-"$model".csv \

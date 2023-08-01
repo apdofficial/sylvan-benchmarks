@@ -14,31 +14,31 @@ chmod +x "sylvan-solver"
 chmod +x "hyperfine"
 
 declare -a tuning_quality_models=(
-  "add6y"
-#  "add8y"
+  "add8y"
+#  "add10y"
+#  "add12y"
 #  "mult_bool_matrix_2_3_2"
 #  "mult_bool_matrix_2_3_3"
 )
 
 declare -a tuning_runtime_models=(
-  "add6y"
-#  "add8y"
+  "add8y"
 #  "add10y"
-#  "add14y"
-#  "mult_bool_matrix_2_3_4"
+#  "add16y"
+#  "mult_bool_matrix_2_3_2"
 #  "mult_bool_matrix_2_3_5"
 )
 
 echo "Sylvan Regression Test [$(date +%H:%M:%S)] testing quality effect of the tuning parameters..."
 
 # measure measure quality effect of the tuning parameters
-declare -a nodes_thresholds=(1 128 256)
+declare -a nodes_thresholds=(1 128 256 512)
 for nt in "${nodes_thresholds[@]}"
 do
-  declare -a max_vars=(50 100 200)
+  declare -a max_vars=(25 50 100 200)
   for mv in "${max_vars[@]}"
   do
-    declare -a max_swaps=(1000 5000 10000)
+    declare -a max_swaps=(500 1000 5000 10000)
     for ms in "${max_swaps[@]}"
     do
       declare -a max_growths=(1.0 1.2 1.4)
@@ -47,7 +47,7 @@ do
         declare -a reordering_triggers=("sa" "m")
         for rt in "${reordering_triggers[@]}"
         do
-          declare -a workers=(1 8)
+          declare -a workers=(1 2)
           for n in "${workers[@]}"
           do
 
@@ -72,14 +72,15 @@ for model in "${tuning_runtime_models[@]}"
 do
    ./hyperfine \
      -L model $MODELS_PATH/"$model".aag \
-     -L workers 1,8,16 \
+     -L workers 1,2 \
      -L nodes_threshold 1,128,256 \
-     -L max_var 50,100,200 \
-     -L max_swap 1000,5000,10000 \
+     -L max_var 25,50,100,200 \
+     -L max_swap 500,1000,5000,10000 \
      -L max_growth 1.0,1.2,1.4 \
-     -L table_ratio 13 \
+     -L table_ratio 12 \
      -L table_size 35 \
      -L reordering_trigger "sa" \
+     --runs 10 \
      --warmup 1 \
      './sylvan-solver -n {workers} --nt {nodes_threshold} --tr {table_ratio} --ts {table_size} --mg {max_growth} --mv {max_var} --ms {max_swap} --rt={reordering_trigger} {model}' \
      --export-csv $RUNTIME_RESULTS_PATH/"$model"_overall.csv \
@@ -93,14 +94,15 @@ for model in "${tuning_runtime_models[@]}"
 do
    ./hyperfine \
      -L model $MODELS_PATH/"$model".aag \
-     -L workers 1,2,3,4,5,6,7,8,9,10,12,14,16,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32 \
+     -L workers 1,2,3,4,5,6,7,8 \
      -L nodes_threshold 1 \
      -L max_var 200 \
      -L max_swap 10000 \
      -L max_growth 1.2 \
-     -L table_ratio 13 \
+     -L table_ratio 12 \
      -L table_size 35 \
      -L reordering_trigger "sa" \
+     --runs 10 \
      --warmup 1 \
      './sylvan-solver -n {workers} --nt {nodes_threshold} --tr {table_ratio} --ts {table_size} --mg {max_growth} --mv {max_var} --ms {max_swap} --rt={reordering_trigger} {model}' \
      --export-csv $RUNTIME_RESULTS_PATH/"$model"_workers.csv \
