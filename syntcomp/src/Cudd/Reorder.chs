@@ -100,10 +100,10 @@ cuddReduceHeap (DDManager m) typ minsize = unsafeIOToST $ liftM fromIntegral $ c
 
 --Reorder right now if needed
 foreign import ccall safe "Cudd_TestReduceHeap"
-	c_cuddTestReduceHeap :: Ptr CDDManager -> CInt -> CInt -> IO (CInt)
+	c_cuddTestReduceHeap :: Ptr CDDManager -> CInt -> CInt -> IO ()
 
-cuddTestReduceHeap :: DDManager s u -> CuddReorderingType -> Int -> ST s Int
-cuddTestReduceHeap (DDManager m) typ minsize = unsafeIOToST $ liftM fromIntegral $ c_cuddTestReduceHeap m (fromIntegral $ fromEnum typ) (fromIntegral minsize)
+cuddTestReduceHeap :: DDManager s u -> CuddReorderingType -> Int -> ST s ()
+cuddTestReduceHeap (DDManager m) typ minsize = unsafeIOToST $  c_cuddTestReduceHeap m (fromIntegral $ fromEnum typ) (fromIntegral minsize)
 
 --Grouping
 foreign import ccall safe "Cudd_MakeTreeNode"

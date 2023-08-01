@@ -73,8 +73,11 @@ constructOps o@Options{..} m =  Ops {..}
     where
     bAnd  x y         = do
         res <- Cudd.bAnd m x y
-        -- when (reordering_trigger == "sa-s") cuddTestReduceHeap m CuddReorderSift 0
-        -- when (reordering_trigger == "sa-g") cuddTestReduceHeap m CuddReorderGroupSift 0
+
+        when (reordering_trigger == "sa") ( do
+            when (heuristic == "group") (cuddTestReduceHeap m CuddReorderGroupSift 0)
+            when (heuristic == "sift") (cuddTestReduceHeap m CuddReorderSift 0)
+            )
         return res
     bOr               = Cudd.bOr  m
     lEq               = Cudd.lEq  m
@@ -143,8 +146,8 @@ substitutionArray Ops{..} latches andGates = do
         Nothing    -> ithVar idx
         Just input -> return $ fromJustNote ("substitutionArray: " ++ show input) $ Map.lookup input andGates
 
-compile :: Options -> DDManager s u -> Ops s a -> [Int] -> [Int] -> [(Int, Int)] -> [(Int, Int, Int)] -> Int -> ST s (SynthState a)
-compile o@Options{..} m ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeIndex = do
+compile ::DDManager s u -> Options -> Ops s a -> [Int] -> [Int] -> [(Int, Int)] -> [(Int, Int, Int)] -> Int -> ST s (SynthState a)
+compile m o@Options{..} ops@Ops{..} controllableInputs uncontrollableInputs latches ands safeIndex = do
     let andGates = map sel1 ands
         andMap   = makeAndMap ands
     --create an entry for each controllable input 
@@ -171,6 +174,17 @@ compile o@Options{..} m ops@Ops{..} controllableInputs uncontrollableInputs latc
 
     --compile the and gates
     stab     <- fst <$> mapAccumLM (doAndGates ops andMap) im andGates 
+    
+    when (reordering_trigger == "m") ( do
+            when (heuristic == "group") (do 
+                _ <- cuddReduceHeap m CuddReorderGroupSift 0
+                return ()
+                )
+            when (heuristic == "sift") (do 
+                _ <- cuddReduceHeap m CuddReorderSift 0
+                return ()
+                )
+        )
 
     --get the safety condition
     let sr   = fromJustNote "compile" $ Map.lookup safeIndex stab
@@ -178,9 +192,6 @@ compile o@Options{..} m ops@Ops{..} controllableInputs uncontrollableInputs latc
     --construct the initial state
     initState <- computeCube2 latchVars (replicate (length latchVars) False)
 
-    -- when (reordering_trigger == "m-s") cuddReduceHeap m CuddReorderSift 0
-    -- when (reordering_trigger == "m-g") cuddReduceHeap m CuddReorderGroupSift 0
-    
     --construct the transition relation
     let latchMap = Map.fromList latches
     trel <- substitutionArray ops latchMap stab
@@ -237,8 +248,11 @@ solveSafety options@Options{..} ops@Ops{..} ss init safeRegion = do
 
 setupManager :: Options -> DDManager s u -> ST s ()
 setupManager Options{..} m = void $ do
-    when (reordering_trigger == "a-g") $ cuddAutodynEnable m CuddReorderGroupSift
-    when (reordering_trigger == "a-s") $ cuddAutodynEnable m CuddReorderSift
+    when (reordering_trigger == "a") ( do
+            when (heuristic == "group") (cuddAutodynEnable m CuddReorderGroupSift)
+            when (heuristic == "sift") (cuddAutodynEnable m CuddReorderSift)
+        )
+
     unless quiet   $ void $ do
         regStdPreReordHook m
         regStdPostReordHook m
@@ -261,7 +275,7 @@ _run o@Options{..} = runExceptT $ do
         stToIO $ Cudd.withManagerDefaults $ \m -> do
             setupManager o m
             let ops = constructOps o m
-            ss@SynthState{..} <- compile o m ops cInputs uInputs latches andGates (head outputs)
+            ss@SynthState{..} <- compile m o ops cInputs uInputs latches andGates (head outputs)
             res <- solveSafety o ops ss initState safeRegion
             T.mapM (deref ops) ss
             Cudd.quit m
@@ -280,5 +294,6 @@ data Options = Options {
     noReord             :: Bool,
     noEarly             :: Bool,
     reordering_trigger  :: String,
+    heuristic           :: String,
     filename            :: String
 }

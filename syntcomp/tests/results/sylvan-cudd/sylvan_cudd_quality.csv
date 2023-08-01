@@ -1,0 +1,16 @@
+from_size,to_size,time,solver,heuristic,workers,nodes_threshold,max_growth,max_var,max_swap,reordering_trigger,model
+38132,1509,0.02,cudd,sift,NaN,NaN,NaN,NaN,NaN,m,add10y
+4104,273,0.0,cudd,group,NaN,NaN,NaN,NaN,NaN,sa,add10y
+547,205,0.0,cudd,group,NaN,NaN,NaN,NaN,NaN,sa,add10y
+420,192,0.0,cudd,group,NaN,NaN,NaN,NaN,NaN,sa,add10y
+413,252,0.0,cudd,group,NaN,NaN,NaN,NaN,NaN,sa,add10y
+38132,500,0.03,cudd,group,NaN,NaN,NaN,NaN,NaN,m,add10y
+4104,279,0.0,cudd,sift,NaN,NaN,NaN,NaN,NaN,sa,add10y
+559,516,0.0,cudd,sift,NaN,NaN,NaN,NaN,NaN,sa,add10y
+1205,879,0.0,cudd,sift,NaN,NaN,NaN,NaN,NaN,sa,add10y
+2134,1247,0.01,cudd,sift,NaN,NaN,NaN,NaN,NaN,sa,add10y
+38133,1510,0.136307,sylvan,sift,1,1,1.2,200,10000,m,add10y
+4105,280,0.011504,sylvan,sift,1,1,1.2,200,10000,sa,add10y
+574,531,0.013966,sylvan,sift,1,1,1.2,200,10000,sa,add10y
+1206,882,0.032546,sylvan,sift,1,1,1.2,200,10000,sa,add10y
+1787,1248,0.034988,sylvan,sift,1,1,1.2,200,10000,sa,add10y

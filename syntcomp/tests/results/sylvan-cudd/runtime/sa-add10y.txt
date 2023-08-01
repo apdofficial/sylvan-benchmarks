@@ -1,0 +1,16 @@
+Benchmark 1: ./sylvan-solver -n 8 --nt 1 --tr 13 --ts 35 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/add10y.aag
+  Time (mean ± σ):     173.5 ms ±  31.6 ms    [User: 1230.9 ms, System: 41.0 ms]
+  Range (min … max):   140.8 ms … 267.8 ms    17 runs
+ 
+Benchmark 2: ./cudd-solver --h=sift --rt=sa ./models/add10y.aag
+  Time (mean ± σ):      20.3 ms ±   6.0 ms    [User: 10.6 ms, System: 3.9 ms]
+  Range (min … max):    15.0 ms …  46.3 ms    153 runs
+ 
+Benchmark 3: ./cudd-solver --h=group --rt=sa ./models/add10y.aag
+  Time (mean ± σ):      17.3 ms ±   3.9 ms    [User: 7.1 ms, System: 3.8 ms]
+  Range (min … max):    13.3 ms …  50.9 ms    146 runs
+ 
+Summary
+  './cudd-solver --h=group --rt=sa ./models/add10y.aag' ran
+    1.17 ± 0.44 times faster than './cudd-solver --h=sift --rt=sa ./models/add10y.aag'
+   10.04 ± 2.90 times faster than './sylvan-solver -n 8 --nt 1 --tr 13 --ts 35 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/add10y.aag'

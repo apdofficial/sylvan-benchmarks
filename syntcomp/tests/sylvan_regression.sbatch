@@ -1,7 +1,7 @@
 #!/bin/bash
 #parameters for slurm
 #SBATCH -J sylvan-regression                      # job name, don't use spaces, keep it short
-#SBATCH -c 64                                     # number of cores, 64
+#SBATCH -c 32                                     # number of cores, 32
 #SBATCH --gres=gpu:1                              # number of gpus 1, some clusters don't have GPUs
 #SBATCH --mem=16gb                                # Job memory request
 #SBATCH --mail-type=END,FAIL                      # email status changes (NONE, BEGIN, END, FAIL, ALL)
@@ -32,9 +32,8 @@ caseName=${PWD##*/} # to distinguish several log files
 # Run the job -- make sure that it terminates itself before time is up
 # Do not submit into the background (i.e. no & at the end of the line).
 
-chmod +x sylvan_regression_slurm.sh
-
-./sylvan_regression_slurm.sh
+chmod +x sylvan_regression.sh
+./sylvan_regression.sh
 
 mkdir ${SLURM_SUBMIT_DIR}/job_results/${SLURM_JOBID}
 # Copy output back to the master, comment with # if not used

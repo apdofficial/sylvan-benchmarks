@@ -4,22 +4,32 @@ RESULTS_PATH="./results/sylvan-regression"
 QUALITY_RESULTS_PATH=$RESULTS_PATH"/quality"
 RUNTIME_RESULTS_PATH=$RESULTS_PATH"/runtime"
 
+echo ""
+echo "Sylvan Regression Test [$(date)] START"
+
 rm -r $QUALITY_RESULTS_PATH/*
 rm -r $RUNTIME_RESULTS_PATH/*
 
 chmod +x "sylvan-solver"
 chmod +x "hyperfine"
 
-echo "Sylvan Regression Test [$(date)] start"
-
 declare -a tuning_quality_models=(
-  "add10y"
-  "add12y"
-  "mult_bool_matrix_2_3_2"
-  "mult_bool_matrix_2_3_3"
+  "add6y"
+#  "add8y"
+#  "mult_bool_matrix_2_3_2"
+#  "mult_bool_matrix_2_3_3"
 )
 
-echo "Sylvan Regression Test [$(date)] testing quality effect of the tuning parameters..."
+declare -a tuning_runtime_models=(
+  "add6y"
+#  "add8y"
+#  "add10y"
+#  "add14y"
+#  "mult_bool_matrix_2_3_4"
+#  "mult_bool_matrix_2_3_5"
+)
+
+echo "Sylvan Regression Test [$(date +%H:%M:%S)] testing quality effect of the tuning parameters..."
 
 # measure measure quality effect of the tuning parameters
 declare -a nodes_thresholds=(1 128 256)
@@ -37,7 +47,7 @@ do
         declare -a reordering_triggers=("sa" "m")
         for rt in "${reordering_triggers[@]}"
         do
-          declare -a workers=(1 8 16)
+          declare -a workers=(1 8)
           for n in "${workers[@]}"
           do
 
@@ -55,14 +65,7 @@ do
   done
 done
 
-echo "Sylvan Regression Test [$(date)] testing runtime effect of the tuning parameters..."
-
-declare -a tuning_runtime_models=(
-  "add10y"
-  "add20y"
-  "mult_bool_matrix_2_3_4"
-  "mult_bool_matrix_2_3_7"
-)
+echo "Sylvan Regression Test [$(date +%H:%M:%S)] testing runtime effect of the tuning parameters..."
 
 # measure measure runtime effect of the tuning parameters
 for model in "${tuning_runtime_models[@]}"
@@ -79,18 +82,18 @@ do
      -L reordering_trigger "sa" \
      --warmup 1 \
      './sylvan-solver -n {workers} --nt {nodes_threshold} --tr {table_ratio} --ts {table_size} --mg {max_growth} --mv {max_var} --ms {max_swap} --rt={reordering_trigger} {model}' \
-     --export-csv $RUNTIME_RESULTS_PATH/"$model".csv \
+     --export-csv $RUNTIME_RESULTS_PATH/"$model"_overall.csv \
      > $RUNTIME_RESULTS_PATH/"$model"_overall.txt
 done
 
-echo "Sylvan Regression Test [$(date)] testing runtime effect of the number of workers..."
+echo "Sylvan Regression Test [$(date +%H:%M:%S)] testing runtime effect of the number of workers..."
 
 # measure measure runtime effect of the tuning number of workers
 for model in "${tuning_runtime_models[@]}"
 do
    ./hyperfine \
      -L model $MODELS_PATH/"$model".aag \
-     -L workers 1,2,3,4,5,6,7,8,9,10,12,14,16,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,44,48,52,58,64 \
+     -L workers 1,2,3,4,5,6,7,8,9,10,12,14,16,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32 \
      -L nodes_threshold 1 \
      -L max_var 200 \
      -L max_swap 10000 \
@@ -100,8 +103,9 @@ do
      -L reordering_trigger "sa" \
      --warmup 1 \
      './sylvan-solver -n {workers} --nt {nodes_threshold} --tr {table_ratio} --ts {table_size} --mg {max_growth} --mv {max_var} --ms {max_swap} --rt={reordering_trigger} {model}' \
-     --export-csv $RUNTIME_RESULTS_PATH/"$model".csv \
+     --export-csv $RUNTIME_RESULTS_PATH/"$model"_workers.csv \
      > $RUNTIME_RESULTS_PATH/"$model"_workers.txt
 done
 
-echo "Sylvan Regression Test [$(date)] end"
+echo "Sylvan Regression Test [$(date)] END"
+echo ""
