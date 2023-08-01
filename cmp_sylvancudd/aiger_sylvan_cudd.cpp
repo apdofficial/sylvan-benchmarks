@@ -3,7 +3,6 @@
 #include <sys/time.h>
 #include <string>
 #include <fcntl.h>
-#include <span>
 
 #include <sylvan_int.h>
 #include <cuddInt.h>

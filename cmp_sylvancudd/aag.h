@@ -9,7 +9,6 @@
 #include <string>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <span>
 
 typedef struct aag_header
 {
