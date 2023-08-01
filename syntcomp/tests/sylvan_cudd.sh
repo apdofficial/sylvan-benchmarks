@@ -16,7 +16,6 @@ chmod +x "hyperfine"
 
 declare -a manu_models=(
   "add10y"
-  "add12y"
 #  "add14y"
 #  "add16y"
 #  "mult_bool_matrix_2_3_5"
@@ -26,7 +25,6 @@ declare -a manu_models=(
 )
 declare -a auto_models=(
   "add10y"
-  "add12y"
 #  "add14y"
 #  "add16y"
 #  "add18y"
@@ -53,6 +51,7 @@ do
   mv=200
   ms=10000
   rt="m"
+
   ./sylvan-solver \
     -n $n --nt $nt --tr 12 --ts 35 --mg $mg --mv $mv --ms $ms --rt=$rt \
     "$MODELS_PATH"/"$model".aag > $QUALITY_RESULTS_PATH/sylvan-"$n"-"$nt"-"$mg"-"$mv"-"$ms"-"$rt"-"$model".txt
@@ -76,6 +75,7 @@ do
   mv=200
   ms=10000
   rt="sa"
+
   ./sylvan-solver \
     -n $n --nt $nt --tr 12 --ts 35 --mg $mg --mv $mv --ms $ms --rt=$rt \
     "$MODELS_PATH"/"$model".aag > $QUALITY_RESULTS_PATH/sylvan-"$n"-"$nt"-"$mg"-"$mv"-"$ms"-"$rt"-"$model".txt
@@ -94,10 +94,16 @@ echo "Sylvan vs CUDD Test [$(date +%H:%M:%S)] testing quality of CUDD automatic 
 for model in "${auto_models[@]}"
 do
   rt="a"
+
   ./cudd-solver \
-    --rt=$rt \
-    "$MODELS_PATH"/"$model".aag > $QUALITY_RESULTS_PATH/cudd-"$rt"-"$model".txt
+    --rt=$rt --h="group" \
+    "$MODELS_PATH"/"$model".aag > $QUALITY_RESULTS_PATH/cudd-"$rt"-group-"$model".txt
+
+  ./cudd-solver \
+    --rt=$rt --h="sift"\
+    "$MODELS_PATH"/"$model".aag > $QUALITY_RESULTS_PATH/cudd-"$rt"-sift-"$model".txt
 done
+
 
 echo "Sylvan vs CUDD Test [$(date +%H:%M:%S)] testing runtime of the Sylvan & CUDD manual reordering..."
 

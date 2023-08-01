@@ -1,6 +1,6 @@
 #!/bin/bash
 #parameters for slurm
-#SBATCH -J sylvan-cudd                            # job name, don't use spaces, keep it short
+#SBATCH -J sylvan-cudd                          # job name, don't use spaces, keep it short
 #SBATCH -c 32                                     # number of cores, 32
 #SBATCH --gres=gpu:1                              # number of gpus 1, some clusters don't have GPUs
 #SBATCH --mem=16gb                                # Job memory request

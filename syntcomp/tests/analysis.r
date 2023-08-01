@@ -12,6 +12,4 @@ manu_quality_benchmarks <- read_delim('results/manu_quality_benchmarks.csv')
 
 # filter out the data by group of two solvers compared with each other in scatter plot
 
-
-
 ggplot(manu_quality_benchmarks, aes(x=to_size, y=solver)) + geom_point()
