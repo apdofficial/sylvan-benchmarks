@@ -28,7 +28,7 @@ do
   declare -a max_vars=(50 100 200)
   for mv in "${max_vars[@]}"
   do
-    declare -a max_swaps=(500 1000 5000 10000)
+    declare -a max_swaps=(1000 5000 10000)
     for ms in "${max_swaps[@]}"
     do
       declare -a max_growths=(1.0 1.2 1.4)
@@ -37,7 +37,7 @@ do
         declare -a reordering_triggers=("sa" "m")
         for rt in "${reordering_triggers[@]}"
         do
-          declare -a workers=(1 8 16 32)
+          declare -a workers=(1 8 16)
           for n in "${workers[@]}"
           do
 
@@ -67,9 +67,9 @@ declare -a tuning_runtime_models=(
 # measure measure runtime effect of the tuning parameters
 for model in "${tuning_runtime_models[@]}"
 do
-   hyperfine \
+   ./hyperfine \
      -L model $MODELS_PATH/"$model".aag \
-     -L workers 1,2,3,4,5,6,7,8,9,10,12,14,16,18,24,32, \
+     -L workers 1,8,16 \
      -L nodes_threshold 1,128,256 \
      -L max_var 50,100,200 \
      -L max_swap 1000,5000,10000 \
@@ -80,7 +80,7 @@ do
      --warmup 1 \
      './sylvan-solver -n {workers} --nt {nodes_threshold} --tr {table_ratio} --ts {table_size} --mg {max_growth} --mv {max_var} --ms {max_swap} --rt={reordering_trigger} {model}' \
      --export-csv $RUNTIME_RESULTS_PATH/"$model".csv \
-     > $RUNTIME_RESULTS_PATH/"$model".txt
+     > $RUNTIME_RESULTS_PATH/"$model"_overall.txt
 done
 
 echo "Sylvan Regression Test [$(date)] testing runtime effect of the number of workers..."
@@ -88,7 +88,7 @@ echo "Sylvan Regression Test [$(date)] testing runtime effect of the number of w
 # measure measure runtime effect of the tuning number of workers
 for model in "${tuning_runtime_models[@]}"
 do
-   hyperfine \
+   ./hyperfine \
      -L model $MODELS_PATH/"$model".aag \
      -L workers 1,2,3,4,5,6,7,8,9,10,12,14,16,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,44,48,52,58,64 \
      -L nodes_threshold 1 \

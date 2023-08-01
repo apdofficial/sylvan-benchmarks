@@ -1,9 +1,9 @@
 #!/bin/bash
 #parameters for slurm
 #SBATCH -J sylvan-regression                      # job name, don't use spaces, keep it short
-#SBATCH -c 32                                     # number of cores, 1
+#SBATCH -c 64                                     # number of cores, 64
 #SBATCH --gres=gpu:1                              # number of gpus 1, some clusters don't have GPUs
-#SBATCH --mem=16gb                                 # Job memory request
+#SBATCH --mem=16gb                                # Job memory request
 #SBATCH --mail-type=END,FAIL                      # email status changes (NONE, BEGIN, END, FAIL, ALL)
 #SBATCH --mail-user=a.pistek@student.utwente.nl   # Where to send mail to
 #SBATCH --time=8:00:00                            # time limit 8h

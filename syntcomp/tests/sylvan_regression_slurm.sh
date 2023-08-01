@@ -28,7 +28,7 @@ do
   declare -a max_vars=(50 100 200)
   for mv in "${max_vars[@]}"
   do
-    declare -a max_swaps=(500 1000 5000 10000)
+    declare -a max_swaps=(1000 5000 10000)
     for ms in "${max_swaps[@]}"
     do
       declare -a max_growths=(1.0 1.2 1.4)
@@ -37,7 +37,7 @@ do
         declare -a reordering_triggers=("sa" "m")
         for rt in "${reordering_triggers[@]}"
         do
-          declare -a workers=(1 8 16 32)
+          declare -a workers=(1 8 16)
           for n in "${workers[@]}"
           do
 
@@ -55,6 +55,8 @@ do
   done
 done
 
+cp -r $QUALITY_RESULTS_PATH/* ${SLURM_SUBMIT_DIR}/job_results/${SLURM_JOBID}/
+
 echo "Sylvan Regression Test [$(date)] testing runtime effect of the tuning parameters..."
 
 declare -a tuning_runtime_models=(
@@ -69,7 +71,7 @@ for model in "${tuning_runtime_models[@]}"
 do
    ./hyperfine \
      -L model $MODELS_PATH/"$model".aag \
-     -L workers 1,2,3,4,5,6,7,8,9,10,12,14,16,18,24,32, \
+     -L workers 1,8,16 \
      -L nodes_threshold 1,128,256 \
      -L max_var 50,100,200 \
      -L max_swap 1000,5000,10000 \
@@ -80,8 +82,10 @@ do
      --warmup 1 \
      './sylvan-solver -n {workers} --nt {nodes_threshold} --tr {table_ratio} --ts {table_size} --mg {max_growth} --mv {max_var} --ms {max_swap} --rt={reordering_trigger} {model}' \
      --export-csv $RUNTIME_RESULTS_PATH/"$model".csv \
-     > $RUNTIME_RESULTS_PATH/"$model".txt
+     > $RUNTIME_RESULTS_PATH/"$model"_overall.txt
 done
+
+cp -r $RUNTIME_RESULTS_PATH/* ${SLURM_SUBMIT_DIR}/job_results/${SLURM_JOBID}/
 
 echo "Sylvan Regression Test [$(date)] testing runtime effect of the number of workers..."
 
@@ -103,5 +107,7 @@ do
      --export-csv $RUNTIME_RESULTS_PATH/"$model".csv \
      > $RUNTIME_RESULTS_PATH/"$model"_workers.txt
 done
+
+cp -r $RUNTIME_RESULTS_PATH/* ${SLURM_SUBMIT_DIR}/job_results/${SLURM_JOBID}/
 
 echo "Sylvan Regression Test [$(date)] end"
