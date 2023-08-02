@@ -127,6 +127,7 @@ def generate_runtime_table():
     runtime = load_runtime_df(results_runtime)
     # runtime = runtime.drop("command", axis=1)
     runtime.columns = [col.replace('parameter_', '') for col in runtime.columns]
+    runtime.columns = [col.replace('-', '_') for col in runtime.columns]
     runtime["model"] = runtime.apply(lambda row: row["model"].split("/")[-1], axis=1)
     runtime["heuristic"] = runtime.apply(derive_heuristic, axis=1)
     runtime["solver"] = runtime.apply(lambda row: row["solver"].replace("-solver", ""), axis=1)

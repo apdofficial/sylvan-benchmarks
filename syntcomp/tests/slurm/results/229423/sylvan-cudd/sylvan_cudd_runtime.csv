@@ -1,4 +1,4 @@
-command,mean,stddev,median,user,system,min,max,model,reordering-trigger,solver,heuristic
+command,mean,stddev,median,user,system,min,max,model,reordering_trigger,solver,heuristic
 ./sylvan-solver -n 8 --nt 1 --tr 14 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/add16y.aag,0.65851775634,0.0104066721860148,0.6606896279400001,5.09561074,0.0986362399999999,0.6449695819400001,0.67963762094,add16y.aag,sa,sylvan -n 8 --nt 1 --tr 14 --ts 33 --mg 1.2 --mv 200 --ms 10000,sift
 ./cudd-solver --h=sift --rt=sa ./models/add16y.aag,0.04827076464,0.003777013643541,0.04910867644,0.03907994,0.009172586,0.03770766694,0.05123312494,add16y.aag,sa,cudd --h=sift,sift
 ./cudd-solver --h=group --rt=sa ./models/add16y.aag,0.0446695248399999,0.001182567888455,0.04434774494,0.03427964,0.0103650859999999,0.04342310094,0.04701273694,add16y.aag,sa,cudd --h=group,group
