@@ -1,0 +1,3 @@
+command,mean,stddev,median,user,system,min,max,parameter_heuristic,parameter_model,parameter_reordering-trigger,parameter_solver
+./cudd-solver  --rt=a --h=sift ./models/add16y.aag,0.04289343356,0.003987956174572824,0.04372305036,0.03304746,0.00980628,0.03178995036,0.04538106436,sift,./models/add16y.aag,a,cudd-solver 
+./cudd-solver  --rt=a --h=group ./models/add16y.aag,0.030630167259999997,0.005470931565638066,0.03296428236,0.022566259999999998,0.00805918,0.02256334336,0.03660676936,group,./models/add16y.aag,a,cudd-solver 

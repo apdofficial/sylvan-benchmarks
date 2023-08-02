@@ -1,0 +1,14 @@
+"*"
+UNREALIZABLE
+BDD reordering with sifting: from 5600 to ... 1780 nodes in 0.150520 sec
+BDD reordering with sifting: from 3708 to ... 1681 nodes in 0.138691 sec
+BDD reordering with sifting: from 3631 to ... 3427 nodes in 0.190490 sec
+BDD reordering with sifting: from 9344 to ... 5220 nodes in 0.238229 sec
+BDD reordering with sifting: from 12382 to ... 
+Reordering: Running recovery after running out of memory...
+14296 nodes in 0.004720 sec
+BDD reordering with sifting: from 15436 to ... 20266 nodes in 0.517053 sec
+BDD reordering with sifting: from 40737 to ... 43254 nodes in 1.000192 sec
+BDD reordering with sifting: from 106930 to ... 118327 nodes in 0.050731 sec
+BDD reordering with sifting: from 118327 to ... 100519 nodes in 2.650968 sec
+BDD reordering with sifting: from 305091 to ... 173010 nodes in 4.140055 sec

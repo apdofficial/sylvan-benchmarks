@@ -1,0 +1,11 @@
+BDD reordering with group sifting: from 4723 to ... 385 nodes in 0 sec
+BDD reordering with group sifting: from 837 to ... 333 nodes in 0.01 sec
+BDD reordering with group sifting: from 678 to ... 444 nodes in 0 sec
+BDD reordering with group sifting: from 907 to ... 270 nodes in 0.01 sec
+BDD reordering with group sifting: from 541 to ... 347 nodes in 0 sec
+BDD reordering with group sifting: from 695 to ... 515 nodes in 0.01 sec
+BDD reordering with group sifting: from 1078 to ... 614 nodes in 0.01 sec
+BDD reordering with group sifting: from 1755 to ... 729 nodes in 0.01 sec
+"*"
+"*"
+REALIZABLE

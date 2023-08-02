@@ -1,0 +1,3 @@
+command,mean,stddev,median,user,system,min,max,parameter_heuristic,parameter_model,parameter_reordering-trigger,parameter_solver
+./cudd-solver  --rt=a --h=sift ./models/mult_bool_matrix_2_3_8.aag,0.17052558505999998,0.004983641664321955,0.17258139076,0.16027877999999998,0.010198939999999998,0.16100229626,0.17451471326,sift,./models/mult_bool_matrix_2_3_8.aag,a,cudd-solver 
+./cudd-solver  --rt=a --h=group ./models/mult_bool_matrix_2_3_8.aag,0.21037206616,0.005929164104801907,0.21398571826,0.20239817999999996,0.007976571999999998,0.20242081626,0.21658207726,group,./models/mult_bool_matrix_2_3_8.aag,a,cudd-solver 

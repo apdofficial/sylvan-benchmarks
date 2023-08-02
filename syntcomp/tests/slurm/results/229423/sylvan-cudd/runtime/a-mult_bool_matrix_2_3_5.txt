@@ -1,0 +1,11 @@
+Benchmark 1: ./cudd-solver  --rt=a --h=sift ./models/mult_bool_matrix_2_3_5.aag
+  Time (mean ± σ):      51.2 ms ±   0.9 ms    [User: 40.6 ms, System: 10.6 ms]
+  Range (min … max):    49.9 ms …  52.6 ms    10 runs
+ 
+Benchmark 2: ./cudd-solver  --rt=a --h=group ./models/mult_bool_matrix_2_3_5.aag
+  Time (mean ± σ):      70.8 ms ±   5.7 ms    [User: 62.7 ms, System: 8.2 ms]
+  Range (min … max):    61.9 ms …  75.9 ms    10 runs
+ 
+Summary
+  ./cudd-solver  --rt=a --h=sift ./models/mult_bool_matrix_2_3_5.aag ran
+    1.38 ± 0.11 times faster than ./cudd-solver  --rt=a --h=group ./models/mult_bool_matrix_2_3_5.aag

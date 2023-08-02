@@ -1,0 +1,3 @@
+BDD reordering with group sifting: from 9012706 to ... 25715 nodes in 615.99 sec
+"*"
+REALIZABLE

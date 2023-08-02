@@ -1,0 +1,4 @@
+command,mean,stddev,median,user,system,min,max,parameter_model,parameter_reordering-trigger,parameter_solver
+./sylvan-solver -n 8 --nt 1 --tr 14 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/add28y.aag,3.3818325946199996,0.14722737219130966,3.38451158282,25.61361736,1.2920199799999996,3.21683274082,3.54188325582,./models/add28y.aag,sa,sylvan-solver -n 8 --nt 1 --tr 14 --ts 33 --mg 1.2 --mv 200 --ms 10000
+./cudd-solver --h=sift --rt=sa ./models/add28y.aag,0.14550556892,0.004036649123595498,0.14689331981999998,0.13508886,0.01037698,0.13466112082,0.14824243382,./models/add28y.aag,sa,cudd-solver --h=sift
+./cudd-solver --h=group --rt=sa ./models/add28y.aag,0.08377991542,0.006095152035678707,0.08681764732,0.07326675999999999,0.010471280000000001,0.07458184982,0.08929134282000001,./models/add28y.aag,sa,cudd-solver --h=group

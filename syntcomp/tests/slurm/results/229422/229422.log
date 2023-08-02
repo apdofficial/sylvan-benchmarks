@@ -1,0 +1,15 @@
+Date              = Tue 01 Aug 2023 09:21:42 PM CEST
+Hostname          = ctit080
+Working Directory = /local/229422
+Number of nodes used        : 1
+Number of threads           : 16
+Number of threads per core  : 
+Name of nodes used          : ctit080
+
+
+Sylvan Regression Test [Tue 01 Aug 2023 09:21:42 PM CEST] START
+Sylvan Regression Test [21:21:42] testing quality effect of the tuning parameters...
+Sylvan Regression Test [21:47:54] testing runtime effect of the tuning parameters...
+Sylvan Regression Test [23:05:04] testing runtime effect of the number of workers...
+Sylvan Regression Test [Tue 01 Aug 2023 11:19:20 PM CEST] END
+

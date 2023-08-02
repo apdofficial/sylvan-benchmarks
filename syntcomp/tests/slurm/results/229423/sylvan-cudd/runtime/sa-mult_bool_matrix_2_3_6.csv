@@ -1,0 +1,4 @@
+command,mean,stddev,median,user,system,min,max,parameter_model,parameter_reordering-trigger,parameter_solver
+./sylvan-solver -n 8 --nt 1 --tr 14 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_6.aag,3.01464152746,2.26020366702887,2.29754868786,23.147049759999998,1.0572673,2.27868552186,9.44715851086,./models/mult_bool_matrix_2_3_6.aag,sa,sylvan-solver -n 8 --nt 1 --tr 14 --ts 33 --mg 1.2 --mv 200 --ms 10000
+./cudd-solver --h=sift --rt=sa ./models/mult_bool_matrix_2_3_6.aag,0.19091075826000004,0.006219789011598009,0.19379026036000002,0.18189316,0.009004690000000001,0.18344813186,0.19790766986,./models/mult_bool_matrix_2_3_6.aag,sa,cudd-solver --h=sift
+./cudd-solver --h=group --rt=sa ./models/mult_bool_matrix_2_3_6.aag,0.07510754716,0.004474771597217001,0.07656357036,0.06492866,0.010150099999999999,0.06312826286,0.07824366986,./models/mult_bool_matrix_2_3_6.aag,sa,cudd-solver --h=group

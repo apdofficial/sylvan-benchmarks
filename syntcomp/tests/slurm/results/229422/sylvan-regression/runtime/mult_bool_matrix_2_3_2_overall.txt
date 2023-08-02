@@ -1,0 +1,1921 @@
+Benchmark 1: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   1.4 ms    [User: 6.3 ms, System: 7.0 ms]
+  Range (min … max):     8.1 ms …  12.4 ms    10 runs
+ 
+Benchmark 2: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.1 ms ±   1.3 ms    [User: 44.0 ms, System: 5.0 ms]
+  Range (min … max):     6.2 ms …  10.2 ms    10 runs
+ 
+Benchmark 3: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.3 ms ±   1.7 ms    [User: 7.8 ms, System: 4.8 ms]
+  Range (min … max):     5.6 ms …  11.4 ms    10 runs
+ 
+Benchmark 4: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.8 ms ±   1.3 ms    [User: 38.7 ms, System: 9.0 ms]
+  Range (min … max):     6.3 ms …   9.6 ms    10 runs
+ 
+Benchmark 5: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   1.3 ms    [User: 9.4 ms, System: 3.2 ms]
+  Range (min … max):     6.8 ms …  10.6 ms    10 runs
+ 
+Benchmark 6: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.9 ms ±   1.0 ms    [User: 45.0 ms, System: 4.5 ms]
+  Range (min … max):     6.5 ms …   9.4 ms    10 runs
+ 
+Benchmark 7: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.5 ms ±   1.3 ms    [User: 8.0 ms, System: 5.2 ms]
+  Range (min … max):     7.0 ms …  11.4 ms    10 runs
+ 
+Benchmark 8: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.9 ms ±   1.5 ms    [User: 42.8 ms, System: 5.0 ms]
+  Range (min … max):     6.1 ms …  10.6 ms    10 runs
+ 
+Benchmark 9: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   0.8 ms    [User: 9.1 ms, System: 4.5 ms]
+  Range (min … max):     8.8 ms …  11.0 ms    10 runs
+ 
+Benchmark 10: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.5 ms ±   1.1 ms    [User: 39.5 ms, System: 7.7 ms]
+  Range (min … max):     6.4 ms …   9.9 ms    10 runs
+ 
+Benchmark 11: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.0 ms ±   1.1 ms    [User: 8.3 ms, System: 5.5 ms]
+  Range (min … max):     8.4 ms …  12.5 ms    10 runs
+ 
+Benchmark 12: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.7 ms ±   1.1 ms    [User: 42.3 ms, System: 4.9 ms]
+  Range (min … max):     6.4 ms …   9.0 ms    10 runs
+ 
+Benchmark 13: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   1.1 ms    [User: 7.6 ms, System: 5.1 ms]
+  Range (min … max):     7.8 ms …  10.5 ms    10 runs
+ 
+Benchmark 14: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.7 ms ±   1.1 ms    [User: 40.2 ms, System: 7.0 ms]
+  Range (min … max):     6.4 ms …   9.3 ms    10 runs
+ 
+Benchmark 15: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.0 ms ±   1.2 ms    [User: 7.2 ms, System: 5.0 ms]
+  Range (min … max):     6.4 ms …  10.2 ms    10 runs
+ 
+Benchmark 16: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.1 ms ±   1.4 ms    [User: 43.2 ms, System: 5.3 ms]
+  Range (min … max):     6.5 ms …  10.9 ms    10 runs
+ 
+Benchmark 17: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.3 ms ±   1.4 ms    [User: 6.2 ms, System: 6.4 ms]
+  Range (min … max):     7.5 ms …  12.0 ms    10 runs
+ 
+Benchmark 18: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.2 ms ±   1.5 ms    [User: 45.7 ms, System: 3.9 ms]
+  Range (min … max):     6.1 ms …  11.7 ms    10 runs
+ 
+Benchmark 19: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.5 ms ±   1.2 ms    [User: 11.1 ms, System: 2.0 ms]
+  Range (min … max):     7.2 ms …  12.1 ms    10 runs
+ 
+Benchmark 20: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.2 ms ±   1.0 ms    [User: 37.6 ms, System: 7.4 ms]
+  Range (min … max):     6.1 ms …   9.0 ms    10 runs
+ 
+Benchmark 21: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.9 ms ±   2.1 ms    [User: 9.2 ms, System: 3.0 ms]
+  Range (min … max):     5.5 ms …  11.5 ms    10 runs
+ 
+Benchmark 22: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.2 ms ±   1.9 ms    [User: 46.1 ms, System: 4.9 ms]
+  Range (min … max):     6.2 ms …  12.6 ms    10 runs
+ 
+Benchmark 23: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.2 ms ±   1.3 ms    [User: 6.8 ms, System: 4.3 ms]
+  Range (min … max):     6.4 ms …  10.6 ms    10 runs
+ 
+Benchmark 24: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.9 ms ±   0.9 ms    [User: 41.3 ms, System: 5.9 ms]
+  Range (min … max):     6.3 ms …   9.1 ms    10 runs
+ 
+Benchmark 25: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   1.4 ms    [User: 7.3 ms, System: 5.8 ms]
+  Range (min … max):     7.6 ms …  12.3 ms    10 runs
+ 
+Benchmark 26: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.7 ms ±   1.3 ms    [User: 40.7 ms, System: 7.0 ms]
+  Range (min … max):     6.1 ms …   9.8 ms    10 runs
+ 
+Benchmark 27: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   1.1 ms    [User: 7.7 ms, System: 4.6 ms]
+  Range (min … max):     7.4 ms …  11.6 ms    10 runs
+ 
+Benchmark 28: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.8 ms ±   1.7 ms    [User: 38.1 ms, System: 9.3 ms]
+  Range (min … max):     6.5 ms …  12.2 ms    10 runs
+ 
+Benchmark 29: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.0 ms ±   1.1 ms    [User: 8.1 ms, System: 5.7 ms]
+  Range (min … max):     8.3 ms …  12.2 ms    10 runs
+ 
+Benchmark 30: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.2 ms ±   1.0 ms    [User: 43.0 ms, System: 6.7 ms]
+  Range (min … max):     6.9 ms …  10.5 ms    10 runs
+ 
+Benchmark 31: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   1.4 ms    [User: 9.0 ms, System: 4.4 ms]
+  Range (min … max):     7.7 ms …  12.8 ms    10 runs
+ 
+Benchmark 32: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.5 ms ±   1.4 ms    [User: 40.0 ms, System: 6.0 ms]
+  Range (min … max):     6.1 ms …   9.8 ms    10 runs
+ 
+Benchmark 33: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.4 ms ±   0.9 ms    [User: 8.5 ms, System: 4.1 ms]
+  Range (min … max):     7.5 ms …  10.5 ms    10 runs
+ 
+Benchmark 34: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.8 ms ±   1.1 ms    [User: 40.5 ms, System: 6.7 ms]
+  Range (min … max):     6.5 ms …  10.0 ms    10 runs
+ 
+Benchmark 35: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   1.7 ms    [User: 7.4 ms, System: 6.0 ms]
+  Range (min … max):     7.0 ms …  12.6 ms    10 runs
+ 
+Benchmark 36: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.5 ms ±   1.1 ms    [User: 41.6 ms, System: 9.2 ms]
+  Range (min … max):     7.0 ms …  10.3 ms    10 runs
+ 
+Benchmark 37: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.0 ms    [User: 8.0 ms, System: 5.2 ms]
+  Range (min … max):     8.1 ms …  11.1 ms    10 runs
+ 
+Benchmark 38: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.5 ms ±   1.2 ms    [User: 41.6 ms, System: 5.9 ms]
+  Range (min … max):     6.2 ms …  10.0 ms    10 runs
+ 
+Benchmark 39: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.4 ms ±   1.2 ms    [User: 7.7 ms, System: 6.5 ms]
+  Range (min … max):     8.1 ms …  11.9 ms    10 runs
+ 
+Benchmark 40: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.4 ms ±   1.2 ms    [User: 39.5 ms, System: 7.8 ms]
+  Range (min … max):     6.3 ms …  10.5 ms    10 runs
+ 
+Benchmark 41: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.3 ms    [User: 6.9 ms, System: 6.3 ms]
+  Range (min … max):     7.4 ms …  11.5 ms    10 runs
+ 
+Benchmark 42: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.9 ms ±   1.2 ms    [User: 43.1 ms, System: 5.3 ms]
+  Range (min … max):     6.8 ms …  10.6 ms    10 runs
+ 
+Benchmark 43: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.0 ms ±   1.9 ms    [User: 9.1 ms, System: 4.8 ms]
+  Range (min … max):     5.7 ms …  12.2 ms    10 runs
+ 
+Benchmark 44: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       7.9 ms ±   0.8 ms    [User: 43.1 ms, System: 4.8 ms]
+  Range (min … max):     6.9 ms …   9.3 ms    10 runs
+ 
+Benchmark 45: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.1 ms ±   1.0 ms    [User: 9.5 ms, System: 4.3 ms]
+  Range (min … max):     8.4 ms …  11.8 ms    10 runs
+ 
+Benchmark 46: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.2 ms    [User: 41.4 ms, System: 12.3 ms]
+  Range (min … max):     7.9 ms …  12.0 ms    10 runs
+ 
+Benchmark 47: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      13.8 ms ±   1.9 ms    [User: 10.4 ms, System: 7.9 ms]
+  Range (min … max):     9.7 ms …  16.9 ms    10 runs
+ 
+Benchmark 48: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.1 ms ±   1.7 ms    [User: 47.5 ms, System: 9.8 ms]
+  Range (min … max):     7.9 ms …  13.0 ms    10 runs
+ 
+Benchmark 49: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.2 ms ±   2.1 ms    [User: 11.9 ms, System: 4.3 ms]
+  Range (min … max):     9.2 ms …  15.7 ms    10 runs
+ 
+Benchmark 50: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.3 ms ±   1.7 ms    [User: 45.8 ms, System: 8.9 ms]
+  Range (min … max):     7.3 ms …  13.0 ms    10 runs
+ 
+Benchmark 51: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.6 ms ±   1.8 ms    [User: 6.6 ms, System: 8.7 ms]
+  Range (min … max):     7.7 ms …  15.1 ms    10 runs
+ 
+Benchmark 52: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   1.2 ms    [User: 42.3 ms, System: 10.7 ms]
+  Range (min … max):     8.3 ms …  11.7 ms    10 runs
+ 
+Benchmark 53: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   1.4 ms    [User: 9.4 ms, System: 6.0 ms]
+  Range (min … max):     9.9 ms …  13.7 ms    10 runs
+ 
+Benchmark 54: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.3 ms    [User: 47.2 ms, System: 6.7 ms]
+  Range (min … max):     7.9 ms …  11.5 ms    10 runs
+ 
+Benchmark 55: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.7 ms ±   1.4 ms    [User: 9.5 ms, System: 4.7 ms]
+  Range (min … max):     8.3 ms …  12.5 ms    10 runs
+ 
+Benchmark 56: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.3 ms ±   1.3 ms    [User: 42.5 ms, System: 10.3 ms]
+  Range (min … max):     7.4 ms …  11.7 ms    10 runs
+ 
+Benchmark 57: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.3 ms ±   1.4 ms    [User: 7.5 ms, System: 7.5 ms]
+  Range (min … max):     9.2 ms …  13.5 ms    10 runs
+ 
+Benchmark 58: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.0 ms ±   1.5 ms    [User: 44.5 ms, System: 7.2 ms]
+  Range (min … max):     7.2 ms …  12.0 ms    10 runs
+ 
+Benchmark 59: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.9 ms ±   1.3 ms    [User: 7.9 ms, System: 6.4 ms]
+  Range (min … max):     8.9 ms …  13.4 ms    10 runs
+ 
+Benchmark 60: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.4 ms ±   1.0 ms    [User: 48.9 ms, System: 5.5 ms]
+  Range (min … max):     8.5 ms …  12.0 ms    10 runs
+ 
+Benchmark 61: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.3 ms ±   1.5 ms    [User: 10.2 ms, System: 4.8 ms]
+  Range (min … max):     9.2 ms …  14.4 ms    10 runs
+ 
+Benchmark 62: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.2 ms    [User: 44.9 ms, System: 9.4 ms]
+  Range (min … max):     8.6 ms …  12.8 ms    10 runs
+ 
+Benchmark 63: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.7 ms    [User: 8.3 ms, System: 7.7 ms]
+  Range (min … max):     8.6 ms …  13.8 ms    10 runs
+ 
+Benchmark 64: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   1.2 ms    [User: 46.7 ms, System: 4.6 ms]
+  Range (min … max):     7.4 ms …  10.8 ms    10 runs
+ 
+Benchmark 65: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.4 ms ±   1.2 ms    [User: 9.7 ms, System: 5.4 ms]
+  Range (min … max):     9.6 ms …  12.9 ms    10 runs
+ 
+Benchmark 66: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.2 ms    [User: 49.1 ms, System: 5.0 ms]
+  Range (min … max):     7.9 ms …  11.6 ms    10 runs
+ 
+Benchmark 67: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.5 ms ±   1.5 ms    [User: 8.9 ms, System: 6.3 ms]
+  Range (min … max):     9.0 ms …  13.6 ms    10 runs
+ 
+Benchmark 68: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.5 ms    [User: 46.6 ms, System: 7.0 ms]
+  Range (min … max):     8.2 ms …  12.2 ms    10 runs
+ 
+Benchmark 69: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.5 ms ±   1.5 ms    [User: 8.3 ms, System: 6.9 ms]
+  Range (min … max):     9.3 ms …  14.6 ms    10 runs
+ 
+Benchmark 70: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.6 ms ±   1.5 ms    [User: 52.0 ms, System: 5.9 ms]
+  Range (min … max):     8.1 ms …  12.7 ms    10 runs
+ 
+Benchmark 71: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.3 ms    [User: 9.6 ms, System: 6.0 ms]
+  Range (min … max):     9.9 ms …  14.0 ms    10 runs
+ 
+Benchmark 72: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   0.8 ms    [User: 39.4 ms, System: 14.3 ms]
+  Range (min … max):     8.5 ms …  11.0 ms    10 runs
+ 
+Benchmark 73: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.0 ms ±   1.1 ms    [User: 6.9 ms, System: 9.0 ms]
+  Range (min … max):     9.9 ms …  14.1 ms    10 runs
+ 
+Benchmark 74: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   1.0 ms    [User: 46.8 ms, System: 6.9 ms]
+  Range (min … max):     8.6 ms …  11.5 ms    10 runs
+ 
+Benchmark 75: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   1.5 ms    [User: 10.6 ms, System: 4.7 ms]
+  Range (min … max):     9.8 ms …  13.9 ms    10 runs
+ 
+Benchmark 76: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.4 ms ±   1.2 ms    [User: 46.2 ms, System: 9.2 ms]
+  Range (min … max):     8.9 ms …  12.6 ms    10 runs
+ 
+Benchmark 77: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.5 ms ±   1.9 ms    [User: 7.4 ms, System: 7.7 ms]
+  Range (min … max):     7.7 ms …  14.6 ms    10 runs
+ 
+Benchmark 78: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.3 ms ±   1.2 ms    [User: 46.2 ms, System: 5.3 ms]
+  Range (min … max):     8.0 ms …  11.5 ms    10 runs
+ 
+Benchmark 79: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   1.4 ms    [User: 10.1 ms, System: 5.4 ms]
+  Range (min … max):     9.1 ms …  13.7 ms    10 runs
+ 
+Benchmark 80: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   1.3 ms    [User: 45.8 ms, System: 8.8 ms]
+  Range (min … max):     7.8 ms …  11.7 ms    10 runs
+ 
+Benchmark 81: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.6 ms ±   1.3 ms    [User: 9.2 ms, System: 6.2 ms]
+  Range (min … max):    10.0 ms …  14.0 ms    10 runs
+ 
+Benchmark 82: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.3 ms ±   0.9 ms    [User: 51.5 ms, System: 3.5 ms]
+  Range (min … max):     8.2 ms …  11.2 ms    10 runs
+ 
+Benchmark 83: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.4 ms ±   0.8 ms    [User: 6.8 ms, System: 8.2 ms]
+  Range (min … max):    10.6 ms …  13.0 ms    10 runs
+ 
+Benchmark 84: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   1.0 ms    [User: 42.3 ms, System: 10.5 ms]
+  Range (min … max):     8.5 ms …  11.5 ms    10 runs
+ 
+Benchmark 85: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.5 ms ±   1.6 ms    [User: 9.4 ms, System: 7.1 ms]
+  Range (min … max):     9.5 ms …  15.0 ms    10 runs
+ 
+Benchmark 86: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.7 ms ±   1.9 ms    [User: 42.7 ms, System: 15.1 ms]
+  Range (min … max):     8.4 ms …  14.2 ms    10 runs
+ 
+Benchmark 87: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.6 ms ±   1.4 ms    [User: 9.9 ms, System: 6.8 ms]
+  Range (min … max):    10.5 ms …  14.4 ms    10 runs
+ 
+Benchmark 88: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   1.3 ms    [User: 37.2 ms, System: 14.9 ms]
+  Range (min … max):     7.8 ms …  11.9 ms    10 runs
+ 
+Benchmark 89: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.5 ms    [User: 8.6 ms, System: 7.0 ms]
+  Range (min … max):     9.4 ms …  13.9 ms    10 runs
+ 
+Benchmark 90: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.2 ms ±   1.3 ms    [User: 46.8 ms, System: 9.6 ms]
+  Range (min … max):     7.9 ms …  12.3 ms    10 runs
+ 
+Benchmark 91: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.4 ms    [User: 11.4 ms, System: 4.1 ms]
+  Range (min … max):    10.0 ms …  14.3 ms    10 runs
+ 
+Benchmark 92: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.0 ms ±   1.0 ms    [User: 41.3 ms, System: 10.1 ms]
+  Range (min … max):     7.1 ms …  10.6 ms    10 runs
+ 
+Benchmark 93: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.3 ms ±   1.6 ms    [User: 9.5 ms, System: 6.9 ms]
+  Range (min … max):     9.8 ms …  14.9 ms    10 runs
+ 
+Benchmark 94: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   0.6 ms    [User: 47.3 ms, System: 7.9 ms]
+  Range (min … max):     8.7 ms …  10.7 ms    10 runs
+ 
+Benchmark 95: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.2 ms ±   0.9 ms    [User: 9.2 ms, System: 5.7 ms]
+  Range (min … max):     9.5 ms …  12.8 ms    10 runs
+ 
+Benchmark 96: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   0.6 ms    [User: 43.9 ms, System: 8.7 ms]
+  Range (min … max):     8.5 ms …  10.7 ms    10 runs
+ 
+Benchmark 97: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.0 ms ±   1.2 ms    [User: 7.7 ms, System: 7.1 ms]
+  Range (min … max):     9.4 ms …  12.8 ms    10 runs
+ 
+Benchmark 98: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.1 ms ±   1.2 ms    [User: 44.7 ms, System: 7.8 ms]
+  Range (min … max):     7.0 ms …  11.5 ms    10 runs
+ 
+Benchmark 99: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.2 ms ±   1.9 ms    [User: 9.1 ms, System: 6.0 ms]
+  Range (min … max):     7.1 ms …  14.0 ms    10 runs
+ 
+Benchmark 100: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.6 ms ±   0.9 ms    [User: 44.7 ms, System: 5.6 ms]
+  Range (min … max):     7.5 ms …  10.0 ms    10 runs
+ 
+Benchmark 101: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.4 ms    [User: 9.4 ms, System: 3.9 ms]
+  Range (min … max):     7.7 ms …  11.9 ms    10 runs
+ 
+Benchmark 102: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   1.7 ms    [User: 46.2 ms, System: 6.2 ms]
+  Range (min … max):     7.3 ms …  12.8 ms    10 runs
+ 
+Benchmark 103: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      13.0 ms ±   1.6 ms    [User: 10.0 ms, System: 6.9 ms]
+  Range (min … max):    10.5 ms …  15.5 ms    10 runs
+ 
+Benchmark 104: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.0 ms ±   2.0 ms    [User: 50.8 ms, System: 6.4 ms]
+  Range (min … max):     8.7 ms …  15.4 ms    10 runs
+ 
+Benchmark 105: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.6 ms ±   2.0 ms    [User: 10.0 ms, System: 6.6 ms]
+  Range (min … max):    10.3 ms …  15.8 ms    10 runs
+ 
+Benchmark 106: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.9 ms ±   1.9 ms    [User: 45.2 ms, System: 13.0 ms]
+  Range (min … max):     9.2 ms …  14.2 ms    10 runs
+ 
+Benchmark 107: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.1 ms ±   1.1 ms    [User: 11.9 ms, System: 4.1 ms]
+  Range (min … max):    10.2 ms …  13.4 ms    10 runs
+ 
+Benchmark 108: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.5 ms ±   1.3 ms    [User: 44.3 ms, System: 8.8 ms]
+  Range (min … max):     7.4 ms …  11.9 ms    10 runs
+ 
+Benchmark 109: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.6 ms ±   1.4 ms    [User: 10.1 ms, System: 5.2 ms]
+  Range (min … max):    10.1 ms …  14.2 ms    10 runs
+ 
+Benchmark 110: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.3 ms ±   1.2 ms    [User: 45.1 ms, System: 6.8 ms]
+  Range (min … max):     7.5 ms …  11.3 ms    10 runs
+ 
+Benchmark 111: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   1.5 ms    [User: 10.4 ms, System: 5.2 ms]
+  Range (min … max):     9.1 ms …  13.4 ms    10 runs
+ 
+Benchmark 112: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   1.6 ms    [User: 43.9 ms, System: 9.4 ms]
+  Range (min … max):     7.9 ms …  12.5 ms    10 runs
+ 
+Benchmark 113: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.6 ms ±   1.4 ms    [User: 8.8 ms, System: 6.6 ms]
+  Range (min … max):     8.6 ms …  13.2 ms    10 runs
+ 
+Benchmark 114: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.3 ms ±   1.0 ms    [User: 46.6 ms, System: 4.9 ms]
+  Range (min … max):     7.7 ms …  10.4 ms    10 runs
+ 
+Benchmark 115: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   1.4 ms    [User: 9.4 ms, System: 6.2 ms]
+  Range (min … max):     9.7 ms …  13.5 ms    10 runs
+ 
+Benchmark 116: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.4 ms ±   1.1 ms    [User: 44.7 ms, System: 7.1 ms]
+  Range (min … max):     7.6 ms …  10.7 ms    10 runs
+ 
+Benchmark 117: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.5 ms ±   1.7 ms    [User: 9.5 ms, System: 5.8 ms]
+  Range (min … max):     7.6 ms …  13.6 ms    10 runs
+ 
+Benchmark 118: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   1.6 ms    [User: 45.7 ms, System: 6.9 ms]
+  Range (min … max):     7.3 ms …  12.7 ms    10 runs
+ 
+Benchmark 119: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.3 ms ±   1.5 ms    [User: 7.3 ms, System: 7.8 ms]
+  Range (min … max):     8.9 ms …  14.3 ms    10 runs
+ 
+Benchmark 120: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.2 ms ±   1.7 ms    [User: 46.0 ms, System: 10.0 ms]
+  Range (min … max):     8.4 ms …  13.7 ms    10 runs
+ 
+Benchmark 121: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.9 ms    [User: 9.5 ms, System: 6.4 ms]
+  Range (min … max):     8.1 ms …  14.3 ms    10 runs
+ 
+Benchmark 122: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   1.4 ms    [User: 45.0 ms, System: 6.7 ms]
+  Range (min … max):     7.4 ms …  11.9 ms    10 runs
+ 
+Benchmark 123: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.4 ms ±   1.5 ms    [User: 11.6 ms, System: 3.6 ms]
+  Range (min … max):     9.7 ms …  13.6 ms    10 runs
+ 
+Benchmark 124: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   1.0 ms    [User: 42.7 ms, System: 9.4 ms]
+  Range (min … max):     7.7 ms …  10.8 ms    10 runs
+ 
+Benchmark 125: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.3 ms ±   1.8 ms    [User: 8.7 ms, System: 6.3 ms]
+  Range (min … max):     8.5 ms …  14.2 ms    10 runs
+ 
+Benchmark 126: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   1.0 ms    [User: 40.0 ms, System: 14.3 ms]
+  Range (min … max):     8.6 ms …  11.8 ms    10 runs
+ 
+Benchmark 127: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   1.1 ms    [User: 10.6 ms, System: 5.0 ms]
+  Range (min … max):    10.1 ms …  13.4 ms    10 runs
+ 
+Benchmark 128: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.0 ms ±   1.4 ms    [User: 44.1 ms, System: 10.0 ms]
+  Range (min … max):     8.1 ms …  12.3 ms    10 runs
+ 
+Benchmark 129: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.7 ms    [User: 10.1 ms, System: 5.4 ms]
+  Range (min … max):     9.6 ms …  14.5 ms    10 runs
+ 
+Benchmark 130: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.1 ms ±   1.1 ms    [User: 44.1 ms, System: 9.3 ms]
+  Range (min … max):     8.2 ms …  12.0 ms    10 runs
+ 
+Benchmark 131: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.3 ms    [User: 9.1 ms, System: 6.5 ms]
+  Range (min … max):     9.3 ms …  13.9 ms    10 runs
+ 
+Benchmark 132: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   0.9 ms    [User: 46.3 ms, System: 5.7 ms]
+  Range (min … max):     8.0 ms …  10.9 ms    10 runs
+ 
+Benchmark 133: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.0 ms ±   1.0 ms    [User: 10.3 ms, System: 5.5 ms]
+  Range (min … max):     9.7 ms …  13.2 ms    10 runs
+ 
+Benchmark 134: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.3 ms ±   1.2 ms    [User: 44.5 ms, System: 7.0 ms]
+  Range (min … max):     7.9 ms …  11.4 ms    10 runs
+ 
+Benchmark 135: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.4 ms    [User: 10.3 ms, System: 5.4 ms]
+  Range (min … max):     9.7 ms …  14.7 ms    10 runs
+ 
+Benchmark 136: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.2 ms ±   1.1 ms    [User: 47.7 ms, System: 8.0 ms]
+  Range (min … max):     8.6 ms …  11.9 ms    10 runs
+ 
+Benchmark 137: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.1 ms    [User: 10.2 ms, System: 5.5 ms]
+  Range (min … max):    10.8 ms …  13.8 ms    10 runs
+ 
+Benchmark 138: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   0.6 ms    [User: 43.7 ms, System: 9.6 ms]
+  Range (min … max):     8.8 ms …  10.6 ms    10 runs
+ 
+Benchmark 139: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   0.9 ms    [User: 10.4 ms, System: 5.4 ms]
+  Range (min … max):    10.8 ms …  13.6 ms    10 runs
+ 
+Benchmark 140: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.2 ms    [User: 42.9 ms, System: 10.5 ms]
+  Range (min … max):     7.9 ms …  11.1 ms    10 runs
+ 
+Benchmark 141: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   0.8 ms    [User: 9.8 ms, System: 6.0 ms]
+  Range (min … max):    10.7 ms …  12.9 ms    10 runs
+ 
+Benchmark 142: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.0 ms ±   1.0 ms    [User: 48.9 ms, System: 6.8 ms]
+  Range (min … max):     8.7 ms …  11.6 ms    10 runs
+ 
+Benchmark 143: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.1 ms    [User: 9.0 ms, System: 6.6 ms]
+  Range (min … max):    10.5 ms …  13.2 ms    10 runs
+ 
+Benchmark 144: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.1 ms ±   1.3 ms    [User: 44.9 ms, System: 10.8 ms]
+  Range (min … max):     8.5 ms …  11.8 ms    10 runs
+ 
+Benchmark 145: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.2 ms ±   1.4 ms    [User: 8.5 ms, System: 6.3 ms]
+  Range (min … max):     8.5 ms …  12.9 ms    10 runs
+ 
+Benchmark 146: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   1.0 ms    [User: 43.4 ms, System: 10.9 ms]
+  Range (min … max):     8.1 ms …  11.4 ms    10 runs
+ 
+Benchmark 147: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.7 ms    [User: 8.8 ms, System: 7.0 ms]
+  Range (min … max):     9.6 ms …  14.5 ms    10 runs
+ 
+Benchmark 148: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   1.1 ms    [User: 44.0 ms, System: 9.8 ms]
+  Range (min … max):     7.9 ms …  11.7 ms    10 runs
+ 
+Benchmark 149: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   1.2 ms    [User: 7.5 ms, System: 8.0 ms]
+  Range (min … max):    10.1 ms …  13.4 ms    10 runs
+ 
+Benchmark 150: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.0 ms ±   0.9 ms    [User: 45.2 ms, System: 8.4 ms]
+  Range (min … max):     8.4 ms …  11.4 ms    10 runs
+ 
+Benchmark 151: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.0 ms ±   1.4 ms    [User: 8.0 ms, System: 8.0 ms]
+  Range (min … max):    10.4 ms …  14.2 ms    10 runs
+ 
+Benchmark 152: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.6 ms    [User: 42.7 ms, System: 11.2 ms]
+  Range (min … max):     7.9 ms …  13.0 ms    10 runs
+ 
+Benchmark 153: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.2 ms ±   0.9 ms    [User: 7.9 ms, System: 7.1 ms]
+  Range (min … max):     9.0 ms …  12.1 ms    10 runs
+ 
+Benchmark 154: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.0 ms ±   1.3 ms    [User: 47.3 ms, System: 4.3 ms]
+  Range (min … max):     7.0 ms …  11.6 ms    10 runs
+ 
+Benchmark 155: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.9 ms ±   1.2 ms    [User: 9.4 ms, System: 5.2 ms]
+  Range (min … max):     9.1 ms …  12.9 ms    10 runs
+ 
+Benchmark 156: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   1.6 ms    [User: 42.3 ms, System: 10.8 ms]
+  Range (min … max):     7.3 ms …  13.2 ms    10 runs
+ 
+Benchmark 157: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.8 ms ±   1.2 ms    [User: 7.4 ms, System: 7.2 ms]
+  Range (min … max):     8.3 ms …  12.4 ms    10 runs
+ 
+Benchmark 158: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.4 ms ±   1.1 ms    [User: 45.6 ms, System: 4.2 ms]
+  Range (min … max):     7.0 ms …  10.4 ms    10 runs
+ 
+Benchmark 159: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.0 ms ±   1.1 ms    [User: 9.1 ms, System: 4.7 ms]
+  Range (min … max):     8.9 ms …  12.7 ms    10 runs
+ 
+Benchmark 160: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.4 ms ±   1.3 ms    [User: 45.7 ms, System: 9.2 ms]
+  Range (min … max):     8.1 ms …  12.8 ms    10 runs
+ 
+Benchmark 161: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.2 ms ±   1.3 ms    [User: 9.5 ms, System: 6.6 ms]
+  Range (min … max):    10.0 ms …  13.7 ms    10 runs
+ 
+Benchmark 162: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.7 ms ±   1.5 ms    [User: 52.7 ms, System: 6.7 ms]
+  Range (min … max):     8.4 ms …  13.1 ms    10 runs
+ 
+Benchmark 163: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.5 ms ±   1.6 ms    [User: 10.4 ms, System: 6.1 ms]
+  Range (min … max):     9.4 ms …  14.8 ms    10 runs
+ 
+Benchmark 164: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.7 ms ±   1.4 ms    [User: 46.4 ms, System: 11.2 ms]
+  Range (min … max):     8.0 ms …  12.4 ms    10 runs
+ 
+Benchmark 165: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.1 ms    [User: 10.0 ms, System: 5.7 ms]
+  Range (min … max):     9.9 ms …  13.2 ms    10 runs
+ 
+Benchmark 166: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.1 ms ±   1.1 ms    [User: 45.0 ms, System: 12.3 ms]
+  Range (min … max):     8.2 ms …  11.4 ms    10 runs
+ 
+Benchmark 167: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.9 ms ±   1.9 ms    [User: 10.1 ms, System: 4.6 ms]
+  Range (min … max):     7.7 ms …  13.2 ms    10 runs
+ 
+Benchmark 168: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.5 ms ±   1.1 ms    [User: 44.3 ms, System: 9.7 ms]
+  Range (min … max):     7.8 ms …  11.8 ms    10 runs
+ 
+Benchmark 169: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.0 ms ±   1.5 ms    [User: 9.5 ms, System: 6.6 ms]
+  Range (min … max):     9.9 ms …  14.8 ms    10 runs
+ 
+Benchmark 170: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   1.1 ms    [User: 42.9 ms, System: 11.0 ms]
+  Range (min … max):     8.2 ms …  11.3 ms    10 runs
+ 
+Benchmark 171: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.1 ms ±   1.3 ms    [User: 8.8 ms, System: 5.9 ms]
+  Range (min … max):     8.2 ms …  12.7 ms    10 runs
+ 
+Benchmark 172: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   1.2 ms    [User: 50.2 ms, System: 5.5 ms]
+  Range (min … max):     8.0 ms …  11.6 ms    10 runs
+ 
+Benchmark 173: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.6 ms ±   1.4 ms    [User: 10.7 ms, System: 4.9 ms]
+  Range (min … max):     9.3 ms …  13.8 ms    10 runs
+ 
+Benchmark 174: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.9 ms ±   0.7 ms    [User: 43.2 ms, System: 8.4 ms]
+  Range (min … max):     8.1 ms …  10.2 ms    10 runs
+ 
+Benchmark 175: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.2 ms    [User: 9.4 ms, System: 6.3 ms]
+  Range (min … max):     9.3 ms …  13.0 ms    10 runs
+ 
+Benchmark 176: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.3 ms ±   1.0 ms    [User: 41.0 ms, System: 12.0 ms]
+  Range (min … max):     7.6 ms …  10.7 ms    10 runs
+ 
+Benchmark 177: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.0 ms ±   1.5 ms    [User: 7.0 ms, System: 7.5 ms]
+  Range (min … max):     9.1 ms …  13.3 ms    10 runs
+ 
+Benchmark 178: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.3 ms ±   1.3 ms    [User: 42.6 ms, System: 9.1 ms]
+  Range (min … max):     7.3 ms …  11.3 ms    10 runs
+ 
+Benchmark 179: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.2 ms ±   1.2 ms    [User: 7.1 ms, System: 9.0 ms]
+  Range (min … max):     9.5 ms …  13.4 ms    10 runs
+ 
+Benchmark 180: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.2 ms ±   1.9 ms    [User: 45.6 ms, System: 9.9 ms]
+  Range (min … max):     7.3 ms …  13.3 ms    10 runs
+ 
+Benchmark 181: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.6 ms ±   1.7 ms    [User: 8.9 ms, System: 6.6 ms]
+  Range (min … max):     9.5 ms …  14.5 ms    10 runs
+ 
+Benchmark 182: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.4 ms    [User: 46.8 ms, System: 6.9 ms]
+  Range (min … max):     7.7 ms …  12.0 ms    10 runs
+ 
+Benchmark 183: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.5 ms ±   1.9 ms    [User: 8.7 ms, System: 6.6 ms]
+  Range (min … max):     9.0 ms …  14.4 ms    10 runs
+ 
+Benchmark 184: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.3 ms ±   1.0 ms    [User: 43.3 ms, System: 8.2 ms]
+  Range (min … max):     7.7 ms …  10.7 ms    10 runs
+ 
+Benchmark 185: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.6 ms ±   1.0 ms    [User: 7.5 ms, System: 7.8 ms]
+  Range (min … max):    10.4 ms …  13.3 ms    10 runs
+ 
+Benchmark 186: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.4 ms ±   0.8 ms    [User: 45.3 ms, System: 8.5 ms]
+  Range (min … max):     9.2 ms …  11.3 ms    10 runs
+ 
+Benchmark 187: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.4 ms ±   1.0 ms    [User: 8.4 ms, System: 6.5 ms]
+  Range (min … max):     9.5 ms …  12.6 ms    10 runs
+ 
+Benchmark 188: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.5 ms ±   1.1 ms    [User: 46.5 ms, System: 6.6 ms]
+  Range (min … max):     7.7 ms …  11.0 ms    10 runs
+ 
+Benchmark 189: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.1 ms    [User: 8.5 ms, System: 7.4 ms]
+  Range (min … max):    10.0 ms …  13.5 ms    10 runs
+ 
+Benchmark 190: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   0.8 ms    [User: 39.7 ms, System: 14.6 ms]
+  Range (min … max):     8.9 ms …  11.3 ms    10 runs
+ 
+Benchmark 191: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   1.0 ms    [User: 10.2 ms, System: 5.2 ms]
+  Range (min … max):     9.6 ms …  13.4 ms    10 runs
+ 
+Benchmark 192: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.1 ms ±   1.7 ms    [User: 45.8 ms, System: 10.0 ms]
+  Range (min … max):     8.3 ms …  13.8 ms    10 runs
+ 
+Benchmark 193: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.2 ms ±   1.1 ms    [User: 7.4 ms, System: 8.6 ms]
+  Range (min … max):    10.3 ms …  14.6 ms    10 runs
+ 
+Benchmark 194: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.3 ms ±   0.8 ms    [User: 50.9 ms, System: 5.8 ms]
+  Range (min … max):     9.2 ms …  11.7 ms    10 runs
+ 
+Benchmark 195: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.6 ms ±   1.1 ms    [User: 8.4 ms, System: 7.0 ms]
+  Range (min … max):    10.2 ms …  13.8 ms    10 runs
+ 
+Benchmark 196: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.4 ms ±   0.9 ms    [User: 48.0 ms, System: 7.8 ms]
+  Range (min … max):     8.9 ms …  11.9 ms    10 runs
+ 
+Benchmark 197: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.1 ms ±   1.7 ms    [User: 7.7 ms, System: 8.4 ms]
+  Range (min … max):     9.1 ms …  14.7 ms    10 runs
+ 
+Benchmark 198: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   1.0 ms    [User: 42.1 ms, System: 11.1 ms]
+  Range (min … max):     8.2 ms …  11.7 ms    10 runs
+ 
+Benchmark 199: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.6 ms ±   0.9 ms    [User: 6.8 ms, System: 8.3 ms]
+  Range (min … max):    10.2 ms …  12.7 ms    10 runs
+ 
+Benchmark 200: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   1.5 ms    [User: 41.7 ms, System: 11.4 ms]
+  Range (min … max):     8.0 ms …  12.5 ms    10 runs
+ 
+Benchmark 201: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.1 ms ±   1.4 ms    [User: 11.5 ms, System: 4.5 ms]
+  Range (min … max):    10.0 ms …  14.2 ms    10 runs
+ 
+Benchmark 202: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      14.7 ms ±  14.8 ms    [User: 79.8 ms, System: 8.8 ms]
+  Range (min … max):     8.9 ms …  56.7 ms    10 runs
+ 
+Benchmark 203: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.4 ms ±   1.5 ms    [User: 9.8 ms, System: 5.3 ms]
+  Range (min … max):     9.0 ms …  13.2 ms    10 runs
+ 
+Benchmark 204: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.2 ms ±   1.8 ms    [User: 42.0 ms, System: 14.3 ms]
+  Range (min … max):     7.9 ms …  14.0 ms    10 runs
+ 
+Benchmark 205: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.6 ms    [User: 8.4 ms, System: 7.5 ms]
+  Range (min … max):     8.8 ms …  13.4 ms    10 runs
+ 
+Benchmark 206: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.1 ms ±   1.9 ms    [User: 42.7 ms, System: 11.1 ms]
+  Range (min … max):     7.6 ms …  13.0 ms    10 runs
+ 
+Benchmark 207: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.6 ms    [User: 9.3 ms, System: 6.3 ms]
+  Range (min … max):     9.6 ms …  14.3 ms    10 runs
+ 
+Benchmark 208: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   1.6 ms    [User: 43.9 ms, System: 9.7 ms]
+  Range (min … max):     8.0 ms …  13.6 ms    10 runs
+ 
+Benchmark 209: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.4 ms ±   0.9 ms    [User: 8.8 ms, System: 6.4 ms]
+  Range (min … max):    10.2 ms …  13.1 ms    10 runs
+ 
+Benchmark 210: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.7 ms ±   0.9 ms    [User: 44.0 ms, System: 6.1 ms]
+  Range (min … max):     7.4 ms …   9.8 ms    10 runs
+ 
+Benchmark 211: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.1 ms ±   1.2 ms    [User: 8.9 ms, System: 5.7 ms]
+  Range (min … max):     9.0 ms …  12.4 ms    10 runs
+ 
+Benchmark 212: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.9 ms ±   1.4 ms    [User: 45.4 ms, System: 5.8 ms]
+  Range (min … max):     7.0 ms …  11.7 ms    10 runs
+ 
+Benchmark 213: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.6 ms ±   1.9 ms    [User: 12.4 ms, System: 3.1 ms]
+  Range (min … max):     9.3 ms …  15.3 ms    10 runs
+ 
+Benchmark 214: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.3 ms ±   0.9 ms    [User: 44.9 ms, System: 4.3 ms]
+  Range (min … max):     7.2 ms …   9.8 ms    10 runs
+ 
+Benchmark 215: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.2 ms ±   1.2 ms    [User: 8.1 ms, System: 5.9 ms]
+  Range (min … max):     8.8 ms …  12.5 ms    10 runs
+ 
+Benchmark 216: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.5 ms ±   1.6 ms    [User: 39.4 ms, System: 10.9 ms]
+  Range (min … max):     6.5 ms …  11.5 ms    10 runs
+ 
+Benchmark 217: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.0 ms    [User: 8.7 ms, System: 6.9 ms]
+  Range (min … max):     9.9 ms …  13.2 ms    10 runs
+ 
+Benchmark 218: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.3 ms ±   1.1 ms    [User: 48.3 ms, System: 7.5 ms]
+  Range (min … max):     8.8 ms …  12.6 ms    10 runs
+ 
+Benchmark 219: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.0 ms    [User: 7.5 ms, System: 8.1 ms]
+  Range (min … max):    10.3 ms …  13.7 ms    10 runs
+ 
+Benchmark 220: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   1.1 ms    [User: 43.2 ms, System: 10.5 ms]
+  Range (min … max):     8.1 ms …  11.4 ms    10 runs
+ 
+Benchmark 221: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.0 ms ±   1.9 ms    [User: 8.4 ms, System: 7.7 ms]
+  Range (min … max):     8.1 ms …  15.1 ms    10 runs
+ 
+Benchmark 222: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.5 ms ±   1.6 ms    [User: 50.0 ms, System: 7.7 ms]
+  Range (min … max):     7.7 ms …  12.2 ms    10 runs
+ 
+Benchmark 223: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.5 ms    [User: 11.8 ms, System: 4.1 ms]
+  Range (min … max):    10.1 ms …  15.3 ms    10 runs
+ 
+Benchmark 224: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   1.5 ms    [User: 46.0 ms, System: 8.0 ms]
+  Range (min … max):     7.8 ms …  12.3 ms    10 runs
+ 
+Benchmark 225: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.2 ms ±   2.1 ms    [User: 8.7 ms, System: 6.3 ms]
+  Range (min … max):     7.7 ms …  14.9 ms    10 runs
+ 
+Benchmark 226: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.3 ms ±   1.1 ms    [User: 42.6 ms, System: 8.6 ms]
+  Range (min … max):     7.8 ms …  10.8 ms    10 runs
+ 
+Benchmark 227: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.3 ms ±   1.4 ms    [User: 9.4 ms, System: 6.8 ms]
+  Range (min … max):    10.1 ms …  14.6 ms    10 runs
+ 
+Benchmark 228: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.4 ms ±   1.1 ms    [User: 45.5 ms, System: 7.9 ms]
+  Range (min … max):     7.9 ms …  11.0 ms    10 runs
+ 
+Benchmark 229: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.6 ms ±   1.0 ms    [User: 7.7 ms, System: 7.7 ms]
+  Range (min … max):    10.5 ms …  14.0 ms    10 runs
+ 
+Benchmark 230: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   1.3 ms    [User: 44.2 ms, System: 10.4 ms]
+  Range (min … max):     7.8 ms …  11.6 ms    10 runs
+ 
+Benchmark 231: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.3 ms ±   0.9 ms    [User: 8.4 ms, System: 6.6 ms]
+  Range (min … max):    10.0 ms …  12.7 ms    10 runs
+ 
+Benchmark 232: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      15.0 ms ±  18.3 ms    [User: 83.5 ms, System: 10.5 ms]
+  Range (min … max):     6.9 ms …  67.0 ms    10 runs
+ 
+Benchmark 233: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.3 ms    [User: 10.1 ms, System: 5.8 ms]
+  Range (min … max):    10.3 ms …  14.2 ms    10 runs
+ 
+Benchmark 234: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.5 ms ±   1.4 ms    [User: 47.7 ms, System: 5.7 ms]
+  Range (min … max):     7.7 ms …  12.6 ms    10 runs
+ 
+Benchmark 235: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.4 ms ±   1.6 ms    [User: 7.2 ms, System: 8.1 ms]
+  Range (min … max):     9.5 ms …  14.7 ms    10 runs
+ 
+Benchmark 236: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   1.5 ms    [User: 44.8 ms, System: 8.4 ms]
+  Range (min … max):     7.5 ms …  12.0 ms    10 runs
+ 
+Benchmark 237: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.0 ms ±   1.6 ms    [User: 9.5 ms, System: 6.2 ms]
+  Range (min … max):     9.0 ms …  14.5 ms    10 runs
+ 
+Benchmark 238: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   1.0 ms    [User: 43.2 ms, System: 8.8 ms]
+  Range (min … max):     8.0 ms …  11.0 ms    10 runs
+ 
+Benchmark 239: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.3 ms ±   1.6 ms    [User: 9.0 ms, System: 6.1 ms]
+  Range (min … max):     9.5 ms …  14.5 ms    10 runs
+ 
+Benchmark 240: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   1.4 ms    [User: 45.8 ms, System: 7.9 ms]
+  Range (min … max):     7.4 ms …  11.5 ms    10 runs
+ 
+Benchmark 241: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.4 ms ±   1.2 ms    [User: 9.4 ms, System: 5.6 ms]
+  Range (min … max):     9.7 ms …  13.9 ms    10 runs
+ 
+Benchmark 242: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.4 ms ±   1.1 ms    [User: 47.8 ms, System: 4.7 ms]
+  Range (min … max):     8.0 ms …  11.5 ms    10 runs
+ 
+Benchmark 243: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.2 ms    [User: 9.8 ms, System: 5.8 ms]
+  Range (min … max):     9.8 ms …  13.8 ms    10 runs
+ 
+Benchmark 244: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.2 ms ±   1.3 ms    [User: 50.4 ms, System: 5.8 ms]
+  Range (min … max):     8.7 ms …  12.2 ms    10 runs
+ 
+Benchmark 245: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.1 ms ±   1.1 ms    [User: 8.8 ms, System: 7.3 ms]
+  Range (min … max):    10.6 ms …  13.7 ms    10 runs
+ 
+Benchmark 246: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.0 ms    [User: 47.0 ms, System: 6.1 ms]
+  Range (min … max):     8.3 ms …  11.6 ms    10 runs
+ 
+Benchmark 247: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.3 ms    [User: 8.2 ms, System: 7.6 ms]
+  Range (min … max):     9.7 ms …  13.9 ms    10 runs
+ 
+Benchmark 248: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.5 ms ±   1.1 ms    [User: 43.9 ms, System: 8.9 ms]
+  Range (min … max):     7.6 ms …  11.3 ms    10 runs
+ 
+Benchmark 249: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.2 ms    [User: 7.7 ms, System: 8.0 ms]
+  Range (min … max):     9.6 ms …  13.4 ms    10 runs
+ 
+Benchmark 250: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      15.4 ms ±  18.7 ms    [User: 83.2 ms, System: 11.1 ms]
+  Range (min … max):     8.1 ms …  68.4 ms    10 runs
+ 
+Benchmark 251: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   0.9 ms    [User: 8.9 ms, System: 6.8 ms]
+  Range (min … max):    10.2 ms …  13.2 ms    10 runs
+ 
+Benchmark 252: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.1 ms    [User: 43.1 ms, System: 11.3 ms]
+  Range (min … max):     7.8 ms …  10.9 ms    10 runs
+ 
+Benchmark 253: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.0 ms ±   1.4 ms    [User: 8.3 ms, System: 7.5 ms]
+  Range (min … max):     9.4 ms …  14.0 ms    10 runs
+ 
+Benchmark 254: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   0.8 ms    [User: 42.7 ms, System: 11.8 ms]
+  Range (min … max):     8.2 ms …  11.3 ms    10 runs
+ 
+Benchmark 255: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.2 ms ±   0.9 ms    [User: 8.5 ms, System: 7.7 ms]
+  Range (min … max):    10.0 ms …  13.0 ms    10 runs
+ 
+Benchmark 256: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   0.9 ms    [User: 47.5 ms, System: 5.6 ms]
+  Range (min … max):     8.1 ms …  11.0 ms    10 runs
+ 
+Benchmark 257: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.5 ms ±   1.2 ms    [User: 8.1 ms, System: 7.1 ms]
+  Range (min … max):     9.8 ms …  14.3 ms    10 runs
+ 
+Benchmark 258: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   1.1 ms    [User: 44.1 ms, System: 10.5 ms]
+  Range (min … max):     8.2 ms …  11.6 ms    10 runs
+ 
+Benchmark 259: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.6 ms ±   1.2 ms    [User: 10.8 ms, System: 4.6 ms]
+  Range (min … max):     9.9 ms …  13.0 ms    10 runs
+ 
+Benchmark 260: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   1.0 ms    [User: 44.6 ms, System: 8.0 ms]
+  Range (min … max):     8.3 ms …  10.9 ms    10 runs
+ 
+Benchmark 261: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.5 ms ±   1.4 ms    [User: 10.2 ms, System: 5.1 ms]
+  Range (min … max):     9.4 ms …  13.4 ms    10 runs
+ 
+Benchmark 262: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   1.4 ms    [User: 46.9 ms, System: 7.7 ms]
+  Range (min … max):     8.1 ms …  12.0 ms    10 runs
+ 
+Benchmark 263: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.0 ms    [User: 8.5 ms, System: 7.1 ms]
+  Range (min … max):    10.3 ms …  13.7 ms    10 runs
+ 
+Benchmark 264: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   1.2 ms    [User: 45.1 ms, System: 8.0 ms]
+  Range (min … max):     7.7 ms …  11.8 ms    10 runs
+ 
+Benchmark 265: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.5 ms    [User: 9.1 ms, System: 6.6 ms]
+  Range (min … max):     8.8 ms …  13.6 ms    10 runs
+ 
+Benchmark 266: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.4 ms ±   1.2 ms    [User: 49.2 ms, System: 6.7 ms]
+  Range (min … max):     9.3 ms …  13.2 ms    10 runs
+ 
+Benchmark 267: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.4 ms    [User: 10.1 ms, System: 5.8 ms]
+  Range (min … max):    10.0 ms …  14.4 ms    10 runs
+ 
+Benchmark 268: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   1.3 ms    [User: 42.0 ms, System: 9.7 ms]
+  Range (min … max):     7.4 ms …  11.0 ms    10 runs
+ 
+Benchmark 269: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.5 ms ±   1.0 ms    [User: 10.7 ms, System: 4.6 ms]
+  Range (min … max):    10.1 ms …  13.2 ms    10 runs
+ 
+Benchmark 270: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.7 ms ±   0.9 ms    [User: 45.3 ms, System: 6.3 ms]
+  Range (min … max):     7.1 ms …  10.3 ms    10 runs
+ 
+Benchmark 271: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.2 ms ±   1.0 ms    [User: 10.4 ms, System: 4.6 ms]
+  Range (min … max):     9.6 ms …  12.8 ms    10 runs
+ 
+Benchmark 272: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   1.5 ms    [User: 46.2 ms, System: 7.7 ms]
+  Range (min … max):     8.2 ms …  12.5 ms    10 runs
+ 
+Benchmark 273: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.1 ms ±   0.7 ms    [User: 7.4 ms, System: 6.4 ms]
+  Range (min … max):     9.0 ms …  11.5 ms    10 runs
+ 
+Benchmark 274: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.1 ms ±   1.0 ms    [User: 45.4 ms, System: 4.3 ms]
+  Range (min … max):     6.7 ms …   9.6 ms    10 runs
+ 
+Benchmark 275: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.2 ms ±   1.3 ms    [User: 7.9 ms, System: 5.8 ms]
+  Range (min … max):     8.6 ms …  12.3 ms    10 runs
+ 
+Benchmark 276: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   0.8 ms    [User: 43.3 ms, System: 9.6 ms]
+  Range (min … max):     8.3 ms …  11.1 ms    10 runs
+ 
+Benchmark 277: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.2 ms ±   1.3 ms    [User: 9.1 ms, System: 7.2 ms]
+  Range (min … max):    10.4 ms …  14.2 ms    10 runs
+ 
+Benchmark 278: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.3 ms    [User: 48.6 ms, System: 4.7 ms]
+  Range (min … max):     8.4 ms …  12.4 ms    10 runs
+ 
+Benchmark 279: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.0 ms ±   0.9 ms    [User: 9.2 ms, System: 6.6 ms]
+  Range (min … max):    10.5 ms …  13.5 ms    10 runs
+ 
+Benchmark 280: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   1.8 ms    [User: 44.6 ms, System: 8.6 ms]
+  Range (min … max):     7.2 ms …  12.1 ms    10 runs
+ 
+Benchmark 281: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.1 ms ±   2.0 ms    [User: 8.9 ms, System: 7.1 ms]
+  Range (min … max):     9.6 ms …  14.5 ms    10 runs
+ 
+Benchmark 282: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.3 ms ±   1.3 ms    [User: 46.4 ms, System: 9.9 ms]
+  Range (min … max):     8.5 ms …  11.9 ms    10 runs
+ 
+Benchmark 283: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.3 ms ±   1.2 ms    [User: 7.7 ms, System: 7.4 ms]
+  Range (min … max):     9.7 ms …  13.7 ms    10 runs
+ 
+Benchmark 284: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.3 ms    [User: 47.8 ms, System: 6.9 ms]
+  Range (min … max):     7.1 ms …  11.8 ms    10 runs
+ 
+Benchmark 285: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.3 ms ±   1.8 ms    [User: 10.4 ms, System: 4.6 ms]
+  Range (min … max):     8.8 ms …  14.1 ms    10 runs
+ 
+Benchmark 286: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.5 ms ±   1.0 ms    [User: 42.9 ms, System: 9.1 ms]
+  Range (min … max):     8.1 ms …  11.0 ms    10 runs
+ 
+Benchmark 287: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.7 ms    [User: 11.0 ms, System: 4.8 ms]
+  Range (min … max):     9.0 ms …  14.4 ms    10 runs
+ 
+Benchmark 288: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.4 ms ±   1.0 ms    [User: 46.4 ms, System: 6.2 ms]
+  Range (min … max):     8.1 ms …  11.3 ms    10 runs
+ 
+Benchmark 289: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.2 ms ±   1.4 ms    [User: 10.3 ms, System: 6.1 ms]
+  Range (min … max):     9.8 ms …  14.3 ms    10 runs
+ 
+Benchmark 290: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   1.1 ms    [User: 41.7 ms, System: 9.7 ms]
+  Range (min … max):     7.3 ms …  10.9 ms    10 runs
+ 
+Benchmark 291: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.1 ms ±   1.4 ms    [User: 8.5 ms, System: 6.3 ms]
+  Range (min … max):     8.2 ms …  13.1 ms    10 runs
+ 
+Benchmark 292: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.4 ms ±   1.2 ms    [User: 44.7 ms, System: 8.0 ms]
+  Range (min … max):     7.6 ms …  11.3 ms    10 runs
+ 
+Benchmark 293: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.0 ms ±   1.1 ms    [User: 11.4 ms, System: 4.6 ms]
+  Range (min … max):    10.4 ms …  13.5 ms    10 runs
+ 
+Benchmark 294: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   1.6 ms    [User: 47.3 ms, System: 7.2 ms]
+  Range (min … max):     7.1 ms …  11.6 ms    10 runs
+ 
+Benchmark 295: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.0 ms ±   1.2 ms    [User: 8.8 ms, System: 7.1 ms]
+  Range (min … max):    10.5 ms …  14.2 ms    10 runs
+ 
+Benchmark 296: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   1.0 ms    [User: 45.0 ms, System: 8.4 ms]
+  Range (min … max):     7.9 ms …  11.2 ms    10 runs
+ 
+Benchmark 297: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   1.7 ms    [User: 10.3 ms, System: 5.3 ms]
+  Range (min … max):     8.8 ms …  13.6 ms    10 runs
+ 
+Benchmark 298: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   1.2 ms    [User: 50.6 ms, System: 4.9 ms]
+  Range (min … max):     8.5 ms …  12.0 ms    10 runs
+ 
+Benchmark 299: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.5 ms ±   1.6 ms    [User: 7.7 ms, System: 6.3 ms]
+  Range (min … max):     8.1 ms …  13.1 ms    10 runs
+ 
+Benchmark 300: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   1.2 ms    [User: 44.7 ms, System: 6.9 ms]
+  Range (min … max):     7.6 ms …  11.7 ms    10 runs
+ 
+Benchmark 301: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.1 ms    [User: 8.1 ms, System: 7.8 ms]
+  Range (min … max):    10.3 ms …  13.3 ms    10 runs
+ 
+Benchmark 302: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.1 ms ±   1.3 ms    [User: 40.3 ms, System: 10.7 ms]
+  Range (min … max):     7.5 ms …  12.0 ms    10 runs
+ 
+Benchmark 303: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.1 ms ±   1.8 ms    [User: 10.4 ms, System: 5.7 ms]
+  Range (min … max):     8.5 ms …  14.6 ms    10 runs
+ 
+Benchmark 304: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   0.9 ms    [User: 45.2 ms, System: 9.0 ms]
+  Range (min … max):     8.5 ms …  11.1 ms    10 runs
+ 
+Benchmark 305: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.5 ms    [User: 9.4 ms, System: 6.1 ms]
+  Range (min … max):     9.9 ms …  14.8 ms    10 runs
+ 
+Benchmark 306: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.8 ms ±   1.0 ms    [User: 44.8 ms, System: 11.4 ms]
+  Range (min … max):     9.2 ms …  12.0 ms    10 runs
+ 
+Benchmark 307: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.5 ms ±   1.5 ms    [User: 8.4 ms, System: 6.8 ms]
+  Range (min … max):     9.3 ms …  14.3 ms    10 runs
+ 
+Benchmark 308: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.6 ms ±   1.3 ms    [User: 46.3 ms, System: 9.9 ms]
+  Range (min … max):     8.5 ms …  12.6 ms    10 runs
+ 
+Benchmark 309: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   1.0 ms    [User: 10.1 ms, System: 5.5 ms]
+  Range (min … max):    10.3 ms …  13.4 ms    10 runs
+ 
+Benchmark 310: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.3 ms ±   1.3 ms    [User: 46.2 ms, System: 6.2 ms]
+  Range (min … max):     7.4 ms …  11.5 ms    10 runs
+ 
+Benchmark 311: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   0.9 ms    [User: 10.1 ms, System: 5.3 ms]
+  Range (min … max):    10.4 ms …  13.2 ms    10 runs
+ 
+Benchmark 312: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.4 ms ±   0.9 ms    [User: 45.0 ms, System: 8.3 ms]
+  Range (min … max):     8.3 ms …  11.5 ms    10 runs
+ 
+Benchmark 313: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.1 ms ±   1.5 ms    [User: 8.5 ms, System: 7.5 ms]
+  Range (min … max):     9.8 ms …  14.6 ms    10 runs
+ 
+Benchmark 314: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      15.0 ms ±  15.8 ms    [User: 77.7 ms, System: 11.5 ms]
+  Range (min … max):     8.0 ms …  59.8 ms    10 runs
+ 
+Benchmark 315: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   0.9 ms    [User: 7.4 ms, System: 8.2 ms]
+  Range (min … max):    10.7 ms …  13.4 ms    10 runs
+ 
+Benchmark 316: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.7 ms ±   0.7 ms    [User: 47.7 ms, System: 7.3 ms]
+  Range (min … max):     9.4 ms …  11.6 ms    10 runs
+ 
+Benchmark 317: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.0 ms ±   1.3 ms    [User: 12.0 ms, System: 4.0 ms]
+  Range (min … max):    10.1 ms …  14.2 ms    10 runs
+ 
+Benchmark 318: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.1 ms ±   1.2 ms    [User: 49.3 ms, System: 4.4 ms]
+  Range (min … max):     8.1 ms …  11.8 ms    10 runs
+ 
+Benchmark 319: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   1.1 ms    [User: 6.5 ms, System: 9.0 ms]
+  Range (min … max):    10.1 ms …  13.8 ms    10 runs
+ 
+Benchmark 320: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   1.2 ms    [User: 48.2 ms, System: 5.6 ms]
+  Range (min … max):     8.5 ms …  12.7 ms    10 runs
+ 
+Benchmark 321: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.1 ms ±   1.6 ms    [User: 9.6 ms, System: 6.4 ms]
+  Range (min … max):     9.5 ms …  13.8 ms    10 runs
+ 
+Benchmark 322: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   0.6 ms    [User: 46.6 ms, System: 6.5 ms]
+  Range (min … max):     9.0 ms …  11.0 ms    10 runs
+ 
+Benchmark 323: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.3 ms ±   1.6 ms    [User: 10.7 ms, System: 5.6 ms]
+  Range (min … max):    10.1 ms …  14.4 ms    10 runs
+ 
+Benchmark 324: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   0.9 ms    [User: 46.3 ms, System: 8.2 ms]
+  Range (min … max):     8.2 ms …  11.2 ms    10 runs
+ 
+Benchmark 325: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.0 ms ±   1.5 ms    [User: 10.2 ms, System: 5.9 ms]
+  Range (min … max):    10.0 ms …  13.9 ms    10 runs
+ 
+Benchmark 326: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.0 ms ±   1.0 ms    [User: 45.5 ms, System: 8.6 ms]
+  Range (min … max):     8.5 ms …  11.9 ms    10 runs
+ 
+Benchmark 327: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.3 ms ±   1.5 ms    [User: 9.7 ms, System: 5.4 ms]
+  Range (min … max):     8.7 ms …  13.7 ms    10 runs
+ 
+Benchmark 328: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   1.7 ms    [User: 46.7 ms, System: 6.3 ms]
+  Range (min … max):     7.4 ms …  13.0 ms    10 runs
+ 
+Benchmark 329: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.8 ms ±   1.6 ms    [User: 7.3 ms, System: 7.1 ms]
+  Range (min … max):     8.4 ms …  14.0 ms    10 runs
+ 
+Benchmark 330: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   1.1 ms    [User: 43.9 ms, System: 7.9 ms]
+  Range (min … max):     7.8 ms …  11.4 ms    10 runs
+ 
+Benchmark 331: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.3 ms ±   1.6 ms    [User: 8.3 ms, System: 6.9 ms]
+  Range (min … max):     8.7 ms …  14.3 ms    10 runs
+ 
+Benchmark 332: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.4 ms ±   1.8 ms    [User: 47.4 ms, System: 4.6 ms]
+  Range (min … max):     6.9 ms …  13.3 ms    10 runs
+ 
+Benchmark 333: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.6 ms ±   1.3 ms    [User: 9.3 ms, System: 3.8 ms]
+  Range (min … max):     6.7 ms …  11.4 ms    10 runs
+ 
+Benchmark 334: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.1 ms ±   1.1 ms    [User: 40.6 ms, System: 7.9 ms]
+  Range (min … max):     6.8 ms …  10.8 ms    10 runs
+ 
+Benchmark 335: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.5 ms    [User: 8.0 ms, System: 7.8 ms]
+  Range (min … max):     8.7 ms …  13.3 ms    10 runs
+ 
+Benchmark 336: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   0.6 ms    [User: 43.1 ms, System: 9.9 ms]
+  Range (min … max):     8.8 ms …  11.0 ms    10 runs
+ 
+Benchmark 337: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.0 ms ±   1.2 ms    [User: 10.2 ms, System: 5.5 ms]
+  Range (min … max):     9.9 ms …  14.0 ms    10 runs
+ 
+Benchmark 338: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   1.2 ms    [User: 43.1 ms, System: 10.5 ms]
+  Range (min … max):     8.8 ms …  12.9 ms    10 runs
+ 
+Benchmark 339: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.1 ms ±   1.5 ms    [User: 5.8 ms, System: 9.0 ms]
+  Range (min … max):     9.0 ms …  14.3 ms    10 runs
+ 
+Benchmark 340: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.2 ms ±   1.4 ms    [User: 44.0 ms, System: 11.6 ms]
+  Range (min … max):     8.4 ms …  12.9 ms    10 runs
+ 
+Benchmark 341: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   1.6 ms    [User: 9.2 ms, System: 6.1 ms]
+  Range (min … max):     9.4 ms …  14.8 ms    10 runs
+ 
+Benchmark 342: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.0 ms ±   0.8 ms    [User: 43.6 ms, System: 8.3 ms]
+  Range (min … max):     8.1 ms …  10.3 ms    10 runs
+ 
+Benchmark 343: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.2 ms ±   1.3 ms    [User: 9.2 ms, System: 5.9 ms]
+  Range (min … max):     9.6 ms …  13.3 ms    10 runs
+ 
+Benchmark 344: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.1 ms ±   1.4 ms    [User: 45.3 ms, System: 6.4 ms]
+  Range (min … max):     7.6 ms …  12.1 ms    10 runs
+ 
+Benchmark 345: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.6 ms ±   1.6 ms    [User: 10.4 ms, System: 5.0 ms]
+  Range (min … max):     8.4 ms …  13.4 ms    10 runs
+ 
+Benchmark 346: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.1 ms ±   1.8 ms    [User: 47.6 ms, System: 7.7 ms]
+  Range (min … max):     7.6 ms …  13.2 ms    10 runs
+ 
+Benchmark 347: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.3 ms ±   1.2 ms    [User: 7.1 ms, System: 7.8 ms]
+  Range (min … max):     8.9 ms …  13.4 ms    10 runs
+ 
+Benchmark 348: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   2.1 ms    [User: 41.1 ms, System: 11.5 ms]
+  Range (min … max):     7.1 ms …  12.3 ms    10 runs
+ 
+Benchmark 349: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   1.4 ms    [User: 7.9 ms, System: 7.6 ms]
+  Range (min … max):     9.4 ms …  13.5 ms    10 runs
+ 
+Benchmark 350: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.3 ms ±   1.2 ms    [User: 45.3 ms, System: 7.3 ms]
+  Range (min … max):     7.7 ms …  11.8 ms    10 runs
+ 
+Benchmark 351: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.9 ms    [User: 9.4 ms, System: 6.3 ms]
+  Range (min … max):     9.2 ms …  15.2 ms    10 runs
+ 
+Benchmark 352: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   1.7 ms    [User: 47.5 ms, System: 6.8 ms]
+  Range (min … max):     7.9 ms …  12.3 ms    10 runs
+ 
+Benchmark 353: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.8 ms ±   1.8 ms    [User: 11.0 ms, System: 5.0 ms]
+  Range (min … max):     9.7 ms …  14.9 ms    10 runs
+ 
+Benchmark 354: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       8.9 ms ±   1.2 ms    [User: 40.5 ms, System: 10.0 ms]
+  Range (min … max):     7.6 ms …  10.9 ms    10 runs
+ 
+Benchmark 355: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.4 ms ±   1.1 ms    [User: 8.0 ms, System: 7.2 ms]
+  Range (min … max):    10.0 ms …  13.4 ms    10 runs
+ 
+Benchmark 356: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   1.3 ms    [User: 47.0 ms, System: 7.2 ms]
+  Range (min … max):     7.7 ms …  12.5 ms    10 runs
+ 
+Benchmark 357: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.6 ms ±   1.3 ms    [User: 10.0 ms, System: 5.4 ms]
+  Range (min … max):     9.3 ms …  13.5 ms    10 runs
+ 
+Benchmark 358: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.1 ms ±   1.4 ms    [User: 45.9 ms, System: 10.9 ms]
+  Range (min … max):     8.5 ms …  12.2 ms    10 runs
+ 
+Benchmark 359: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.9 ms ±   1.2 ms    [User: 9.0 ms, System: 5.6 ms]
+  Range (min … max):     9.3 ms …  13.0 ms    10 runs
+ 
+Benchmark 360: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.5 ms ±   1.3 ms    [User: 48.5 ms, System: 9.0 ms]
+  Range (min … max):     8.8 ms …  12.8 ms    10 runs
+ 
+Benchmark 361: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.3 ms ±   1.3 ms    [User: 9.7 ms, System: 5.3 ms]
+  Range (min … max):     8.7 ms …  12.8 ms    10 runs
+ 
+Benchmark 362: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   0.6 ms    [User: 38.7 ms, System: 13.5 ms]
+  Range (min … max):     8.7 ms …  11.0 ms    10 runs
+ 
+Benchmark 363: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.3 ms ±   1.0 ms    [User: 10.1 ms, System: 4.9 ms]
+  Range (min … max):     9.9 ms …  13.3 ms    10 runs
+ 
+Benchmark 364: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   1.1 ms    [User: 46.3 ms, System: 7.7 ms]
+  Range (min … max):     8.6 ms …  11.3 ms    10 runs
+ 
+Benchmark 365: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.7 ms ±   1.2 ms    [User: 6.1 ms, System: 9.3 ms]
+  Range (min … max):    10.0 ms …  13.7 ms    10 runs
+ 
+Benchmark 366: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.1 ms ±   1.5 ms    [User: 44.1 ms, System: 11.3 ms]
+  Range (min … max):     8.2 ms …  13.5 ms    10 runs
+ 
+Benchmark 367: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.3 ms ±   1.6 ms    [User: 8.0 ms, System: 6.9 ms]
+  Range (min … max):     8.3 ms …  14.2 ms    10 runs
+ 
+Benchmark 368: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   1.5 ms    [User: 45.1 ms, System: 8.3 ms]
+  Range (min … max):     7.7 ms …  12.7 ms    10 runs
+ 
+Benchmark 369: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.1 ms ±   0.8 ms    [User: 9.7 ms, System: 4.9 ms]
+  Range (min … max):     9.4 ms …  11.9 ms    10 runs
+ 
+Benchmark 370: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.0 ms ±   1.1 ms    [User: 42.9 ms, System: 9.7 ms]
+  Range (min … max):     8.4 ms …  11.3 ms    10 runs
+ 
+Benchmark 371: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.1 ms ±   1.1 ms    [User: 10.6 ms, System: 4.1 ms]
+  Range (min … max):     9.7 ms …  12.9 ms    10 runs
+ 
+Benchmark 372: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.9 ms ±   1.0 ms    [User: 45.4 ms, System: 9.0 ms]
+  Range (min … max):     9.0 ms …  11.8 ms    10 runs
+ 
+Benchmark 373: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   0.9 ms    [User: 10.4 ms, System: 5.3 ms]
+  Range (min … max):    10.3 ms …  13.3 ms    10 runs
+ 
+Benchmark 374: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.2 ms ±   1.9 ms    [User: 46.9 ms, System: 7.1 ms]
+  Range (min … max):     8.1 ms …  13.5 ms    10 runs
+ 
+Benchmark 375: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.9 ms ±   1.1 ms    [User: 9.5 ms, System: 6.2 ms]
+  Range (min … max):    10.3 ms …  14.1 ms    10 runs
+ 
+Benchmark 376: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.7 ms ±   0.7 ms    [User: 40.8 ms, System: 11.4 ms]
+  Range (min … max):     8.8 ms …  11.0 ms    10 runs
+ 
+Benchmark 377: ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.5 ms ±   1.5 ms    [User: 5.9 ms, System: 9.4 ms]
+  Range (min … max):     9.1 ms …  13.4 ms    10 runs
+ 
+Benchmark 378: ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.2 ms ±   0.7 ms    [User: 44.0 ms, System: 7.1 ms]
+  Range (min … max):     8.4 ms …  10.3 ms    10 runs
+ 
+Benchmark 379: ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      11.5 ms ±   1.0 ms    [User: 8.4 ms, System: 6.9 ms]
+  Range (min … max):     9.9 ms …  13.4 ms    10 runs
+ 
+Benchmark 380: ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.8 ms ±   1.0 ms    [User: 44.8 ms, System: 8.2 ms]
+  Range (min … max):     7.5 ms …  11.2 ms    10 runs
+ 
+Benchmark 381: ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.3 ms ±   1.0 ms    [User: 8.6 ms, System: 7.7 ms]
+  Range (min … max):    10.6 ms …  14.2 ms    10 runs
+ 
+Benchmark 382: ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):       9.3 ms ±   1.1 ms    [User: 42.5 ms, System: 9.1 ms]
+  Range (min … max):     7.7 ms …  10.6 ms    10 runs
+ 
+Benchmark 383: ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      12.3 ms ±   1.3 ms    [User: 9.2 ms, System: 7.1 ms]
+  Range (min … max):    10.6 ms …  14.5 ms    10 runs
+ 
+Benchmark 384: ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+  Time (mean ± σ):      10.1 ms ±   1.1 ms    [User: 48.0 ms, System: 6.9 ms]
+  Range (min … max):     8.8 ms …  12.4 ms    10 runs
+ 
+Summary
+  ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag ran
+    1.03 ± 0.21 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.05 ± 0.21 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.05 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.05 ± 0.21 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.07 ± 0.21 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.07 ± 0.21 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.08 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.08 ± 0.27 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.08 ± 0.21 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.09 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.10 ± 0.19 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.10 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.10 ± 0.20 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.10 ± 0.18 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.11 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.13 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.13 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.13 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.13 ± 0.20 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.14 ± 0.21 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.14 ± 0.30 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.15 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.15 ± 0.23 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.15 ± 0.20 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.17 ± 0.30 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.17 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.18 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.18 ± 0.27 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.20 ± 0.20 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.22 ± 0.21 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.22 ± 0.21 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.24 ± 0.19 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.24 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.24 ± 0.34 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.24 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.25 ± 0.27 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.25 ± 0.23 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.26 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.26 ± 0.20 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.26 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.27 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.27 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.27 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.28 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.28 ± 0.29 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.28 ± 0.19 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.28 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.28 ± 0.23 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.28 ± 0.29 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.28 ± 0.20 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.28 ± 0.28 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.28 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.33 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.28 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.23 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.29 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.30 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.30 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.30 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.30 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.30 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.30 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.30 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.31 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.31 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.31 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.31 ± 0.22 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.31 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.31 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.31 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.32 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.32 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.32 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.33 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.33 ± 0.24 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.33 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.33 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.33 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.33 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.33 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.33 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.33 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.33 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.33 ± 0.28 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.33 ± 0.20 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.34 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.34 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.34 ± 0.28 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.34 ± 0.31 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.34 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.34 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.34 ± 0.28 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.34 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.34 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.34 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.34 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.35 ± 0.21 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.35 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.35 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.35 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.35 ± 0.20 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.35 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.35 ± 0.20 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.35 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.35 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.35 ± 0.23 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.35 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.35 ± 0.21 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.35 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.35 ± 0.29 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.36 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.36 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.36 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.36 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.36 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.36 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.36 ± 0.27 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.36 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.36 ± 0.20 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.36 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.36 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.36 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.36 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.36 ± 0.20 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.37 ± 0.27 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.37 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.37 ± 0.28 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.37 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.37 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.37 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.37 ± 0.29 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.37 ± 0.29 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.37 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.37 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.37 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.37 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.37 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.38 ± 0.28 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.38 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.38 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.38 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.38 ± 0.30 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.38 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.38 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.38 ± 0.20 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.38 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.38 ± 0.21 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.38 ± 0.27 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.38 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.38 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.38 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.39 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.39 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.39 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.39 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.39 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.39 ± 0.24 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.40 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.40 ± 0.24 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.40 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.40 ± 0.23 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.40 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.41 ± 0.28 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.41 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.41 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.41 ± 0.32 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.41 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.41 ± 0.32 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.41 ± 0.27 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.41 ± 0.21 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.41 ± 0.30 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.41 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.41 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.41 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.42 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.42 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.42 ± 0.33 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.42 ± 0.27 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.42 ± 0.33 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.43 ± 0.27 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.43 ± 0.31 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.43 ± 0.31 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.43 ± 0.30 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.43 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.43 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.44 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.44 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.44 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.44 ± 0.25 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.45 ± 0.23 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.45 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.46 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.46 ± 0.26 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.46 ± 0.30 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.46 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.47 ± 0.27 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.47 ± 0.27 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.48 ± 0.28 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.48 ± 0.33 times faster than ./sylvan-solver -n 8 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.49 ± 0.28 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.49 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.49 ± 0.22 times faster than ./sylvan-solver -n 8 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.49 ± 0.29 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.50 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.50 ± 0.24 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.51 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.52 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.52 ± 0.33 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.52 ± 0.33 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.52 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.52 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.53 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.53 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.53 ± 0.35 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.54 ± 0.31 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.55 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.55 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.55 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.55 ± 0.24 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.55 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.55 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.55 ± 0.34 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.56 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.56 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.56 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.56 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.57 ± 0.24 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.57 ± 0.36 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.57 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.57 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.57 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.57 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.57 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.57 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.57 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.57 ± 0.31 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.58 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.58 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.58 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.58 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.58 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.58 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.58 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.58 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.59 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.59 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.59 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.59 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.59 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.59 ± 0.24 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.59 ± 0.31 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.60 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.60 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.60 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.60 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.60 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.60 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.60 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.60 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.61 ± 0.34 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.61 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.61 ± 0.34 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.61 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.61 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.61 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.61 ± 0.34 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.61 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.61 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.62 ± 0.31 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.62 ± 0.33 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.62 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.62 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.62 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.62 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.62 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.62 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.62 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.63 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.63 ± 0.31 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.63 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.63 ± 0.33 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.63 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.63 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.63 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.63 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.63 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.63 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.63 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.64 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.64 ± 0.31 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.64 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.64 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.64 ± 0.34 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.64 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.64 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.64 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.64 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.64 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.64 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.64 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.64 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.65 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.65 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.65 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.65 ± 0.31 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.65 ± 0.33 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.65 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.65 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.65 ± 0.31 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.65 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.65 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.65 ± 0.31 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.65 ± 0.34 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.65 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.66 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.66 ± 0.31 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.66 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.66 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.66 ± 0.33 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.66 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.66 ± 0.31 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.66 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.66 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.66 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.66 ± 0.25 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.66 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.66 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.66 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.67 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.67 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.67 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.67 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.67 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.67 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.67 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.67 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.67 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.67 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.68 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.68 ± 0.31 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.68 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.68 ± 0.34 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.68 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.68 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.68 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.68 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.68 ± 0.34 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.68 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.69 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.69 ± 0.36 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.69 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 100 --ms 500 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.70 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.70 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.70 ± 0.28 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.70 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.70 ± 0.37 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.71 ± 0.26 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.71 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 200 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.71 ± 0.30 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.71 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.4 --mv 25 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.71 ± 0.29 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.71 ± 0.27 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.74 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 512 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.74 ± 0.32 times faster than ./sylvan-solver -n 1 --nt 256 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.76 ± 0.31 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 100 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.76 ± 0.36 times faster than ./sylvan-solver -n 1 --nt 1 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.81 ± 0.33 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    1.93 ± 0.37 times faster than ./sylvan-solver -n 1 --nt 1024 --tr 12 --ts 33 --mg 1.1 --mv 50 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    2.04 ± 2.08 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 50 --ms 5000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    2.09 ± 2.22 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.4 --mv 200 --ms 1000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    2.10 ± 2.57 times faster than ./sylvan-solver -n 8 --nt 1024 --tr 12 --ts 33 --mg 1.2 --mv 25 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag
+    2.14 ± 2.62 times faster than ./sylvan-solver -n 8 --nt 1 --tr 12 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_2.aag

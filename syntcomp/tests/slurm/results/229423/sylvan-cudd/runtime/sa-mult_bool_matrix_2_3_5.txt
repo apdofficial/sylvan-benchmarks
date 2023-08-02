@@ -1,0 +1,16 @@
+Benchmark 1: ./sylvan-solver -n 8 --nt 1 --tr 14 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_5.aag
+  Time (mean ± σ):      2.655 s ±  1.184 s    [User: 20.315 s, System: 1.029 s]
+  Range (min … max):    2.254 s …  6.023 s    10 runs
+ 
+Benchmark 2: ./cudd-solver --h=sift --rt=sa ./models/mult_bool_matrix_2_3_5.aag
+  Time (mean ± σ):     163.2 ms ±   4.4 ms    [User: 151.4 ms, System: 11.8 ms]
+  Range (min … max):   151.9 ms … 167.1 ms    10 runs
+ 
+Benchmark 3: ./cudd-solver --h=group --rt=sa ./models/mult_bool_matrix_2_3_5.aag
+  Time (mean ± σ):      77.9 ms ±   3.6 ms    [User: 68.1 ms, System: 9.7 ms]
+  Range (min … max):    67.5 ms …  79.7 ms    10 runs
+ 
+Summary
+  ./cudd-solver --h=group --rt=sa ./models/mult_bool_matrix_2_3_5.aag ran
+    2.10 ± 0.11 times faster than ./cudd-solver --h=sift --rt=sa ./models/mult_bool_matrix_2_3_5.aag
+   34.10 ± 15.29 times faster than ./sylvan-solver -n 8 --nt 1 --tr 14 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/mult_bool_matrix_2_3_5.aag
