@@ -227,16 +227,20 @@ TASK_1(int, solve_game, DdManager*, db)
     cudd_game.gates = new DdNode*[aag.header.a];
     for (uint64_t a = 0; a < aag.header.a; a++) cudd_game.gates[a] = nullptr;
 
+    levels_new_many(aag.header.a);
+
     INFO("Making the gate BDDs...\n");
 
     for (uint64_t gate = 0; gate < aag.header.a; gate++) {
         make_gate(gate, db);
 //        sylvan_test_reduce_heap();
 //        INFO("Sylvan: %5zu Cudd: %zu\n", llmsset_count_marked(nodes), Cudd_ReadNodeCount(db));
-//        if (llmsset_count_marked(nodes) >= reorder_db->config.size_threshold & reorder_db->call_count == 0) {
-//            sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
-//            Cudd_ReduceHeap(db, CUDD_REORDER_SIFT, 0);
-//        }
+
+        if (llmsset_count_marked(nodes) >= reorder_db->config.size_threshold & reorder_db->call_count == 0) {
+//            INFO("Sylvan: %5zu Cudd: %zu\n", llmsset_count_marked(nodes), Cudd_ReadNodeCount(db));
+            sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
+            Cudd_ReduceHeap(db, CUDD_REORDER_SIFT, 0);
+        }
     }
 
     INFO("Sylvan gates have size %zu\n", mtbdd_nodecount_more(sylvan_game.gates, aag.header.a));
@@ -376,14 +380,14 @@ int main(int argc, char **argv)
     sylvan_init_mtbdd();
     if (dynamic_reorder) sylvan_init_reorder();
     if (dynamic_reorder) sylvan_set_reorder_type(SYLVAN_REORDER_BOUNDED_SIFT);
-    if (dynamic_reorder) sylvan_set_reorder_print(0);
+    if (dynamic_reorder) sylvan_set_reorder_print(true);
 
     // Set hooks for logging garbage collection & dynamic variable reordering
     if (verbose) {
-        sylvan_re_hook_prere(TASK(reordering_start));
-        sylvan_re_hook_postre(TASK(reordering_end));
-        sylvan_gc_hook_pregc(TASK(gc_start));
-        sylvan_gc_hook_postgc(TASK(gc_end));
+//        sylvan_re_hook_prere(TASK(reordering_start));
+//        sylvan_re_hook_postre(TASK(reordering_end));
+//        sylvan_gc_hook_pregc(TASK(gc_start));
+//        sylvan_gc_hook_postgc(TASK(gc_end));
     }
 
     int is_realizable = solve_game(db);
