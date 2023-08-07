@@ -5,7 +5,7 @@ from pathlib import Path
 from pandas import DataFrame
 from dataclass_csv import DataclassWriter
 
-job_id = "229918"
+job_id = "229919"
 results = Path("./slurm/results")
 results_quality = results / job_id / "sylvan-regression" / "quality"
 results_runtime = results / job_id / "sylvan-regression" / "runtime"
@@ -101,11 +101,11 @@ if __name__ == "__main__":
     quality = load_quality_benchmarks(results_quality)
     write_quality_benchmarks_to_csv(quality)
 
-    # quality = load_quality_df(results_quality, "max_growth")
-    # quality.to_csv(results / "sylvan_regression_max_growth.csv", encoding='utf-8', index=False)
-    #
-    # quality = load_quality_df(results_quality, "nodes_threshold")
-    # quality.to_csv(results / "sylvan_regression_nodes_threshold.csv", encoding='utf-8', index=False)
-    #
+    quality = load_quality_df(results_quality, "max_growth")
+    quality.to_csv(results / "sylvan_regression_max_growth.csv", encoding='utf-8', index=False)
+
+    quality = load_quality_df(results_quality, "nodes_threshold")
+    quality.to_csv(results / "sylvan_regression_nodes_threshold.csv", encoding='utf-8', index=False)
+
     quality = load_quality_df(results_quality, "workers")
     quality.to_csv(results / "sylvan_regression_workers.csv", encoding='utf-8', index=False)

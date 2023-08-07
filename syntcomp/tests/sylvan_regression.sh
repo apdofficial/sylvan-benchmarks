@@ -99,12 +99,16 @@ done
 echo "Sylvan Regression Test [$(date +%H:%M:%S)] testing effect of the workers parameter..."
 
 declare -a tuning_models=(
+  "add8y"
   "add10y"
   "add12y"
+  "add14y"
+  "mult_bool_matrix_2_3_2"
   "mult_bool_matrix_2_3_3"
   "mult_bool_matrix_2_3_4"
+  "mult_bool_matrix_2_3_5"
 )
-declare -a workers=(1 2 4 6 8 10 12 14 16)
+declare -a workers=(1 2 4 6 8 10)
 
 nt=1
 mg=1.2

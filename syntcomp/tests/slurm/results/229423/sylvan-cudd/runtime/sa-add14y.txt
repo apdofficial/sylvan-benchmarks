@@ -1,16 +1,16 @@
-Benchmark 1: ./sylvan-solver -n 8 --nt 1 --tr 14 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/add14y.aag
-  Time (mean ± σ):     529.2 ms ±  16.5 ms    [User: 4109.2 ms, System: 73.5 ms]
-  Range (min … max):   517.8 ms … 571.5 ms    10 runs
+Benchmark 1: ./sylvan-solver -n 8 --nt 1 --tr 2 --ts 21 --mg 1.15 --mv 200 --ms 10000 --rt=sa ./models/add14y.aag
+  Time (mean ± σ):     510.5 ms ±   7.1 ms    [User: 3945.5 ms, System: 85.8 ms]
+  Range (min … max):   498.7 ms … 522.3 ms    10 runs
  
 Benchmark 2: ./cudd-solver --h=sift --rt=sa ./models/add14y.aag
-  Time (mean ± σ):      42.9 ms ±   1.8 ms    [User: 32.9 ms, System: 9.9 ms]
-  Range (min … max):    39.6 ms …  44.9 ms    10 runs
+  Time (mean ± σ):      38.1 ms ±   1.1 ms    [User: 28.8 ms, System: 9.4 ms]
+  Range (min … max):    36.5 ms …  39.9 ms    10 runs
  
 Benchmark 3: ./cudd-solver --h=group --rt=sa ./models/add14y.aag
-  Time (mean ± σ):      25.2 ms ±   5.1 ms    [User: 19.0 ms, System: 6.2 ms]
-  Range (min … max):    17.9 ms …  29.5 ms    10 runs
+  Time (mean ± σ):      25.3 ms ±   1.1 ms    [User: 15.5 ms, System: 9.9 ms]
+  Range (min … max):    23.9 ms …  27.2 ms    10 runs
  
 Summary
   ./cudd-solver --h=group --rt=sa ./models/add14y.aag ran
-    1.70 ± 0.35 times faster than ./cudd-solver --h=sift --rt=sa ./models/add14y.aag
-   21.00 ± 4.26 times faster than ./sylvan-solver -n 8 --nt 1 --tr 14 --ts 33 --mg 1.2 --mv 200 --ms 10000 --rt=sa ./models/add14y.aag
+    1.51 ± 0.08 times faster than ./cudd-solver --h=sift --rt=sa ./models/add14y.aag
+   20.18 ± 0.89 times faster than ./sylvan-solver -n 8 --nt 1 --tr 2 --ts 21 --mg 1.15 --mv 200 --ms 10000 --rt=sa ./models/add14y.aag
