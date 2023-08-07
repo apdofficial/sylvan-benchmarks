@@ -1,0 +1,15 @@
+Date              = Mon 07 Aug 2023 03:37:05 PM CEST
+Hostname          = ctit081
+Working Directory = /local/229894
+Number of nodes used        : 1
+Number of threads           : 16
+Number of threads per core  : 
+Name of nodes used          : ctit081
+
+
+Sylvan vs CUDD Test [Mon 07 Aug 2023 03:37:05 PM CEST] START
+Sylvan vs CUDD Test [15:37:05] testing quality of the Sylvan & CUDD manual reordering...
+Sylvan vs CUDD Test [15:37:05] testing runtime of the Sylvan & CUDD semi-automatic reordering...
+Sylvan vs CUDD Test [15:39:40] testing runtime of the CUDD automatic reordering...
+Sylvan vs CUDD Test [Mon 07 Aug 2023 03:39:55 PM CEST] END
+

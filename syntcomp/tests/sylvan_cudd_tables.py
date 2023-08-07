@@ -6,9 +6,10 @@ from pandas import DataFrame
 from dataclass_csv import DataclassWriter
 from pandas.errors import EmptyDataError
 
+job_id = "229894"
 results = Path("./slurm/results")
-results_quality = results / "229423" / "sylvan-cudd" / "quality"
-results_runtime = results / "229423" / "sylvan-cudd" / "runtime"
+results_quality = results / "229423"/ "sylvan-cudd" / "quality"
+results_runtime = results / job_id / "sylvan-cudd" / "runtime"
 
 # results = Path("./results")
 # results_quality = results / "sylvan-cudd" / "quality"

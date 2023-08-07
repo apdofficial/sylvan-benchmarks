@@ -5,13 +5,15 @@ from pathlib import Path
 from pandas import DataFrame
 from dataclass_csv import DataclassWriter
 
-# results = Path("./slurm/results")
-# results_quality = results / "229422" / "sylvan-regression" / "quality"
-# results_runtime = results / "229422" / "sylvan-regression" / "runtime"
+job_id = "229918"
+results = Path("./slurm/results")
+results_quality = results / job_id / "sylvan-regression" / "quality"
+results_runtime = results / job_id / "sylvan-regression" / "runtime"
 
-results = Path("./results")
-results_quality = results / "sylvan-regression" / "quality"
-results_runtime = results / "sylvan-regression" / "runtime"
+
+# results = Path("./results")
+# results_quality = results / "sylvan-regression" / "quality"
+# results_runtime = results / "sylvan-regression" / "runtime"
 
 
 @dataclass
@@ -93,39 +95,17 @@ def load_runtime_df(path: Path, type: str) -> DataFrame:
         frames.append(frame)
     return pd.concat(frames)
 
-def generate_quality_tables():
+
+if __name__ == "__main__":
     # convert the txt files to csv files for the quality benchmarks
     quality = load_quality_benchmarks(results_quality)
     write_quality_benchmarks_to_csv(quality)
 
-    quality = load_quality_df(results_quality, "max_growth")
-    quality.to_csv(results / "sylvan_regression_quality_max_growth.csv", encoding='utf-8', index=False)
-
-    quality = load_quality_df(results_quality, "nodes_threshold")
-    quality.to_csv(results / "sylvan_regression_quality_nodes_threshold.csv", encoding='utf-8', index=False)
-
-
-def generate_overall_runtime_table():
-    runtime = load_runtime_df(results_runtime, "overall")
-    # runtime = runtime.drop("command", axis=1)
-    runtime.columns = [col.replace('parameter_', '') for col in runtime.columns]
-    runtime["model"] = runtime.apply(lambda row: row["model"].split("/")[-1], axis=1)
-    runtime.to_csv(results / "sylvan_overall_regression_runtime.csv", encoding='utf-8', index=False)
-
-
-def generate_workers_runtime_table():
-    runtime = load_runtime_df(results_runtime, "workers")
-    # runtime = runtime.drop("command", axis=1)
-    runtime.columns = [col.replace('parameter_', '') for col in runtime.columns]
-    runtime["model"] = runtime.apply(lambda row: row["model"].split("/")[-1], axis=1)
-    runtime.to_csv(results / "sylvan_workers_regression_runtime.csv", encoding='utf-8', index=False)
-
-
-def generate_runtime_tables():
-    # generate_overall_runtime_table()
-    generate_workers_runtime_table()
-
-
-if __name__ == "__main__":
-    generate_quality_tables()
-    generate_runtime_tables()
+    # quality = load_quality_df(results_quality, "max_growth")
+    # quality.to_csv(results / "sylvan_regression_max_growth.csv", encoding='utf-8', index=False)
+    #
+    # quality = load_quality_df(results_quality, "nodes_threshold")
+    # quality.to_csv(results / "sylvan_regression_nodes_threshold.csv", encoding='utf-8', index=False)
+    #
+    quality = load_quality_df(results_quality, "workers")
+    quality.to_csv(results / "sylvan_regression_workers.csv", encoding='utf-8', index=False)

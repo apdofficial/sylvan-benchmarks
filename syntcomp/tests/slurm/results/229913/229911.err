@@ -1,0 +1,9 @@
+rm: cannot remove './results/sylvan-regression/quality/*': No such file or directory
+rm: cannot remove './results/sylvan-regression/runtime/*': No such file or directory
+cp: -r not specified; omitting directory './job_results'
+cp: -r not specified; omitting directory './models'
+cp: -r not specified; omitting directory './results'
+rm: cannot remove 'job_results': Is a directory
+rm: cannot remove 'models': Is a directory
+rm: cannot remove 'results': Is a directory
+rmdir: failed to remove '229911': Directory not empty

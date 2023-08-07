@@ -1,4 +1,4 @@
 "*"
 "*"
-REALIZABLE
-BDD reordering with sifting: from 169619 to ... 2332 nodes in 0.354062 sec
+UNREALIZABLE
+BDD reordering with sifting: from 169741 to ... 2444 nodes in 0.485894 sec
