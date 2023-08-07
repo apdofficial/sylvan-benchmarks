@@ -1,0 +1,53 @@
+Benchmark 1: ./sylvan-solver -n 1 --nt 1 --tr 8 --ts 30 --mg 1.2 --mv 2000 --ms 10000 --rt=m ./models/add10y.aag
+  Time (mean ± σ):     407.8 ms ±   6.9 ms    [User: 386.2 ms, System: 13.5 ms]
+  Range (min … max):   399.9 ms … 412.3 ms    3 runs
+ 
+Benchmark 2: ./sylvan-solver -n 2 --nt 1 --tr 8 --ts 30 --mg 1.2 --mv 2000 --ms 10000 --rt=m ./models/add10y.aag
+  Time (mean ± σ):     347.1 ms ±  22.7 ms    [User: 669.4 ms, System: 15.4 ms]
+  Range (min … max):   332.4 ms … 373.3 ms    3 runs
+ 
+Benchmark 3: ./sylvan-solver -n 3 --nt 1 --tr 8 --ts 30 --mg 1.2 --mv 2000 --ms 10000 --rt=m ./models/add10y.aag
+  Time (mean ± σ):     318.7 ms ±  37.4 ms    [User: 899.0 ms, System: 21.8 ms]
+  Range (min … max):   291.0 ms … 361.2 ms    3 runs
+ 
+Benchmark 4: ./sylvan-solver -n 4 --nt 1 --tr 8 --ts 30 --mg 1.2 --mv 2000 --ms 10000 --rt=m ./models/add10y.aag
+  Time (mean ± σ):     327.5 ms ±  10.2 ms    [User: 1258.8 ms, System: 17.3 ms]
+  Range (min … max):   318.3 ms … 338.4 ms    3 runs
+ 
+Benchmark 5: ./sylvan-solver -n 5 --nt 1 --tr 8 --ts 30 --mg 1.2 --mv 2000 --ms 10000 --rt=m ./models/add10y.aag
+  Time (mean ± σ):     328.7 ms ±   6.7 ms    [User: 1589.5 ms, System: 23.3 ms]
+  Range (min … max):   324.1 ms … 336.4 ms    3 runs
+ 
+Benchmark 6: ./sylvan-solver -n 6 --nt 1 --tr 8 --ts 30 --mg 1.2 --mv 2000 --ms 10000 --rt=m ./models/add10y.aag
+  Time (mean ± σ):     331.2 ms ±  19.7 ms    [User: 1867.0 ms, System: 23.7 ms]
+  Range (min … max):   313.9 ms … 352.6 ms    3 runs
+ 
+Benchmark 7: ./sylvan-solver -n 7 --nt 1 --tr 8 --ts 30 --mg 1.2 --mv 2000 --ms 10000 --rt=m ./models/add10y.aag
+  Time (mean ± σ):     298.7 ms ±   5.3 ms    [User: 1984.0 ms, System: 24.1 ms]
+  Range (min … max):   293.7 ms … 304.2 ms    3 runs
+ 
+Benchmark 8: ./sylvan-solver -n 8 --nt 1 --tr 8 --ts 30 --mg 1.2 --mv 2000 --ms 10000 --rt=m ./models/add10y.aag
+  Time (mean ± σ):     329.7 ms ±  31.0 ms    [User: 2502.3 ms, System: 24.5 ms]
+  Range (min … max):   297.3 ms … 359.2 ms    3 runs
+ 
+Benchmark 9: ./sylvan-solver -n 9 --nt 1 --tr 8 --ts 30 --mg 1.2 --mv 2000 --ms 10000 --rt=m ./models/add10y.aag
+  Time (mean ± σ):     438.1 ms ±  30.2 ms    [User: 3620.5 ms, System: 31.8 ms]
+  Range (min … max):   415.4 ms … 472.4 ms    3 runs
+ 
+Benchmark 10: ./sylvan-solver -n 10 --nt 1 --tr 8 --ts 30 --mg 1.2 --mv 2000 --ms 10000 --rt=m ./models/add10y.aag
+  Time (mean ± σ):     551.4 ms ±  34.3 ms    [User: 4936.8 ms, System: 33.2 ms]
+  Range (min … max):   512.9 ms … 578.4 ms    3 runs
+ 
+Benchmark 11: ./sylvan-solver -n 11 --nt 1 --tr 8 --ts 30 --mg 1.2 --mv 2000 --ms 10000 --rt=m ./models/add10y.aag
+  Time (mean ± σ):     23.742 s ±  0.329 s    [User: 216.833 s, System: 0.513 s]
+  Range (min … max):   23.366 s … 23.976 s    3 runs
+ 
+Benchmark 12: ./sylvan-solver -n 12 --nt 1 --tr 8 --ts 30 --mg 1.2 --mv 2000 --ms 10000 --rt=m ./models/add10y.aag
+  Time (mean ± σ):     50.310 s ±  1.951 s    [User: 464.077 s, System: 0.923 s]
+  Range (min … max):   48.074 s … 51.670 s    3 runs
+ 
+Benchmark 13: ./sylvan-solver -n 13 --nt 1 --tr 8 --ts 30 --mg 1.2 --mv 2000 --ms 10000 --rt=m ./models/add10y.aag
+  Time (mean ± σ):     67.319 s ±  0.319 s    [User: 620.628 s, System: 1.221 s]
+  Range (min … max):   67.005 s … 67.643 s    3 runs
+ 
+Benchmark 14: ./sylvan-solver -n 14 --nt 1 --tr 8 --ts 30 --mg 1.2 --mv 2000 --ms 10000 --rt=m ./models/add10y.aag

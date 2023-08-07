@@ -486,6 +486,7 @@ int main(int argc, char **argv)
     sylvan_init_mtbdd();
     if (dynamic_reorder) sylvan_init_reorder();
 
+    if (dynamic_reorder) sylvan_set_reorder_nodes_threshold(10240);
     if (dynamic_reorder) sylvan_set_reorder_type(SYLVAN_REORDER_BOUNDED_SIFT);
     if (dynamic_reorder) sylvan_set_reorder_print(false);
 

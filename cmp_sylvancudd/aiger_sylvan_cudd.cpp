@@ -227,8 +227,6 @@ TASK_1(int, solve_game, DdManager*, db)
     cudd_game.gates = new DdNode*[aag.header.a];
     for (uint64_t a = 0; a < aag.header.a; a++) cudd_game.gates[a] = nullptr;
 
-    levels_new_many(aag.header.a);
-
     INFO("Making the gate BDDs...\n");
 
     for (uint64_t gate = 0; gate < aag.header.a; gate++) {
@@ -374,10 +372,11 @@ int main(int argc, char **argv)
     // Cache table size: 36 bytes * cache entries
     // With 2^20 nodes and 2^18 cache entries, that's 33 MB
     // With 2^24 nodes and 2^22 cache entries, that's 528 MB
-    sylvan_set_sizes(1LL<<14, 1LL<<25, 1LL<<14, 1LL<<19);
+    sylvan_set_sizes(1LL<<18, 1LL<<25, 1LL<<14, 1LL<<19);
     sylvan_init_package();
     sylvan_set_granularity(2); // granularity 3 is decent value for this small problem - 1 means "use cache for every operation"
     sylvan_init_mtbdd();
+    sylvan_gc_disable();
     if (dynamic_reorder) sylvan_init_reorder();
     if (dynamic_reorder) sylvan_set_reorder_type(SYLVAN_REORDER_BOUNDED_SIFT);
     if (dynamic_reorder) sylvan_set_reorder_print(true);

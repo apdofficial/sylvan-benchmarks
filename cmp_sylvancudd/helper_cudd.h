@@ -4,19 +4,19 @@
 //    BDD is from the paper:
 //    Randal E. Bryant Graph-Based Algorithms for Boolean Function Manipulation,
 //    IEEE Transactions on Computers, 1986 http://www.cs.cmu.edu/~bryant/pubdir/ieeetc86.pdf
-DdNode *cudd_create_example_bdd(DdManager *db, int is_optimal)
+DdNode *cudd_create_example_bdd(DdManager *db, int is_optimal, int offset_var)
 {
-    DdNode *v0 = Cudd_bddIthVar(db, 0);
+    DdNode *v0 = Cudd_bddIthVar(db, offset_var);
     Cudd_Ref(v0);
-    DdNode *v1 = Cudd_bddIthVar(db, 1);
+    DdNode *v1 = Cudd_bddIthVar(db, offset_var + 1);
     Cudd_Ref(v1);
-    DdNode *v2 = Cudd_bddIthVar(db, 2);
+    DdNode *v2 = Cudd_bddIthVar(db, offset_var + 2);
     Cudd_Ref(v2);
-    DdNode *v3 = Cudd_bddIthVar(db, 3);
+    DdNode *v3 = Cudd_bddIthVar(db, offset_var + 3);
     Cudd_Ref(v3);
-    DdNode *v4 = Cudd_bddIthVar(db, 4);
+    DdNode *v4 = Cudd_bddIthVar(db, offset_var + 4);
     Cudd_Ref(v4);
-    DdNode *v5 = Cudd_bddIthVar(db, 5);
+    DdNode *v5 = Cudd_bddIthVar(db, offset_var + 5);
     Cudd_Ref(v5);
 
     if (is_optimal) {
