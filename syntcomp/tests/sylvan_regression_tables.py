@@ -5,10 +5,9 @@ from pathlib import Path
 from pandas import DataFrame
 from dataclass_csv import DataclassWriter
 
-job_id = "229919"
 results = Path("./slurm/results")
-results_quality = results / job_id / "sylvan-regression" / "quality"
-results_runtime = results / job_id / "sylvan-regression" / "runtime"
+results_quality = results / "data" / "sylvan-regression" / "quality"
+results_runtime = results / "data" / "sylvan-regression" / "runtime"
 
 
 # results = Path("./results")

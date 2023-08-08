@@ -7,8 +7,8 @@ from dataclass_csv import DataclassWriter
 from pandas.errors import EmptyDataError
 
 results = Path("./slurm/results")
-results_quality = results / "229423" / "sylvan-cudd" / "quality"
-results_runtime = results / "229423" / "sylvan-cudd" / "runtime"
+results_quality = results / "data" / "sylvan-cudd" / "quality"
+results_runtime = results / "data" / "sylvan-cudd" / "runtime"
 
 # results = Path("./results")
 # results_quality = results / "sylvan-cudd" / "quality"
