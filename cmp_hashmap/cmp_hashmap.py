@@ -5,7 +5,19 @@ import seaborn as sns
 import matplotlib
 
 sns.set_style("whitegrid")
-sns.set_context("notebook", font_scale=1.5, rc={"lines.linewidth": 1.0})
+sns.set_context("notebook", font_scale=1.2, rc={"lines.linewidth": 1.2})
+
+plt.rcParams.update({
+    "font.family": "Charter",
+    "pgf.texsystem": "pdflatex",
+    "pgf.preamble": "\n".join([
+             r"\usepackage[utf8x]{inputenc}",
+             r"\usepackage[T1]{fontenc}",
+             r"\usepackage{cmbright}",
+    ])
+})
+
+palette = ["#e36414", "#588157", "#669bbc", "#ba181b"]
 
 X = "table_usage"
 Y = "runtime_ms"
@@ -40,21 +52,34 @@ if __name__ == "__main__":
                            color="#e36414",
                            data=pd.read_csv(f"{DATA}/w{w}_chaining.csv"),
                            legend='brief',
-                           label=f"Chaining")
+                           label=f"Chaining",
+                           linestyle='--',
+                           ci=None,
+                           palette=palette,
+                           markers=True,
+                           dashes=True,
+                           linewidth=1.2
+                           )
         gfg = sns.lineplot(x=X,
                            y=Y,
                            data=pd.read_csv(f"{DATA}/w{w}_probing.csv"),
                            legend='brief',
                            label=f"Probing",
-                           color="#669bbc")
+                           color="#669bbc",
+                           ci=None,
+                           palette=palette,
+                           markers=True,
+                           dashes=True,
+                           linewidth=1.2
+                           )
 
         gfg.set_yticks(linspace(start=0, stop=110, step=15))
         gfg.set_xticks(linspace(start=0, stop=100, step=10))
         gfg.legend(loc='upper left')
         gfg.set(ylabel="Runtime of makenode [ms]", xlabel="Table usage [%]")
 
-        plt.savefig(f"{DATA}/hashmap_cmp_w{w}.svg", bbox_inches="tight")
-        plt.savefig(f"{DATA}/hashmap_cmp_w{w}.pgf", bbox_inches="tight")
+        plt.savefig(f"{DATA}/hashmap_cmp_w{w}.svg",  dpi=65, bbox_inches="tight")
+        plt.savefig(f"{DATA}/hashmap_cmp_w{w}.pgf",  dpi=65, bbox_inches="tight")
         plt.clf()
 
         col += 1
