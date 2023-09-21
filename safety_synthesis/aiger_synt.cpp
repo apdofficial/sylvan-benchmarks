@@ -28,17 +28,6 @@ double t_start;
 #define Abort(s, ...) { fprintf(stderr, "\r[% 8.2f] " s, wctime()-t_start, ##__VA_ARGS__); exit(-1); }
 
 
-int binarySearch2(int arr[], int l, int r, int x)
-{
-    if (r >= l) {
-        int mid = l + (r - l) / 2;
-        if (arr[mid] == x) return mid;
-        if (arr[mid] > x) return binarySearch2(arr, l, mid - 1, x);
-        return binarySearch2(arr, mid + 1, r, x);
-    }
-    return -1;
-}
-
 /* Configuration */
 static int workers = 1;
 static int verbose = 0;
@@ -358,8 +347,6 @@ TASK_0(int, solve_game)
         if (dynamic_reorder) sylvan_test_reduce_heap();
     }
 
-//    if (verbose && dynamic_reorder) INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.s_gates, aag.header.a));
-    if (dynamic_reorder) sylvan_reduce_heap(SYLVAN_REORDER_BOUNDED_SIFT);
     INFO("Gates have size %zu\n", mtbdd_nodecount_more(game.s_gates, aag.header.a));
 
     game.c_inputs = sylvan_set_empty();
